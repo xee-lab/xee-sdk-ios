@@ -128,4 +128,4 @@ If there is no access token or if it's not valid, this code will open safari in 
 
 We're working hard to provide you an *issue free SDK*, but we're just humans so [we can do mistakes](http://i.giphy.com/RFDXes97gboYg.gif).
 
-If you find something, feel free to [fill an issue]({https://github.com/xee-lab/xee-sdk-ios/issues) or/and **fork** the repository to fix it !
+If you find something, feel free to [fill an issue](https://github.com/xee-lab/xee-sdk-ios/issues) or/and **fork** the repository to fix it !
