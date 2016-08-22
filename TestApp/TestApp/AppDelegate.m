@@ -20,6 +20,7 @@
 //
 
 #import "AppDelegate.h"
+
 @import XeeSDK;
 
 @interface AppDelegate ()
@@ -35,7 +36,7 @@
     config.secretKey = @"6xEj7PAIPOChvOkTEcGH";
     config.clientID = @"5IOeWPhCzg95QYM3jFBz";
     config.redirectURI = @"xeexee://foo";
-    config.environment = XeeEnvironmentSANDBOX;
+    config.environment = XeeEnvironmentSTAGING;
     [[Xee connectManager] setConfig:config];
     
     return YES;

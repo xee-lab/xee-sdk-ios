@@ -29,6 +29,9 @@
 
 -(NSString*)environmentURLString {
     switch (self.environment) {
+        case XeeEnvironmentSTAGING:
+            return @"https://staging.xee.com/v3/";
+            break;
         case XeeEnvironmentCLOUD:
             return @"https://cloud.xee.com/v3/";
             break;
