@@ -23,4 +23,9 @@
 +(XeeConnectManager*)connectManager;
 +(XeeRequestManager*)requestManager;
 
++(void)enableLog;
++(void)disableLog;
+
++(BOOL)logActive;
+
 @end

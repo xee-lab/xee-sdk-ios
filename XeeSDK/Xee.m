@@ -16,6 +16,8 @@
 
 #import "Xee.h"
 
+static BOOL logActive;
+
 @implementation Xee
 
 +(XeeConnectManager *)connectManager {
@@ -34,6 +36,18 @@
         requestManager = [[XeeRequestManager alloc] init];
     });
     return requestManager;
+}
+
++(void)enableLog {
+    logActive = YES;
+}
+
++(void)disableLog {
+    logActive = NO;
+}
+
++(BOOL)logActive {
+    return logActive;
 }
 
 @end

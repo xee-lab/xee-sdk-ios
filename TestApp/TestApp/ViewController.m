@@ -310,7 +310,7 @@
             
         //devices
         case 14: {
-            [[Xee requestManager].device signalsWithDeviceId:@"" limit:0 begin:nil end:nil name:nil completionHandler:^(NSArray<XeeSignal *> *signals, NSArray<XeeError *> *errors) {
+            [[Xee requestManager].device signalsWithDeviceId:@"E130003911" limit:0 begin:nil end:nil name:nil completionHandler:^(NSArray<XeeSignal *> *signals, NSArray<XeeError *> *errors) {
                 if(!errors) {
                     [self show:signals.description];
                 } else {
