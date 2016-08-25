@@ -14,34 +14,26 @@
  * limitations under the License.
  */
 
-#import "XeeConfig.h"
+#import "XeeDeviceStatus.h"
 
-@implementation XeeConfig
+@implementation XeeDeviceStatus
 
-- (instancetype)init
-{
-    self = [super init];
+-(instancetype)initWithJSON:(NSDictionary *)JSON {
+    self = [super initWithJSON:JSON];
     if (self) {
-        self.environment = XeeEnvironmentCLOUD;
+        NSMutableArray *signals = [NSMutableArray array];
+        for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
+            [signals addObject:[XeeSignal withJSON:signalJSON]];
+        }
+        _signals = signals;
     }
     return self;
 }
 
--(NSString*)environmentURLString {
-    switch (self.environment) {
-        case XeeEnvironmentSTAGING:
-            return @"https://staging.xee.com/v3/";
-            break;
-        case XeeEnvironmentCLOUD:
-            return @"https://cloud.xee.com/v3/";
-            break;
-        case XeeEnvironmentSANDBOX:
-            return @"https://sandbox.xee.com/v3/";
-            break;
-        default:
-            break;
-    }
-    return @"";
+-(NSString *)description {
+    return [NSString stringWithFormat:@"\
+            signals: %@",
+            _signals];
 }
 
 @end

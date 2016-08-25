@@ -26,6 +26,7 @@
         _cars = [[XeeCarRoute alloc] init];
         _trips = [[XeeTripRoute alloc] init];
         _stats = [[XeeStatRoute alloc] init];
+        _device = [[XeeDeviceRoute alloc] init];
     }
     return self;
 }

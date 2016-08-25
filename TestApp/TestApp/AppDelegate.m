@@ -20,6 +20,7 @@
 //
 
 #import "AppDelegate.h"
+
 @import XeeSDK;
 
 @interface AppDelegate ()
@@ -31,11 +32,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    [Xee enableLog];
+    
     XeeConfig *config = [[XeeConfig alloc] init];
     config.secretKey = @"6xEj7PAIPOChvOkTEcGH";
     config.clientID = @"5IOeWPhCzg95QYM3jFBz";
     config.redirectURI = @"xeexee://foo";
-    config.environment = XeeEnvironmentSANDBOX;
+    config.environment = XeeEnvironmentSTAGING;
     [[Xee connectManager] setConfig:config];
     
     return YES;

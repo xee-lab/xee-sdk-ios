@@ -14,18 +14,12 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "XeeConnectManager.h"
-#import "XeeRequestManager.h"
+#import "XeeModel.h"
 
-@interface Xee : NSObject
+#import "XeeSignal.h"
 
-+(XeeConnectManager*)connectManager;
-+(XeeRequestManager*)requestManager;
+@interface XeeDeviceStatus : XeeModel
 
-+(void)enableLog;
-+(void)disableLog;
-
-+(BOOL)logActive;
+@property (nonatomic, strong) NSArray<XeeSignal*> *signals;
 
 @end

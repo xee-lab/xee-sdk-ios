@@ -17,6 +17,7 @@
 #import <Foundation/Foundation.h>
 
 typedef enum XeeEnvironmentTypes {
+    XeeEnvironmentSTAGING,
     XeeEnvironmentCLOUD,
     XeeEnvironmentSANDBOX
 } XeeEnvironment;

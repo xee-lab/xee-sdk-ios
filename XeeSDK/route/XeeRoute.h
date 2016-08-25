@@ -22,6 +22,7 @@
 #import "XeeTrip.h"
 #import "XeeCar.h"
 #import "XeeCarStatus.h"
+#import "XeeDeviceStatus.h"
 #import "XeeStat.h"
 
 @interface XeeRoute : NSObject {
