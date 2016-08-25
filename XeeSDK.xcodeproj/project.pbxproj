@@ -13,6 +13,8 @@
 		92228FB81D6AFC2F00EF9876 /* XeeDeviceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92228FB61D6AFC2F00EF9876 /* XeeDeviceRoute.m */; };
 		923205931D22719C0035BBCD /* XeeRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 923205911D22719C0035BBCD /* XeeRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		923205941D22719C0035BBCD /* XeeRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 923205921D22719C0035BBCD /* XeeRoute.m */; };
+		9273229A1D6F1DDD00A02DD3 /* XeeDeviceStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 927322981D6F1DDD00A02DD3 /* XeeDeviceStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9273229B1D6F1DDD00A02DD3 /* XeeDeviceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 927322991D6F1DDD00A02DD3 /* XeeDeviceStatus.m */; };
 		9280064B1D216BBA00F5684A /* XeeHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 928006491D216BBA00F5684A /* XeeHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9280064C1D216BBA00F5684A /* XeeHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9280064A1D216BBA00F5684A /* XeeHTTPClient.m */; };
 		92C22ED51D22ACB90003D165 /* XeeSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C22ED31D22ACB90003D165 /* XeeSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +76,8 @@
 		92228FB61D6AFC2F00EF9876 /* XeeDeviceRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeDeviceRoute.m; path = route/XeeDeviceRoute.m; sourceTree = "<group>"; };
 		923205911D22719C0035BBCD /* XeeRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeRoute.h; path = route/XeeRoute.h; sourceTree = "<group>"; };
 		923205921D22719C0035BBCD /* XeeRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeRoute.m; path = route/XeeRoute.m; sourceTree = "<group>"; };
+		927322981D6F1DDD00A02DD3 /* XeeDeviceStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeDeviceStatus.h; path = model/XeeDeviceStatus.h; sourceTree = "<group>"; };
+		927322991D6F1DDD00A02DD3 /* XeeDeviceStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeDeviceStatus.m; path = model/XeeDeviceStatus.m; sourceTree = "<group>"; };
 		928006491D216BBA00F5684A /* XeeHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeHTTPClient.h; sourceTree = "<group>"; };
 		9280064A1D216BBA00F5684A /* XeeHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeHTTPClient.m; sourceTree = "<group>"; };
 		92C22ED31D22ACB90003D165 /* XeeSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeSignal.h; path = model/XeeSignal.h; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				92C22ED81D22AD230003D165 /* XeeAccelerometer.m */,
 				92C22EDB1D22AD790003D165 /* XeeCarStatus.h */,
 				92C22EDC1D22AD790003D165 /* XeeCarStatus.m */,
+				927322981D6F1DDD00A02DD3 /* XeeDeviceStatus.h */,
+				927322991D6F1DDD00A02DD3 /* XeeDeviceStatus.m */,
 				92DC69A41D4B551B00E6448A /* XeeStat.h */,
 				92DC69A51D4B551B00E6448A /* XeeStat.m */,
 				92E5641E1D22BD20002A6263 /* XeeModel.h */,
@@ -264,6 +270,7 @@
 				92E4471A1D216EB400EFE259 /* XeeError.h in Headers */,
 				92C71BE11D1D2B0500E06FA5 /* XeeSDK.h in Headers */,
 				92E564201D22BD20002A6263 /* XeeModel.h in Headers */,
+				9273229A1D6F1DDD00A02DD3 /* XeeDeviceStatus.h in Headers */,
 				92C71C1F1D1D2FC000E06FA5 /* XeeConnectManager.h in Headers */,
 				92C71BFE1D1D2BCA00E06FA5 /* XeeUser.h in Headers */,
 				92DC69A21D4B53EB00E6448A /* XeeStatRoute.h in Headers */,
@@ -380,6 +387,7 @@
 				92C71C081D1D2C1A00E06FA5 /* XeeUserRoute.m in Sources */,
 				92E4471B1D216EB400EFE259 /* XeeError.m in Sources */,
 				92C71BFF1D1D2BCA00E06FA5 /* XeeUser.m in Sources */,
+				9273229B1D6F1DDD00A02DD3 /* XeeDeviceStatus.m in Sources */,
 				92C71C181D1D2EE200E06FA5 /* Xee.m in Sources */,
 				92E564211D22BD20002A6263 /* XeeModel.m in Sources */,
 				9280064C1D216BBA00F5684A /* XeeHTTPClient.m in Sources */,

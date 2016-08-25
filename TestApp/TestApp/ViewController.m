@@ -131,8 +131,12 @@
             cell.label.text = @"Device signals";
             cell.backgroundColor = [UIColor colorWithRed:0.4 green:0.9 blue:0.8 alpha:1.0];
             break;
-            
         case 15:
+            cell.label.text = @"Device status";
+            cell.backgroundColor = [UIColor colorWithRed:0.4 green:0.9 blue:0.8 alpha:1.0];
+            break;
+            
+        case 16:
             cell.label.text = @"disconnect";
             cell.backgroundColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
             break;
@@ -145,7 +149,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 16;
+    return 17;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -308,7 +312,7 @@
         }
             break;
             
-        //devices
+            //devices
         case 14: {
             [[Xee requestManager].device signalsWithDeviceId:@"E130003911" limit:0 begin:nil end:nil name:nil completionHandler:^(NSArray<XeeSignal *> *signals, NSArray<XeeError *> *errors) {
                 if(!errors) {
@@ -316,12 +320,24 @@
                 } else {
                     [self show:errors.description];
                 }
-                    
+                
             }];
         }
             break;
             
-        case 15:
+        case 15: {
+            [[Xee requestManager].device deviceStatusWithDeviceId:@"E130003911" completionHandler:^(XeeDeviceStatus *deviceStatus, NSArray<XeeError *> *errors) {
+                if(!errors) {
+                    [self show:deviceStatus.description];
+                } else {
+                    [self show:errors.description];
+                }
+                
+            }];
+        }
+            break;
+            
+        case 16:
             [[Xee connectManager] disconnect];
             break;
             

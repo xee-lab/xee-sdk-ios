@@ -14,21 +14,26 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-
-#import "XeeHTTPClient.h"
-
-#import "XeeUser.h"
-#import "XeeTrip.h"
-#import "XeeCar.h"
-#import "XeeCarStatus.h"
 #import "XeeDeviceStatus.h"
-#import "XeeStat.h"
 
-@interface XeeRoute : NSObject {
-    XeeHTTPClient *client;
+@implementation XeeDeviceStatus
+
+-(instancetype)initWithJSON:(NSDictionary *)JSON {
+    self = [super initWithJSON:JSON];
+    if (self) {
+        NSMutableArray *signals = [NSMutableArray array];
+        for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
+            [signals addObject:[XeeSignal withJSON:signalJSON]];
+        }
+        _signals = signals;
+    }
+    return self;
 }
 
--(NSDictionary*)configureHeader;
+-(NSString *)description {
+    return [NSString stringWithFormat:@"\
+            signals: %@",
+            _signals];
+}
 
 @end
