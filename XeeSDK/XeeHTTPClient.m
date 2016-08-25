@@ -49,6 +49,10 @@
         [request addValue:[headers objectForKey:key] forHTTPHeaderField:key];
     }
     
+    if(Xee.logActive) {
+        NSLog(@"\nXeeSDK - - - - - - - - - - - - - - - - - - - - - -\nURL: %@\nHeaders: %@\nBody: %@\n- - - - - - - - - - - - - - - - - - - - - - - - - -", request.URL, headers, params);
+    }
+    
     // return the session data task
     return [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         // if there's a network error
