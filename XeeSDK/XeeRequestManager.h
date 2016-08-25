@@ -20,6 +20,7 @@
 #import "XeeCarRoute.h"
 #import "XeeTripRoute.h"
 #import "XeeStatRoute.h"
+#import "XeeDeviceRoute.h"
 
 @interface XeeRequestManager : NSObject
 
@@ -27,5 +28,6 @@
 @property (nonatomic, strong) XeeCarRoute *cars;
 @property (nonatomic, strong) XeeTripRoute *trips;
 @property (nonatomic, strong) XeeStatRoute *stats;
+@property (nonatomic, strong) XeeDeviceRoute *device;
 
 @end
