@@ -44,4 +44,18 @@
     }] resume];
 }
 
+-(void)deviceStatusWithDeviceId:(NSString *)deviceId completionHandler:(void (^)(XeeDeviceStatus *, NSArray<XeeError *> *))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"devices/%@/status", deviceId];
+    NSDictionary *headers = [self configureHeader];
+    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
+        if(!errors) {
+            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            XeeDeviceStatus *deviceStatus = [XeeDeviceStatus withJSON:JSON];
+            completionHandler(deviceStatus, errors);
+        } else {
+            completionHandler(nil, errors);
+        }
+    }] resume];
+}
+
 @end

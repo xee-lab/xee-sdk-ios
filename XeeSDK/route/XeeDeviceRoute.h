@@ -20,4 +20,10 @@
  */
 -(void)signalsWithDeviceId:(NSString*)deviceId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal*> *signals, NSArray<XeeError *> *errors))completionHandler;
 
+/*!
+ Get the current status of a specific device
+ @param deviceId The id of the device you are looking for the status
+ */
+-(void)deviceStatusWithDeviceId:(NSString*)deviceId completionHandler:(void (^)(XeeDeviceStatus *deviceStatus, NSArray<XeeError *> *errors))completionHandler;
+
 @end
