@@ -22,8 +22,11 @@
     self = [super initWithJSON:JSON];
     if (self) {
         NSMutableArray *signals = [NSMutableArray array];
-        for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
-            [signals addObject:[XeeSignal withJSON:signalJSON]];
+        NSArray *signalList = [JSON objectForKey:@"signals"];
+        if(signalList != [NSNull null] && signalList.count > 0) {
+            for(NSDictionary *signalJSON in signalList) {
+                [signals addObject:[XeeSignal withJSON:signalJSON]];
+            }
         }
         _signals = signals;
     }
