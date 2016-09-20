@@ -25,9 +25,7 @@
         XeeError *configError = [[XeeError alloc] init];
         configError.type = @"CONFIG_ERROR";
         configError.message = @"Configuration not found";
-        dispatch_async(dispatch_get_main_queue(), ^{
-            completionHandler(nil, @[configError]);
-        });
+        completionHandler(nil, @[configError]);
         return nil;
     }
     
@@ -59,9 +57,7 @@
         if(error) {
             XeeError *networkError = [[XeeError alloc] init];
             networkError.message = error.description;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                completionHandler(nil, @[networkError]);
-            });
+            completionHandler(nil, @[networkError]);
         }
         else {
             // if there's an api error
@@ -76,13 +72,9 @@
                 } else {
                     [errors addObject:[XeeError withJSON:json]];
                 }
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionHandler(data, [NSArray arrayWithArray:errors]);
-                });
+                completionHandler(data, [NSArray arrayWithArray:errors]);
             } else {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completionHandler(data, nil);
-                });
+                completionHandler(data, nil);
             }
         }
     }];
