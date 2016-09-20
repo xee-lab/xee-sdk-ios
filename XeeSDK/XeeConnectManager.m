@@ -45,12 +45,17 @@
     if(_accessToken) {
         // try to refresh the access token
         [self refreshToken:^(XeeAccessToken *accessToken, NSArray<XeeError *> *errors) {
-            // got a new access token, call the handler directly
-            if(accessToken)
-                completionHandler(_accessToken, nil);
-            // else, show the auth page in safari
-            else
-                [self showAuthPage];
+            if(!errors) {
+                // got a new access token, call the handler directly
+                if(accessToken)
+                    completionHandler(_accessToken, nil);
+                // else, show the auth page in safari
+                else
+                    [self showAuthPage];
+            } else {
+                _accessToken = nil;
+                completionHandler(nil, errors);
+            }
         }];
     // else show the auth page in safari
     } else {

@@ -59,8 +59,10 @@
 }
 
 -(void)show:(NSString*)message {
-    self.textView.contentOffset = CGPointZero;
-    self.textView.text = message;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.textView.contentOffset = CGPointZero;
+        self.textView.text = message;
+    });
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
