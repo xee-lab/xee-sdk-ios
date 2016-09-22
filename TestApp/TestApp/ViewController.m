@@ -27,7 +27,7 @@
 
 @end
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, XeeConnectManagerDelegate> {
     int carId;
     NSString *tripId;
 }
@@ -158,13 +158,8 @@
     switch (indexPath.row) {
         //connect
         case 0: {
-            [[Xee connectManager] connect:^(XeeAccessToken *accessToken, NSArray<XeeError *> *errors) {
-                if(!errors) {
-                    [self show:accessToken.description];
-                } else {
-                    [self show:errors[0].message];
-                }
-            }];
+            [Xee connectManager].delegate = self;
+            [[Xee connectManager] connect];
         }
             break;
             
@@ -372,6 +367,14 @@
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)connectManagerConnectErrors:(NSArray<XeeError *> *)errors {
+    [self show:errors.description];
+}
+
+-(void)connectManagerConnectSuccess:(XeeAccessToken *)accessToken {
+    [self show:accessToken.description];
 }
 
 @end

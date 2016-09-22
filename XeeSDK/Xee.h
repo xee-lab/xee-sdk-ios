@@ -27,5 +27,6 @@
 +(void)disableLog;
 
 +(BOOL)logActive;
++(void)log:(NSString *)format, ...;
 
 @end

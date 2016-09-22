@@ -50,4 +50,13 @@ static BOOL logActive;
     return logActive;
 }
 
++(void)log:(NSString *)format, ... {
+    if (logActive == YES) {
+        va_list vl;
+        va_start(vl, format);
+        NSLog(@"XeeSDK: %@", [[NSString alloc] initWithFormat:format arguments:vl]);
+        va_end(vl);
+    }
+}
+
 @end
