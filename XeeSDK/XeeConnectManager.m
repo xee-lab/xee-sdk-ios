@@ -42,20 +42,6 @@
 
 -(void)createWebView {
     embeddedWV = [[UIWebView alloc] init];
-    UIButton *btnClose = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 64)];
-    [btnClose setTitle:@"x" forState:UIControlStateNormal];
-    [btnClose addTarget:self action:@selector(btnCloseHandler) forControlEvents:UIControlEventTouchUpInside];
-    [embeddedWV addSubview:btnClose];
-}
-
--(void)btnCloseHandler {
-    CGRect frame = embeddedWV.frame;
-    frame.origin.y = frame.size.height;
-    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        embeddedWV.frame = frame;
-    } completion:^(BOOL finished) {
-        [embeddedWV removeFromSuperview];
-    }];
 }
 
 -(void)connect {
@@ -114,7 +100,9 @@
         [embeddedWV removeFromSuperview];
         // gete the code from the redirect URI
         NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
-        [self getToken:code];
+        if(![code isEqualToString:@"access_denied"]) {
+            [self getToken:code];
+        }
     }];
 }
 
