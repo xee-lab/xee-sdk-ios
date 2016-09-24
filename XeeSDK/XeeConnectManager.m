@@ -19,6 +19,7 @@
 #import "Xee.h"
 
 @interface XeeConnectManager () {
+    UIWebView *embeddedWV;
     XeeHTTPClient *client;
 }
 
@@ -30,12 +31,31 @@
 {
     self = [super init];
     if (self) {
+        [self createWebView];
         client = [[XeeHTTPClient alloc] init];
         NSDictionary *json = [[NSUserDefaults standardUserDefaults] objectForKey:@"XeeSDKInternalAccessToken"];
         if(json)
             _accessToken = [[XeeAccessToken alloc] initWithJSON:json];
     }
     return self;
+}
+
+-(void)createWebView {
+    embeddedWV = [[UIWebView alloc] init];
+    UIButton *btnClose = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 64, 64)];
+    [btnClose setTitle:@"x" forState:UIControlStateNormal];
+    [btnClose addTarget:self action:@selector(btnCloseHandler) forControlEvents:UIControlEventTouchUpInside];
+    [embeddedWV addSubview:btnClose];
+}
+
+-(void)btnCloseHandler {
+    CGRect frame = embeddedWV.frame;
+    frame.origin.y = frame.size.height;
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:^(BOOL finished) {
+        [embeddedWV removeFromSuperview];
+    }];
 }
 
 -(void)connect {
@@ -48,7 +68,7 @@
                 [Xee log:@"new token is %@", accessToken];
                 // got a new access token, call the handler directly
                 if(accessToken)
-                    [self.delegate connectManagerConnectSuccess:accessToken];
+                    [self.delegate connectManager:self didSuccess:accessToken];
                 // else, show the auth page in safari
                 else {
                     [self showAuthPage];
@@ -58,7 +78,7 @@
                 _accessToken = nil;
                 [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"XeeSDKInternalAccessToken"];
                 [[NSUserDefaults standardUserDefaults] synchronize];
-                [self.delegate connectManagerConnectErrors:errors];
+                [self.delegate connectManager:self didFailWithErrors:errors];
             }
         }];
     // else show the auth page in safari
@@ -70,18 +90,32 @@
 -(void)showAuthPage {
     [Xee log:@"show auth page"];
     
-    if([self.delegate respondsToSelector:@selector(connectManagerConnectWillShowOAuthPage)])
-        [self.delegate connectManagerConnectWillShowOAuthPage];
-    
     NSString *urlEncodedScopes = [client createURLEncodedStringWithArray:_config.scopes];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@auth/auth?client_id=%@&redirect_uri=%@&scope=%@", self.config.environmentURLString, _config.clientID, _config.redirectURI, urlEncodedScopes]];
-    [[UIApplication sharedApplication] openURL:url];
+    
+    UIView *view = [self.delegate connectManagerViewForLogin];
+    CGRect frame = view.bounds;
+    frame.origin.y = frame.size.height;
+    embeddedWV.frame = frame;
+    frame.origin.y = 0;
+    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
+    [view addSubview:embeddedWV];
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:nil];
 }
 
 -(void)openURL:(NSURL*)url {
-    // gete the code from the redirect URI
-    NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
-    [self getToken:code];
+    CGRect frame = embeddedWV.frame;
+    frame.origin.y = frame.size.height;
+    [UIView animateWithDuration:0.4 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:^(BOOL finished) {
+        [embeddedWV removeFromSuperview];
+        // gete the code from the redirect URI
+        NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
+        [self getToken:code];
+    }];
 }
 
 -(void)getToken:(NSString*)code {
@@ -100,9 +134,9 @@
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"XeeSDKInternalAccessToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [Xee log:@"token saved"];
-            [self.delegate connectManagerConnectSuccess:_accessToken];
+            [self.delegate connectManager:self didSuccess:_accessToken];
         } else {
-            [self.delegate connectManagerConnectErrors:errors];
+            [self.delegate connectManager:self didFailWithErrors:errors];
         }
     }] resume];
 }
@@ -123,9 +157,9 @@
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"XeeSDKInternalAccessToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [Xee log:@"token saved"];
-            [self.delegate connectManagerConnectSuccess:_accessToken];
+            [self.delegate connectManager:self didSuccess:_accessToken];
         } else {
-            [self.delegate connectManagerConnectErrors:errors];
+            [self.delegate connectManager:self didFailWithErrors:errors];
         }
     }] resume];
 }

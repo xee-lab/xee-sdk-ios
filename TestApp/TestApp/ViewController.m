@@ -369,11 +369,15 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
--(void)connectManagerConnectErrors:(NSArray<XeeError *> *)errors {
+-(UIView *)connectManagerViewForLogin {
+    return self.view;
+}
+
+-(void)connectManager:(XeeConnectManager *)connectManager didFailWithErrors:(NSArray<XeeError *> *)errors {
     [self show:errors.description];
 }
 
--(void)connectManagerConnectSuccess:(XeeAccessToken *)accessToken {
+-(void)connectManager:(XeeConnectManager *)connectManager didSuccess:(XeeAccessToken *)accessToken {
     [self show:accessToken.description];
 }
 

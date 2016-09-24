@@ -19,13 +19,14 @@
 #import "XeeAccessToken.h"
 #import "XeeHTTPClient.h"
 
+@class XeeConnectManager;
+
 @protocol XeeConnectManagerDelegate <NSObject>
 
-@optional
--(void)connectManagerConnectWillShowOAuthPage;
 @required
--(void)connectManagerConnectSuccess:(XeeAccessToken*)accessToken;
--(void)connectManagerConnectErrors:(NSArray<XeeError*>*)errors;
+-(UIView*)connectManagerViewForLogin;
+-(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
+-(void)connectManager:(XeeConnectManager*)connectManager didFailWithErrors:(NSArray<XeeError*>*)errors;
 
 @end
 
