@@ -43,4 +43,6 @@
  */
 -(void)signalsWithTripId:(NSString*)tripId name:(NSArray<NSString*>*)name completionHandler:(void (^)(NSArray<XeeSignal*> *signals, NSArray<XeeError *> *errors))completionHandler;
 
+-(void)statsWithTripId:(NSString*)tripId completionHandler:(void (^)(NSArray<XeeStat*> *stats, NSArray<XeeError *> *errors))completionHandler;
+
 @end

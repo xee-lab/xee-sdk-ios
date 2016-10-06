@@ -16,9 +16,10 @@
 
 #import "XeeConnectManager.h"
 #import "globals.h"
+#import "Xee.h"
 
 @interface XeeConnectManager () {
-    void (^savedCompletionHandler)(XeeAccessToken *, NSArray<XeeError *> *);
+    UIWebView *embeddedWV;
     XeeHTTPClient *client;
 }
 
@@ -30,6 +31,7 @@
 {
     self = [super init];
     if (self) {
+        [self createWebView];
         client = [[XeeHTTPClient alloc] init];
         NSDictionary *json = [[NSUserDefaults standardUserDefaults] objectForKey:@"XeeSDKInternalAccessToken"];
         if(json)
@@ -38,19 +40,32 @@
     return self;
 }
 
--(void)connect:(void (^)(XeeAccessToken *, NSArray<XeeError *> *))completionHandler {
-    // keep the completion handler in memory
-    savedCompletionHandler = completionHandler;
+-(void)createWebView {
+    embeddedWV = [[UIWebView alloc] init];
+}
+
+-(void)connect {
     // if there's an access token
     if(_accessToken) {
+        [Xee log:@"token already exists, try to refresh it"];
         // try to refresh the access token
         [self refreshToken:^(XeeAccessToken *accessToken, NSArray<XeeError *> *errors) {
-            // got a new access token, call the handler directly
-            if(accessToken)
-                completionHandler(_accessToken, nil);
-            // else, show the auth page in safari
-            else
-                [self showAuthPage];
+            if(!errors) {
+                [Xee log:@"new token is %@", accessToken];
+                // got a new access token, call the handler directly
+                if(accessToken)
+                    [self.delegate connectManager:self didSuccess:accessToken];
+                // else, show the auth page in safari
+                else {
+                    [self showAuthPage];
+                }
+            } else {
+                [Xee log:@"error refreshing the token"];
+                _accessToken = nil;
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"XeeSDKInternalAccessToken"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [self.delegate connectManager:self didFailWithErrors:errors];
+            }
         }];
     // else show the auth page in safari
     } else {
@@ -59,22 +74,39 @@
 }
 
 -(void)showAuthPage {
+    [Xee log:@"show auth page"];
+    
     NSString *urlEncodedScopes = [client createURLEncodedStringWithArray:_config.scopes];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@auth/auth?client_id=%@&redirect_uri=%@&scope=%@", self.config.environmentURLString, _config.clientID, _config.redirectURI, urlEncodedScopes]];
-    [[UIApplication sharedApplication] openURL:url];
+    
+    UIView *view = [self.delegate connectManagerViewForLogin];
+    CGRect frame = view.bounds;
+    frame.origin.y = frame.size.height;
+    embeddedWV.frame = frame;
+    frame.origin.y = 0;
+    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
+    [view addSubview:embeddedWV];
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:nil];
 }
 
 -(void)openURL:(NSURL*)url {
-    // gete the code from the redirect URI
-    NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
-    [self getToken:code];
+    CGRect frame = embeddedWV.frame;
+    frame.origin.y = frame.size.height;
+    [UIView animateWithDuration:0.4 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:^(BOOL finished) {
+        [embeddedWV removeFromSuperview];
+        // gete the code from the redirect URI
+        NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
+        if(![code isEqualToString:@"access_denied"]) {
+            [self getToken:code];
+        }
+    }];
 }
 
 -(void)getToken:(NSString*)code {
-    // if we don't have the completion handler in memory so ignore
-    if(!savedCompletionHandler)
-        return;
-    
     NSData *credentialData = [[NSString stringWithFormat:@"%@:%@", _config.clientID, _config.secretKey] dataUsingEncoding:NSUTF8StringEncoding];
     NSString *base64Credentials = @"Basic ";
     base64Credentials = [base64Credentials stringByAppendingString:[credentialData base64EncodedStringWithOptions:0]];
@@ -89,8 +121,11 @@
             _accessToken = [[XeeAccessToken alloc] initWithJSON:json];
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"XeeSDKInternalAccessToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [Xee log:@"token saved"];
+            [self.delegate connectManager:self didSuccess:_accessToken];
+        } else {
+            [self.delegate connectManager:self didFailWithErrors:errors];
         }
-        savedCompletionHandler(_accessToken, errors);
     }] resume];
 }
 
@@ -109,8 +144,11 @@
             _accessToken = [[XeeAccessToken alloc] initWithJSON:json];
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"XeeSDKInternalAccessToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
+            [Xee log:@"token saved"];
+            [self.delegate connectManager:self didSuccess:_accessToken];
+        } else {
+            [self.delegate connectManager:self didFailWithErrors:errors];
         }
-        completionHandler(_accessToken, errors);
     }] resume];
 }
 

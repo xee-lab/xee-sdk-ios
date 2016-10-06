@@ -85,4 +85,21 @@
     }] resume];
 }
 
+-(void)statsWithTripId:(NSString *)tripId completionHandler:(void (^)(NSArray<XeeStat *> *, NSArray<XeeError *> *))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"trips/%@/stats", tripId];
+    NSDictionary *headers = [self configureHeader];
+    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
+        if(!errors) {
+            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSMutableArray *stats = [NSMutableArray array];
+            for(NSDictionary *stat in JSON) {
+                [stats addObject:[XeeStat withJSON:stat]];
+            }
+            completionHandler(stats, errors);
+        } else {
+            completionHandler(nil, errors);
+        }
+    }] resume];
+}
+
 @end

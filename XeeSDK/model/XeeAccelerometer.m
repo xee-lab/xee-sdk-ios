@@ -21,11 +21,12 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _x = (int)[[JSON objectForKey:@"x"] integerValue];
-        _y = (int)[[JSON objectForKey:@"y"] integerValue];
-        _z = (int)[[JSON objectForKey:@"z"] integerValue];
-        
-        _date = dateWithRFC3339([JSON objectForKey:@"date"]);
+        if(JSON != [NSNull null]) {
+            _x = (int)[[JSON objectForKey:@"x"] integerValue];
+            _y = (int)[[JSON objectForKey:@"y"] integerValue];
+            _z = (int)[[JSON objectForKey:@"z"] integerValue];
+            _date = dateWithRFC3339([JSON objectForKey:@"date"]);
+        }
     }
     return self;
 }

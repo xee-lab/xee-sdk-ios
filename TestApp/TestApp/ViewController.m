@@ -27,7 +27,7 @@
 
 @end
 
-@interface ViewController () <UITableViewDelegate, UITableViewDataSource> {
+@interface ViewController () <UITableViewDelegate, UITableViewDataSource, XeeConnectManagerDelegate> {
     int carId;
     NSString *tripId;
 }
@@ -59,8 +59,10 @@
 }
 
 -(void)show:(NSString*)message {
-    self.textView.contentOffset = CGPointZero;
-    self.textView.text = message;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.textView.contentOffset = CGPointZero;
+        self.textView.text = message;
+    });
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -156,13 +158,8 @@
     switch (indexPath.row) {
         //connect
         case 0: {
-            [[Xee connectManager] connect:^(XeeAccessToken *accessToken, NSArray<XeeError *> *errors) {
-                if(!errors) {
-                    [self show:accessToken.description];
-                } else {
-                    [self show:errors[0].message];
-                }
-            }];
+            [Xee connectManager].delegate = self;
+            [[Xee connectManager] connect];
         }
             break;
             
@@ -320,7 +317,6 @@
                 } else {
                     [self show:errors.description];
                 }
-                
             }];
         }
             break;
@@ -332,7 +328,6 @@
                 } else {
                     [self show:errors.description];
                 }
-                
             }];
         }
             break;
@@ -372,6 +367,18 @@
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(UIView *)connectManagerViewForLogin {
+    return self.view;
+}
+
+-(void)connectManager:(XeeConnectManager *)connectManager didFailWithErrors:(NSArray<XeeError *> *)errors {
+    [self show:errors.description];
+}
+
+-(void)connectManager:(XeeConnectManager *)connectManager didSuccess:(XeeAccessToken *)accessToken {
+    [self show:accessToken.description];
 }
 
 @end

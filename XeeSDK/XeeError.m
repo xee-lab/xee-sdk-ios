@@ -18,12 +18,26 @@
 
 @implementation XeeError
 
--(instancetype)initWithJSON:(NSDictionary*)json {
+- (instancetype)init
+{
     self = [super init];
+    if (self) {
+        self.type = @"Unknown error";
+        self.message = @"Unknown error";
+        self.tip = @"Unknown error";
+    }
+    return self;
+}
+
+-(instancetype)initWithJSON:(NSDictionary*)json {
+    self = [self init];
     if(self) {
-        self.type = [json objectForKey:@"type"];
-        self.message = [json objectForKey:@"message"];
-        self.tip = [json objectForKey:@"tip"];
+        if([json objectForKey:@"type"])
+            self.type = [json objectForKey:@"type"];
+        if([json objectForKey:@"message"])
+            self.message = [json objectForKey:@"message"];
+        if([json objectForKey:@"tip"])
+            self.tip = [json objectForKey:@"tip"];
     }
     return self;
 }

@@ -19,10 +19,23 @@
 #import "XeeAccessToken.h"
 #import "XeeHTTPClient.h"
 
+@class XeeConnectManager;
+
+@protocol XeeConnectManagerDelegate <NSObject>
+
+@required
+-(UIView*)connectManagerViewForLogin;
+-(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
+-(void)connectManager:(XeeConnectManager*)connectManager didFailWithErrors:(NSArray<XeeError*>*)errors;
+
+@end
+
 @interface XeeConnectManager : NSObject
 
 @property (nonatomic, strong) XeeAccessToken *accessToken;
 @property (nonatomic, strong) XeeConfig *config;
+
+@property (nonatomic, weak) id<XeeConnectManagerDelegate> delegate;
 
 /*!
  Invalid the access token
@@ -32,7 +45,7 @@
 /*!
  Authenticate the user. If a valid access token already exists, the completionHandler is called. If not, safari will open and show the log in form.
  */
--(void)connect:(void (^)(XeeAccessToken *accessToken, NSArray<XeeError *> *errors))completionHandler;
+-(void)connect;
 -(void)openURL:(NSURL*)url;
 
 @end
