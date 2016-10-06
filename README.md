@@ -59,22 +59,23 @@ Here are some example of commons methods you might use.
 
 ### Authenticate the user
 
+Add the **XeeConnectManagerDelegate** protocol to your view controller
+
 Call the connect method of the connectManager object when you want the user logs in order to get a valid access token.
 
 ```{objectivec}
-[[Xee connectManager] connect:^(XeeAccessToken *accessToken, NSArray<XeeError *> *errors) {
-    if(!errors) {
-        NSLog(@"%@", accessToken);
-    } else {
-        NSLog(@"%@", errors);
-    }
-}];
+[Xee connectManager].delegate = self;
+[[Xee connectManager] connect];
 ```
 Two cases:
 
-If the SDK already have a valid access token, the completion handler will be executed.
+If the SDK already have a valid access token, the delegate will call the method:
 
-If there is no access token or if it's not valid, this code will open safari in order to authenticate with OAuth2. Once safari call back your app, the completion handler will be executed.
+```{objectivec}
+-(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
+```
+
+If there is no access token or if it's not valid, the SDK will open safari inside the application in order to authenticate with OAuth2. Once safari call back your app, the **connectManager:didSuccess:** method will be called.
 
 ### Get the cars of the user
 
