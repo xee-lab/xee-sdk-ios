@@ -37,7 +37,7 @@
     XeeConfig *config = [[XeeConfig alloc] init];
     config.secretKey = @"6xEj7PAIPOChvOkTEcGH";
     config.clientID = @"5IOeWPhCzg95QYM3jFBz";
-    config.redirectURI = @"xeexee://foo";
+    config.redirectURI = @"xeexee://app.com";
     config.environment = XeeEnvironmentSTAGING;
     [[Xee connectManager] setConfig:config];
     
