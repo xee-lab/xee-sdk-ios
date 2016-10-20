@@ -26,4 +26,6 @@
 @property (nonatomic, strong) XeeLocation *location;
 @property (nonatomic, strong) NSArray<XeeSignal*> *signals;
 
+-(XeeSignal*)getSignalWithName:(NSString*)name;
+
 @end

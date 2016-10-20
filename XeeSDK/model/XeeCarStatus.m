@@ -42,6 +42,16 @@
     return self;
 }
 
+-(XeeSignal*)getSignalWithName:(NSString*)name {
+    for(XeeSignal *signal in self.signals) {
+        if([signal.name isEqualToString:name]) {
+            return signal;
+        }
+    }
+    return nil;
+}
+
+
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
             accelerometer: %@\r\
