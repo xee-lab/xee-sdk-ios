@@ -23,6 +23,7 @@
     self = [super init];
     if (self) {
         self.environment = XeeEnvironmentCLOUD;
+        self.userAgent = @"SDK Xee";
     }
     return self;
 }
