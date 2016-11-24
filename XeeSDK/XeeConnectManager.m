@@ -102,6 +102,8 @@
         NSString *code = [url.absoluteString componentsSeparatedByString:@"="][1];
         if(![code isEqualToString:@"access_denied"]) {
             [self getToken:code];
+        } else {
+            [self.delegate connectManager:self didFailWithErrors:nil];
         }
     }];
 }
