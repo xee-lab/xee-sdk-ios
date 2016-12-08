@@ -51,6 +51,15 @@
     
     [self.btnCarId setTitle:@"edit" forState:UIControlStateNormal];
     [self.btnTripId setTitle:@"edit" forState:UIControlStateNormal];
+    
+    // TEST - create programmatically xee login button
+    /*
+    XeeLoginButton *button = [[XeeLoginButton alloc] init];
+    button.delegate = self;
+    button.style = XeeLoginButtonStyleDark;
+    button.center = self.view.center;
+    [self.view addSubview:button];
+    */
 }
 
 - (void)didReceiveMemoryWarning {

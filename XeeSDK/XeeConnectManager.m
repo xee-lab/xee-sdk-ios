@@ -61,9 +61,6 @@
                 }
             } else {
                 [Xee log:@"error refreshing the token"];
-                _accessToken = nil;
-                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"XeeSDKInternalAccessToken"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
                 [self.delegate connectManager:self didFailWithErrors:errors];
             }
         }];
@@ -147,9 +144,13 @@
             [[NSUserDefaults standardUserDefaults] setObject:json forKey:@"XeeSDKInternalAccessToken"];
             [[NSUserDefaults standardUserDefaults] synchronize];
             [Xee log:@"token saved"];
-            [self.delegate connectManager:self didSuccess:_accessToken];
+            completionHandler(_accessToken, nil);
         } else {
-            [self.delegate connectManager:self didFailWithErrors:errors];
+            _accessToken = nil;
+            [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"XeeSDKInternalAccessToken"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [Xee log:@"token cleared"];
+            completionHandler(nil, errors);
         }
     }] resume];
 }

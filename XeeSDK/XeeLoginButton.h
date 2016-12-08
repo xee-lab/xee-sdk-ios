@@ -14,20 +14,31 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
-#import "XeeConnectManager.h"
-#import "XeeRequestManager.h"
-#import "XeeLoginButton.h"
+#import <UIKit/UIKit.h>
+#import "Xee.h"
 
-@interface Xee : NSObject
+typedef NS_ENUM(int, XeeLoginButtonStyle) {
+    XeeLoginButtonStyleGreen,
+    XeeLoginButtonStyleDark
+};
 
-+(XeeConnectManager*)connectManager;
-+(XeeRequestManager*)requestManager;
+typedef NS_ENUM(int, XeeLoginButtonSize) {
+    XeeLoginButtonSizeNormal,
+    XeeLoginButtonSizeIcon
+};
 
-+(void)enableLog;
-+(void)disableLog;
+@interface XeeLoginButton : UIButton
 
-+(BOOL)logActive;
-+(void)log:(NSString *)format, ...;
+/*!
+ Set style of the button
+ */
+@property (nonatomic, assign) XeeLoginButtonStyle style;
+
+/*!
+ Set size of the button
+ */
+@property (nonatomic, assign) XeeLoginButtonSize size;
+
+@property (nonatomic, assign) IBOutlet id<XeeConnectManagerDelegate> delegate;
 
 @end
