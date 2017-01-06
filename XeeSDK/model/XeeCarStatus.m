@@ -18,11 +18,21 @@
 
 @implementation XeeCarStatus
 
+- (instancetype)init
+    {
+        self = [super init];
+        if (self) {
+        }
+        return self;
+    }
+    
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
         _accelerometer = [XeeAccelerometer withJSON:[JSON objectForKey:@"accelerometer"]];
-        _location = [XeeLocation withJSON:[JSON objectForKey:@"location"]];
+        if([JSON objectForKey:@"location"] && [JSON objectForKey:@"location"] != [NSNull null]) {
+            _location = [XeeLocation withJSON:[JSON objectForKey:@"location"]];
+        }
         NSMutableArray *signals = [NSMutableArray array];
         for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
             [signals addObject:[XeeSignal withJSON:signalJSON]];
@@ -31,6 +41,16 @@
     }
     return self;
 }
+
+-(XeeSignal*)getSignalWithName:(NSString*)name {
+    for(XeeSignal *signal in self.signals) {
+        if([signal.name isEqualToString:name]) {
+            return signal;
+        }
+    }
+    return nil;
+}
+
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"\

@@ -31,6 +31,8 @@ typedef enum XeeEnvironmentTypes {
 
 @property (nonatomic, strong) NSString *redirectURI;
 
+@property (nonatomic, strong) NSString *userAgent;
+
 @property (nonatomic, assign) XeeEnvironment environment;
 
 -(NSString*)environmentURLString;

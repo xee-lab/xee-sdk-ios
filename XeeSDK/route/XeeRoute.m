@@ -29,7 +29,7 @@
 }
 
 -(NSDictionary*)configureHeader {
-    return @{@"Authorization" : [NSString stringWithFormat:@"Bearer %@", [Xee connectManager].accessToken.access_token]};
+    return @{@"Authorization" : [NSString stringWithFormat:@"Bearer %@", [Xee connectManager].accessToken.access_token], @"User-Agent" : [Xee connectManager].config.userAgent};
 }
 
 @end
