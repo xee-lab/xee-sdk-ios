@@ -44,13 +44,11 @@
 }
 
 -(void)initialize {
-    NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:@"XeeSDKResources" ofType:@"bundle"]];
-    
     [self setTitle:@"" forState:UIControlStateNormal];
     
     label = [[UILabel alloc] initWithFrame:CGRectInset(self.bounds, 20.0, 0.0)];
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
     label.text = NSLocalizedStringFromTableInBundle(@"connecter", @"local", bundle, @"");
-    //label.text = [bundle localizedStringForKey:@"connecter" value:nil table:@"local"];
     label.font = [UIFont fontWithName:@"AvenirNext-Regular" size:16.0];
     [self addSubview:label];
     

@@ -9,14 +9,14 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>XeeSDKResources.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>92A57C3C1E23D92E00590352</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>92C71BDC1D1D2B0500E06FA5</key>
 		<dict>
 			<key>primary</key>

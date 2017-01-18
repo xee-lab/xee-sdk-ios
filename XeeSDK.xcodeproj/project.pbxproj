@@ -13,11 +13,12 @@
 		92228FB81D6AFC2F00EF9876 /* XeeDeviceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92228FB61D6AFC2F00EF9876 /* XeeDeviceRoute.m */; };
 		923205931D22719C0035BBCD /* XeeRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 923205911D22719C0035BBCD /* XeeRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		923205941D22719C0035BBCD /* XeeRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 923205921D22719C0035BBCD /* XeeRoute.m */; };
-		9270DE261E1FAA59001B5DD2 /* local.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9270DE281E1FAA59001B5DD2 /* local.strings */; };
 		9273229A1D6F1DDD00A02DD3 /* XeeDeviceStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 927322981D6F1DDD00A02DD3 /* XeeDeviceStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9273229B1D6F1DDD00A02DD3 /* XeeDeviceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 927322991D6F1DDD00A02DD3 /* XeeDeviceStatus.m */; };
 		9280064B1D216BBA00F5684A /* XeeHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 928006491D216BBA00F5684A /* XeeHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9280064C1D216BBA00F5684A /* XeeHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9280064A1D216BBA00F5684A /* XeeHTTPClient.m */; };
+		92A57C361E23D51800590352 /* local.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92A57C2E1E23D51800590352 /* local.strings */; };
+		92A57C371E23D51800590352 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92A57C331E23D51800590352 /* Media.xcassets */; };
 		92C22ED51D22ACB90003D165 /* XeeSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C22ED31D22ACB90003D165 /* XeeSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92C22ED61D22ACB90003D165 /* XeeSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C22ED41D22ACB90003D165 /* XeeSignal.m */; };
 		92C22ED91D22AD230003D165 /* XeeAccelerometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92C22ED71D22AD230003D165 /* XeeAccelerometer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -49,7 +50,6 @@
 		92C71C281D1D366A00E06FA5 /* XeeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 92C71C261D1D366A00E06FA5 /* XeeConfig.m */; };
 		92D2A1941DF9A7E5006B2EAF /* XeeLoginButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 92D2A1921DF9A7E5006B2EAF /* XeeLoginButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92D2A1951DF9A7E5006B2EAF /* XeeLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D2A1931DF9A7E5006B2EAF /* XeeLoginButton.m */; };
-		92D65A881DF9D8A300F400FE /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92D65A871DF9D8A300F400FE /* Media.xcassets */; };
 		92DC69A21D4B53EB00E6448A /* XeeStatRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 92DC69A01D4B53EB00E6448A /* XeeStatRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92DC69A31D4B53EB00E6448A /* XeeStatRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 92DC69A11D4B53EB00E6448A /* XeeStatRoute.m */; };
 		92DC69A61D4B551B00E6448A /* XeeStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 92DC69A41D4B551B00E6448A /* XeeStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,16 +61,6 @@
 		92F4B6271D1DA03900716C58 /* globals.h in Headers */ = {isa = PBXBuildFile; fileRef = 92F4B6261D1DA03900716C58 /* globals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		92D65A8D1DF9D91C00F400FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 92C71BD41D1D2B0500E06FA5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 92D65A801DF9D86600F400FE;
-			remoteInfo = XeeSDKResources;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		9203EB9B1D1D75AF00611E20 /* XeeAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeAccessToken.h; sourceTree = "<group>"; };
 		9203EB9C1D1D75AF00611E20 /* XeeAccessToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeAccessToken.m; sourceTree = "<group>"; };
@@ -78,16 +68,17 @@
 		92228FB61D6AFC2F00EF9876 /* XeeDeviceRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeDeviceRoute.m; path = route/XeeDeviceRoute.m; sourceTree = "<group>"; };
 		923205911D22719C0035BBCD /* XeeRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeRoute.h; path = route/XeeRoute.h; sourceTree = "<group>"; };
 		923205921D22719C0035BBCD /* XeeRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeRoute.m; path = route/XeeRoute.m; sourceTree = "<group>"; };
-		9270DE271E1FAA59001B5DD2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/local.strings; sourceTree = "<group>"; };
-		9270DE291E1FAA6E001B5DD2 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/local.strings; sourceTree = "<group>"; };
-		9270DE2A1E1FAA7B001B5DD2 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/local.strings; sourceTree = "<group>"; };
-		9270DE2B1E1FAA7F001B5DD2 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/local.strings; sourceTree = "<group>"; };
-		9270DE2C1E1FAA84001B5DD2 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
-		9270DE2D1E1FAA93001B5DD2 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/local.strings; sourceTree = "<group>"; };
 		927322981D6F1DDD00A02DD3 /* XeeDeviceStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeDeviceStatus.h; path = model/XeeDeviceStatus.h; sourceTree = "<group>"; };
 		927322991D6F1DDD00A02DD3 /* XeeDeviceStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeDeviceStatus.m; path = model/XeeDeviceStatus.m; sourceTree = "<group>"; };
 		928006491D216BBA00F5684A /* XeeHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeHTTPClient.h; sourceTree = "<group>"; };
 		9280064A1D216BBA00F5684A /* XeeHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeHTTPClient.m; sourceTree = "<group>"; };
+		92A57C2F1E23D51800590352 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/local.strings; sourceTree = "<group>"; };
+		92A57C301E23D51800590352 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/local.strings; sourceTree = "<group>"; };
+		92A57C311E23D51800590352 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/local.strings; sourceTree = "<group>"; };
+		92A57C321E23D51800590352 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/local.strings; sourceTree = "<group>"; };
+		92A57C331E23D51800590352 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		92A57C341E23D51800590352 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/local.strings; sourceTree = "<group>"; };
+		92A57C351E23D51800590352 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
 		92C22ED31D22ACB90003D165 /* XeeSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeSignal.h; path = model/XeeSignal.h; sourceTree = "<group>"; };
 		92C22ED41D22ACB90003D165 /* XeeSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeSignal.m; path = model/XeeSignal.m; sourceTree = "<group>"; };
 		92C22ED71D22AD230003D165 /* XeeAccelerometer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeAccelerometer.h; path = model/XeeAccelerometer.h; sourceTree = "<group>"; };
@@ -121,9 +112,6 @@
 		92C71C261D1D366A00E06FA5 /* XeeConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = XeeConfig.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		92D2A1921DF9A7E5006B2EAF /* XeeLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeLoginButton.h; sourceTree = "<group>"; };
 		92D2A1931DF9A7E5006B2EAF /* XeeLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeLoginButton.m; sourceTree = "<group>"; };
-		92D65A811DF9D86600F400FE /* XeeSDKResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XeeSDKResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		92D65A831DF9D86600F400FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		92D65A871DF9D8A300F400FE /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		92DC69A01D4B53EB00E6448A /* XeeStatRoute.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeStatRoute.h; path = route/XeeStatRoute.h; sourceTree = "<group>"; };
 		92DC69A11D4B53EB00E6448A /* XeeStatRoute.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XeeStatRoute.m; path = route/XeeStatRoute.m; sourceTree = "<group>"; };
 		92DC69A41D4B551B00E6448A /* XeeStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XeeStat.h; path = model/XeeStat.h; sourceTree = "<group>"; };
@@ -143,21 +131,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92D65A7E1DF9D86600F400FE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		92A57C2D1E23D51800590352 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				92A57C2E1E23D51800590352 /* local.strings */,
+				92A57C331E23D51800590352 /* Media.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		92C71BD31D1D2B0500E06FA5 = {
 			isa = PBXGroup;
 			children = (
 				92C71BDF1D1D2B0500E06FA5 /* XeeSDK */,
-				92D65A821DF9D86600F400FE /* XeeSDKResources */,
 				92C71BDE1D1D2B0500E06FA5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,7 +155,6 @@
 			isa = PBXGroup;
 			children = (
 				92C71BDD1D1D2B0500E06FA5 /* XeeSDK.framework */,
-				92D65A811DF9D86600F400FE /* XeeSDKResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -195,6 +183,7 @@
 				92E447191D216EB400EFE259 /* XeeError.m */,
 				92D2A1921DF9A7E5006B2EAF /* XeeLoginButton.h */,
 				92D2A1931DF9A7E5006B2EAF /* XeeLoginButton.m */,
+				92A57C2D1E23D51800590352 /* Resources */,
 			);
 			path = XeeSDK;
 			sourceTree = "<group>";
@@ -243,16 +232,6 @@
 				923205921D22719C0035BBCD /* XeeRoute.m */,
 			);
 			name = routes;
-			sourceTree = "<group>";
-		};
-		92D65A821DF9D86600F400FE /* XeeSDKResources */ = {
-			isa = PBXGroup;
-			children = (
-				92D65A831DF9D86600F400FE /* Info.plist */,
-				92D65A871DF9D8A300F400FE /* Media.xcassets */,
-				9270DE281E1FAA59001B5DD2 /* local.strings */,
-			);
-			path = XeeSDKResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,29 +285,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				92D65A8E1DF9D91C00F400FE /* PBXTargetDependency */,
 			);
 			name = XeeSDK;
 			productName = XeeSDK;
 			productReference = 92C71BDD1D1D2B0500E06FA5 /* XeeSDK.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		92D65A801DF9D86600F400FE /* XeeSDKResources */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 92D65A841DF9D86600F400FE /* Build configuration list for PBXNativeTarget "XeeSDKResources" */;
-			buildPhases = (
-				92D65A7D1DF9D86600F400FE /* Sources */,
-				92D65A7E1DF9D86600F400FE /* Frameworks */,
-				92D65A7F1DF9D86600F400FE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = XeeSDKResources;
-			productName = XeeSDKResources;
-			productReference = 92D65A811DF9D86600F400FE /* XeeSDKResources.bundle */;
-			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
 
@@ -341,11 +302,6 @@
 				TargetAttributes = {
 					92C71BDC1D1D2B0500E06FA5 = {
 						CreatedOnToolsVersion = 7.3;
-					};
-					92D65A801DF9D86600F400FE = {
-						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = 4F8PQ2C2RC;
-						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -367,7 +323,6 @@
 			projectRoot = "";
 			targets = (
 				92C71BDC1D1D2B0500E06FA5 /* XeeSDK */,
-				92D65A801DF9D86600F400FE /* XeeSDKResources */,
 			);
 		};
 /* End PBXProject section */
@@ -377,15 +332,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		92D65A7F1DF9D86600F400FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9270DE261E1FAA59001B5DD2 /* local.strings in Resources */,
-				92D65A881DF9D8A300F400FE /* Media.xcassets in Resources */,
+				92A57C371E23D51800590352 /* Media.xcassets in Resources */,
+				92A57C361E23D51800590352 /* local.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,33 +371,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		92D65A7D1DF9D86600F400FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		92D65A8E1DF9D91C00F400FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 92D65A801DF9D86600F400FE /* XeeSDKResources */;
-			targetProxy = 92D65A8D1DF9D91C00F400FE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		9270DE281E1FAA59001B5DD2 /* local.strings */ = {
+		92A57C2E1E23D51800590352 /* local.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9270DE271E1FAA59001B5DD2 /* en */,
-				9270DE291E1FAA6E001B5DD2 /* fr */,
-				9270DE2A1E1FAA7B001B5DD2 /* nl */,
-				9270DE2B1E1FAA7F001B5DD2 /* it */,
-				9270DE2C1E1FAA84001B5DD2 /* pt-PT */,
-				9270DE2D1E1FAA93001B5DD2 /* es */,
+				92A57C2F1E23D51800590352 /* en */,
+				92A57C301E23D51800590352 /* es */,
+				92A57C311E23D51800590352 /* fr */,
+				92A57C321E23D51800590352 /* it */,
+				92A57C341E23D51800590352 /* nl */,
+				92A57C351E23D51800590352 /* pt-PT */,
 			);
 			name = local.strings;
 			sourceTree = "<group>";
@@ -566,7 +499,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xee.XeeSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -586,50 +519,10 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
+				MACH_O_TYPE = mh_dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xee.XeeSDK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		92D65A851DF9D86600F400FE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4F8PQ2C2RC;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = XeeSDKResources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xee.XeeSDKResources;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		92D65A861DF9D86600F400FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 4F8PQ2C2RC;
-				ENABLE_BITCODE = NO;
-				INFOPLIST_FILE = XeeSDKResources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = com.xee.XeeSDKResources;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Release;
 		};
@@ -650,15 +543,6 @@
 			buildConfigurations = (
 				92C71BF21D1D2B0500E06FA5 /* Debug */,
 				92C71BF31D1D2B0500E06FA5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		92D65A841DF9D86600F400FE /* Build configuration list for PBXNativeTarget "XeeSDKResources" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				92D65A851DF9D86600F400FE /* Debug */,
-				92D65A861DF9D86600F400FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

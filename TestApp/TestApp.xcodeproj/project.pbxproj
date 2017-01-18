@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9270DE301E1FAECA001B5DD2 /* XeeSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 92D65A941DF9E6EB00F400FE /* XeeSDKResources.bundle */; };
 		92AB27FC1D1D5DDF00A34B2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AB27FB1D1D5DDF00A34B2F /* main.m */; };
 		92AB27FF1D1D5DDF00A34B2F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AB27FE1D1D5DDF00A34B2F /* AppDelegate.m */; };
 		92AB28021D1D5DDF00A34B2F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92AB28011D1D5DDF00A34B2F /* ViewController.m */; };
@@ -37,13 +36,6 @@
 			remoteGlobalIDString = 92C71BDD1D1D2B0500E06FA5;
 			remoteInfo = XeeSDK;
 		};
-		92D65A8A1DF9D8D100F400FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 929BA08F1D1D63D700F56C1D /* XeeSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 92D65A811DF9D86600F400FE;
-			remoteInfo = XeeSDKResources;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -62,7 +54,6 @@
 		92BADA2C1E1FCB3100365FA1 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		92BADA2D1E1FCB4900365FA1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		92BADA2E1E1FCB4900365FA1 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		92D65A941DF9E6EB00F400FE /* XeeSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = XeeSDKResources.bundle; path = "../../../Library/Developer/Xcode/DerivedData/TestApp-apppnycseoffhrdcokccadtthrst/Build/Products/Debug-iphonesimulator/XeeSDKResources.bundle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				929BA0961D1D63D700F56C1D /* XeeSDK.framework */,
-				92D65A8B1DF9D8D100F400FE /* XeeSDKResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,7 +96,6 @@
 		92AB27F91D1D5DDF00A34B2F /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				92D65A941DF9E6EB00F400FE /* XeeSDKResources.bundle */,
 				92AB27FD1D1D5DDF00A34B2F /* AppDelegate.h */,
 				92AB27FE1D1D5DDF00A34B2F /* AppDelegate.m */,
 				92AB28001D1D5DDF00A34B2F /* ViewController.h */,
@@ -196,13 +185,6 @@
 			remoteRef = 929BA0951D1D63D700F56C1D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		92D65A8B1DF9D8D100F400FE /* XeeSDKResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = XeeSDKResources.bundle;
-			remoteRef = 92D65A8A1DF9D8D100F400FE /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -210,7 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9270DE301E1FAECA001B5DD2 /* XeeSDKResources.bundle in Resources */,
 				92AB280A1D1D5DDF00A34B2F /* LaunchScreen.storyboard in Resources */,
 				92AB28071D1D5DDF00A34B2F /* Assets.xcassets in Resources */,
 				92AB28051D1D5DDF00A34B2F /* Main.storyboard in Resources */,
