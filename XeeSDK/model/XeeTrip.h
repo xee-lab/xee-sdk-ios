@@ -16,6 +16,7 @@
 
 #import "XeeModel.h"
 #import "XeeLocation.h"
+#import "XeeStat.h"
 
 @interface XeeTrip : XeeModel
 
@@ -29,5 +30,7 @@
 
 @property (nonatomic, strong) NSDate *creationDate;
 @property (nonatomic, strong) NSDate *lastUpdateDate;
+
+@property (nonatomic, strong) XeeStat *mileage;
 
 @end

@@ -31,6 +31,8 @@
         
         _creationDate = dateWithRFC3339([JSON objectForKey:@"creationDate"]);
         _lastUpdateDate = dateWithRFC3339([JSON objectForKey:@"lastUpdateDate"]);
+        
+        _mileage = [[XeeStat alloc] initWithJSON:[JSON objectForKey:@"mileage"]];
     }
     return self;
 }
@@ -43,8 +45,9 @@
             beginDate: %@\r\
             endDate: %@\r\
             creationDate: %@\r\
-            lastUpdateDate: %@",
-            _id, _beginLocation, _endLocation, _beginDate, _endDate, _creationDate, _lastUpdateDate];
+            lastUpdateDate: %@\r\
+            mileage: %@",
+            _id, _beginLocation, _endLocation, _beginDate, _endDate, _creationDate, _lastUpdateDate, _mileage];
 }
 
 @end
