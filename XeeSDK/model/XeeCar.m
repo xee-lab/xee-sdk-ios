@@ -27,7 +27,7 @@
         _model = [JSON objectForKey:@"model"];
         _year = (int)[[JSON objectForKey:@"year"] integerValue];
         _numberPlate = [JSON objectForKey:@"numberPlate"];
-        _deviceId = [JSON objectForKey:@"deviceId"];
+        _deviceId = [JSON objectForKey:@"deviceId"] != [NSNull null] ? [JSON objectForKey:@"deviceId"] : @"";
         _cardbId = (int)[[JSON objectForKey:@"cardbId"] integerValue];
         _creationDate = dateWithRFC3339([JSON objectForKey:@"creationDate"]);
         _lastUpdateDate = dateWithRFC3339([JSON objectForKey:@"lastUpdateDate"]);
