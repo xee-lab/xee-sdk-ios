@@ -44,6 +44,10 @@
     embeddedWV = [[UIWebView alloc] init];
 }
 
+-(void)createAccount {
+    [self showRegisterPage];
+}
+
 -(void)connect {
     // if there's an access token
     if(_accessToken) {
@@ -68,6 +72,24 @@
     } else {
         [self showAuthPage];
     }
+}
+
+-(void)showRegisterPage {
+    [Xee log:@"show register page"];
+    
+    NSString *urlEncodedScopes = [client createURLEncodedStringWithArray:_config.scopes];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@auth/register?client_id=%@&redirect_uri=%@&scope=%@", self.config.environmentURLString, _config.clientID, _config.redirectURI, urlEncodedScopes]];
+    
+    UIView *view = [self.delegate connectManagerViewForSignUp];
+    CGRect frame = view.bounds;
+    frame.origin.y = frame.size.height;
+    embeddedWV.frame = frame;
+    frame.origin.y = 0;
+    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
+    [view addSubview:embeddedWV];
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:nil];
 }
 
 -(void)showAuthPage {

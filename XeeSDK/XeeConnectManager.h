@@ -24,6 +24,7 @@
 @protocol XeeConnectManagerDelegate <NSObject>
 
 @required
+-(UIView*)connectManagerViewForSignUp;
 -(UIView*)connectManagerViewForLogin;
 -(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
 -(void)connectManager:(XeeConnectManager*)connectManager didFailWithErrors:(NSArray<XeeError*>*)errors;
@@ -45,6 +46,7 @@
 /*!
  Authenticate the user. If a valid access token already exists, the completionHandler is called. If not, safari will open and show the log in form.
  */
+-(void)createAccount;
 -(void)connect;
 -(void)openURL:(NSURL*)url;
 
