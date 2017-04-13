@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */; };
+		4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AA846471E9E7E5A00A3BB39 /* XeeRegisterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA846451E9E7E5A00A3BB39 /* XeeRegisterButton.m */; };
 		9203EB9D1D1D75AF00611E20 /* XeeAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 9203EB9B1D1D75AF00611E20 /* XeeAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9203EB9E1D1D75AF00611E20 /* XeeAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 9203EB9C1D1D75AF00611E20 /* XeeAccessToken.m */; };
@@ -247,6 +247,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */,
 				92C71C021D1D2BD700E06FA5 /* XeeTrip.h in Headers */,
 				9280064B1D216BBA00F5684A /* XeeHTTPClient.h in Headers */,
 				9203EB9D1D1D75AF00611E20 /* XeeAccessToken.h in Headers */,
@@ -259,7 +260,6 @@
 				92C71C0F1D1D2C3600E06FA5 /* XeeCarRoute.h in Headers */,
 				92F4B6271D1DA03900716C58 /* globals.h in Headers */,
 				92C71BF91D1D2BA200E06FA5 /* XeeCar.h in Headers */,
-				4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */,
 				92C71C0B1D1D2C2A00E06FA5 /* XeeTripRoute.h in Headers */,
 				92C22EDD1D22AD790003D165 /* XeeCarStatus.h in Headers */,
 				92C71C231D1D31D400E06FA5 /* XeeLocation.h in Headers */,
