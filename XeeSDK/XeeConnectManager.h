@@ -24,10 +24,12 @@
 @protocol XeeConnectManagerDelegate <NSObject>
 
 @required
+
 -(UIView*)connectManagerViewForSignUp;
 -(UIView*)connectManagerViewForLogin;
 -(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
 -(void)connectManager:(XeeConnectManager*)connectManager didFailWithErrors:(NSArray<XeeError*>*)errors;
+-(void)connectManagerDidCancel:(XeeConnectManager*)connectManager;
 
 @end
 

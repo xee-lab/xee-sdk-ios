@@ -44,6 +44,35 @@
     embeddedWV = [[UIWebView alloc] init];
 }
 
+-(void)showWebViewInView:(UIView *)view WithURL:(NSURL *)url {
+    CGRect frame = view.bounds;
+    frame.origin.y = frame.size.height;
+    embeddedWV.frame = frame;
+    frame.origin.y = 0;
+    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
+    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(8.0, 28.0, frame.size.width / 4.0, 40.0)];
+    [cancelButton setTitle:NSLocalizedString(@"cancel", nil) forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor colorWithRed:71.0/255.0 green:71.0/255.0 blue:71.0/255.0 alpha:1.0] forState:UIControlStateNormal];
+    [cancelButton setBackgroundColor:[UIColor whiteColor]];
+    [cancelButton addTarget:self action:@selector(cancel) forControlEvents:UIControlEventTouchUpInside];
+    [embeddedWV addSubview:cancelButton];
+    [view addSubview:embeddedWV];
+    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:nil];
+}
+
+-(void)cancel {
+    CGRect frame = embeddedWV.frame;
+    frame.origin.y = frame.size.height;
+    [UIView animateWithDuration:0.4 delay:0.2 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        embeddedWV.frame = frame;
+    } completion:^(BOOL finished) {
+        [embeddedWV removeFromSuperview];
+        [self.delegate connectManagerDidCancel:self];
+    }];
+}
+
 -(void)createAccount {
     [self showRegisterPage];
 }
@@ -81,15 +110,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@auth/register?client_id=%@&redirect_uri=%@&scope=%@", self.config.environmentURLString, _config.clientID, _config.redirectURI, urlEncodedScopes]];
     
     UIView *view = [self.delegate connectManagerViewForSignUp];
-    CGRect frame = view.bounds;
-    frame.origin.y = frame.size.height;
-    embeddedWV.frame = frame;
-    frame.origin.y = 0;
-    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
-    [view addSubview:embeddedWV];
-    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        embeddedWV.frame = frame;
-    } completion:nil];
+    [self showWebViewInView:view WithURL:url];
 }
 
 -(void)showAuthPage {
@@ -99,15 +120,7 @@
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@auth/auth?client_id=%@&redirect_uri=%@&scope=%@", self.config.environmentURLString, _config.clientID, _config.redirectURI, urlEncodedScopes]];
     
     UIView *view = [self.delegate connectManagerViewForLogin];
-    CGRect frame = view.bounds;
-    frame.origin.y = frame.size.height;
-    embeddedWV.frame = frame;
-    frame.origin.y = 0;
-    [embeddedWV loadRequest:[NSURLRequest requestWithURL:url]];
-    [view addSubview:embeddedWV];
-    [UIView animateWithDuration:0.4 delay:0.0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        embeddedWV.frame = frame;
-    } completion:nil];
+    [self showWebViewInView:view WithURL:url];
 }
 
 -(void)openURL:(NSURL*)url {
