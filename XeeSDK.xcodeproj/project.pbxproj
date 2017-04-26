@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A7B657C1EB0A4430053C1BC /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7B657A1EB0A4430053C1BC /* XeeDevice.h */; };
+		4A7B657C1EB0A4430053C1BC /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7B657A1EB0A4430053C1BC /* XeeDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A7B657D1EB0A4430053C1BC /* XeeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B657B1EB0A4430053C1BC /* XeeDevice.m */; };
 		4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AA846471E9E7E5A00A3BB39 /* XeeRegisterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA846451E9E7E5A00A3BB39 /* XeeRegisterButton.m */; };
