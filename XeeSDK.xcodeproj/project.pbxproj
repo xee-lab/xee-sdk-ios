@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A7B657C1EB0A4430053C1BC /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7B657A1EB0A4430053C1BC /* XeeDevice.h */; };
+		4A7B657D1EB0A4430053C1BC /* XeeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B657B1EB0A4430053C1BC /* XeeDevice.m */; };
 		4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4AA846471E9E7E5A00A3BB39 /* XeeRegisterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AA846451E9E7E5A00A3BB39 /* XeeRegisterButton.m */; };
 		9203EB9D1D1D75AF00611E20 /* XeeAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 9203EB9B1D1D75AF00611E20 /* XeeAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +66,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A7B657A1EB0A4430053C1BC /* XeeDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeDevice.h; sourceTree = "<group>"; };
+		4A7B657B1EB0A4430053C1BC /* XeeDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeDevice.m; sourceTree = "<group>"; };
 		4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeRegisterButton.h; sourceTree = "<group>"; };
 		4AA846451E9E7E5A00A3BB39 /* XeeRegisterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeRegisterButton.m; sourceTree = "<group>"; };
 		9203EB9B1D1D75AF00611E20 /* XeeAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeAccessToken.h; sourceTree = "<group>"; };
@@ -217,6 +221,8 @@
 				92DC69A51D4B551B00E6448A /* XeeStat.m */,
 				92E5641E1D22BD20002A6263 /* XeeModel.h */,
 				92E5641F1D22BD20002A6263 /* XeeModel.m */,
+				4A7B657A1EB0A4430053C1BC /* XeeDevice.h */,
+				4A7B657B1EB0A4430053C1BC /* XeeDevice.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -270,6 +276,7 @@
 				92D2A1941DF9A7E5006B2EAF /* XeeLoginButton.h in Headers */,
 				92E564201D22BD20002A6263 /* XeeModel.h in Headers */,
 				9273229A1D6F1DDD00A02DD3 /* XeeDeviceStatus.h in Headers */,
+				4A7B657C1EB0A4430053C1BC /* XeeDevice.h in Headers */,
 				92C71C1F1D1D2FC000E06FA5 /* XeeConnectManager.h in Headers */,
 				92C71BFE1D1D2BCA00E06FA5 /* XeeUser.h in Headers */,
 				92DC69A21D4B53EB00E6448A /* XeeStatRoute.h in Headers */,
@@ -361,6 +368,7 @@
 				92C71C201D1D2FC000E06FA5 /* XeeConnectManager.m in Sources */,
 				9203EB9E1D1D75AF00611E20 /* XeeAccessToken.m in Sources */,
 				92C22ED61D22ACB90003D165 /* XeeSignal.m in Sources */,
+				4A7B657D1EB0A4430053C1BC /* XeeDevice.m in Sources */,
 				92D2A1951DF9A7E5006B2EAF /* XeeLoginButton.m in Sources */,
 				92C71C081D1D2C1A00E06FA5 /* XeeUserRoute.m in Sources */,
 				92E4471B1D216EB400EFE259 /* XeeError.m in Sources */,

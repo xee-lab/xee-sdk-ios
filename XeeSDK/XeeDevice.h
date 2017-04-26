@@ -14,22 +14,12 @@
  * limitations under the License.
  */
 
-#import <Foundation/Foundation.h>
+#import "XeeModel.h"
 
-#import "XeeHTTPClient.h"
+@interface XeeDevice : XeeModel
 
-#import "XeeUser.h"
-#import "XeeTrip.h"
-#import "XeeCar.h"
-#import "XeeCarStatus.h"
-#import "XeeDeviceStatus.h"
-#import "XeeStat.h"
-#import "XeeDevice.h"
-
-@interface XeeRoute : NSObject {
-    XeeHTTPClient *client;
-}
-
--(NSDictionary*)configureHeader;
+@property (nonatomic, assign) NSString *xeeId;
+@property (nonatomic, assign) int status;
+@property (nonatomic, assign) int associationAttempts;
 
 @end

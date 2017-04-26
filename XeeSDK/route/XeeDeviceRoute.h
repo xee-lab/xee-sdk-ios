@@ -26,4 +26,10 @@
  */
 -(void)deviceStatusWithDeviceId:(NSString*)deviceId completionHandler:(void (^)(XeeDeviceStatus *deviceStatus, NSArray<XeeError *> *errors))completionHandler;
 
+-(void)associateDeviceId:(NSString*)deviceId withCar:(uint)carId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler;
+
+-(void)associateDeviceId:(NSString*)deviceId withPin:(uint)pin completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler;
+
+-(void)dissociateDeviceWithId:(NSString*)deviceId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler;
+
 @end

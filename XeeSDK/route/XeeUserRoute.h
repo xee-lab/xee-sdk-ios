@@ -20,5 +20,6 @@
 
 -(void)me:(void (^)(XeeUser *user, NSArray<XeeError*> *errors))completionHandler;
 -(void)meCars:(void (^)(NSArray<XeeCar*> *cars, NSArray<XeeError*> *errors))completionHandler;
+-(void)meDevices:(void (^)(NSArray<XeeDevice*> *devices, NSArray<XeeError*> *errors))completionHandler;
 
 @end

@@ -49,4 +49,21 @@
     }] resume];
 }
 
+-(void)meDevices:(void (^)(NSArray<XeeDevice*> *devices, NSArray<XeeError*> *errors))completionHandler {
+    NSString *urlString = @"users/me/devices";
+    NSDictionary *headers = [self configureHeader];
+    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
+        if(!errors) {
+            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            NSMutableArray *devices = [NSMutableArray array];
+            for(NSDictionary *jsonDevice in json) {
+                [devices addObject:[[XeeDevice alloc] initWithJSON:jsonDevice]];
+            }
+            completionHandler(devices, errors);
+        } else {
+            completionHandler(nil, errors);
+        }
+    }] resume];
+}
+
 @end
