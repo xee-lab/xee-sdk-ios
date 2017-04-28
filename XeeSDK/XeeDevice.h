@@ -18,7 +18,7 @@
 
 @interface XeeDevice : XeeModel
 
-@property (nonatomic, assign) NSString *xeeId;
+@property (nonatomic, strong) NSString *xeeId;
 @property (nonatomic, assign) int status;
 @property (nonatomic, assign) int associationAttempts;
 

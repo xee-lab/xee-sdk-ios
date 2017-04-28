@@ -58,8 +58,8 @@
     }] resume];
 }
 
--(void)associateDeviceId:(NSString*)deviceId withCar:(uint)carId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?carId=%d", deviceId, carId];
+-(void)associateDeviceId:(NSString*)deviceId withCar:(NSString*)carId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?carId=%@", deviceId, carId];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
         if(!errors) {
@@ -70,8 +70,8 @@
     }] resume];
 }
 
--(void)associateDeviceId:(NSString*)deviceId withPin:(uint)pin completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?pin=%d", deviceId, pin];
+-(void)associateDeviceId:(NSString*)deviceId withPin:(NSString*)pin completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?pin=%@", deviceId, pin];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
         if(!errors) {
