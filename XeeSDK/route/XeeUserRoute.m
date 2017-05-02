@@ -65,5 +65,22 @@
         }
     }] resume];
 }
+    
+-(void)meCreateCarWithName:(NSString *)name Completion:(void (^)(XeeCar *car, NSArray<XeeError*> *errors))completionHandler {
+    NSString *urlString = @"users/me/cars";
+    NSDictionary *headers = [self configureHeader];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObject:name forKey:@"name"];
+    
+    [[client method:@"POST" urlString:urlString params:params headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
+        if(!errors) {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            XeeCar *car = [[XeeCar alloc] initWithJSON:json];
+            completionHandler(car, errors);
+        } else {
+            completionHandler(nil, errors);
+        }
+    }] resume];
+}
 
 @end

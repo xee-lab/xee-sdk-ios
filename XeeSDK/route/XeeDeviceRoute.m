@@ -62,11 +62,7 @@
     NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?carId=%@", deviceId, carId];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            completionHandler(nil);
-        } else {
-            completionHandler(errors);
-        }
+        completionHandler(errors);
     }] resume];
 }
 
@@ -74,11 +70,7 @@
     NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?pin=%@", deviceId, pin];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            completionHandler(nil);
-        } else {
-            completionHandler(errors);
-        }
+        completionHandler(errors);
     }] resume];
 }
 
@@ -86,11 +78,7 @@
     NSString *urlString = [NSString stringWithFormat:@"devices/%@/dissociate", deviceId];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            completionHandler(nil);
-        } else {
-            completionHandler(errors);
-        }
+        completionHandler(errors);
     }] resume];
 }
 
