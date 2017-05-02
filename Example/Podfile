@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'XeeSDK_Example' do
+  pod 'XeeSDK', :path => '../'
+
+  target 'XeeSDK_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
