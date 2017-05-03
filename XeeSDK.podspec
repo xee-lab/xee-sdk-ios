@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XeeSDK'
-  s.version          = '1.0.1'
+  s.version          = '1.0.2'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
 # This description is used to generate tags and improve search results.
@@ -30,6 +30,11 @@ Pod::Spec.new do |s|
   s.public_header_files = 'XeeSDK/*.h'
   s.source_files = 'XeeSDK/*.{h,m}'
   s.resource_bundle = { 'XeeSDKBundle' => 'XeeSDK/Resources/**/*'}
+
+  s.subspec 'Model' do |ss|
+    ss.source_files = 'XeeSDK/Model/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/Model/*.h'
+  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
