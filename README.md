@@ -150,4 +150,4 @@ Eliocity, jbdujardin@xee.com
 
 ## License
 
-XeeSDK is available under the MIT license. See the LICENSE file for more info.
+XeeSDK is available under the Apache License 2.0. See the LICENSE file for more info.
