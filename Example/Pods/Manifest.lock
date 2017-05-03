@@ -1,15 +1,19 @@
 PODS:
-  - Xee-SDK (0.1.0):
-    - Xee-SDK/Category (= 0.1.0)
-    - Xee-SDK/Client (= 0.1.0)
-    - Xee-SDK/Model (= 0.1.0)
-    - Xee-SDK/Route (= 0.1.0)
-    - Xee-SDK/UI (= 0.1.0)
-  - Xee-SDK/Category (0.1.0)
-  - Xee-SDK/Client (0.1.0)
-  - Xee-SDK/Model (0.1.0)
-  - Xee-SDK/Route (0.1.0)
-  - Xee-SDK/UI (0.1.0)
+  - Xee-SDK (0.1.1):
+    - Xee-SDK/Category (= 0.1.1)
+    - Xee-SDK/Client (= 0.1.1)
+    - Xee-SDK/Model (= 0.1.1)
+    - Xee-SDK/UI (= 0.1.1)
+  - Xee-SDK/Category (0.1.1)
+  - Xee-SDK/Client (0.1.1):
+    - Xee-SDK/Client/Route (= 0.1.1)
+    - Xee-SDK/Model
+  - Xee-SDK/Client/Route (0.1.1):
+    - Xee-SDK/Model
+  - Xee-SDK/Model (0.1.1):
+    - Xee-SDK/Category
+  - Xee-SDK/UI (0.1.1):
+    - Xee-SDK/Client
 
 DEPENDENCIES:
   - Xee-SDK (from `../`)
@@ -19,7 +23,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Xee-SDK: 73843ec3839999e1189f02dc93f20df0fb24a9ea
+  Xee-SDK: d6f6e98536b0e06ed73d17d2cc11270bbb3a913e
 
 PODFILE CHECKSUM: 78867a34d0c772e4bd1d4c892bb71d0a178ff584
 

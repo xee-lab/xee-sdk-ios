@@ -28,34 +28,9 @@ Pod::Spec.new do |s|
   s.module_name = 'XeeSDK'
 
   s.ios.deployment_target = '8.0'
-  s.public_header_files = 'XeeSDK/XeeSDK.h'
-  s.source_files = 'XeeSDK/XeeSDK.h'
+  s.public_header_files = 'XeeSDK/*.h'
+  s.source_files = 'XeeSDK/*.{h,m}'
   s.resource_bundle = { 'XeeSDKBundle' => 'XeeSDK/Resources/**/*'}
-
-  s.subspec 'Client' do |ss|
-    ss.source_files = 'XeeSDK/Client/*.{h,m}'
-    ss.public_header_files = 'XeeSDK/Client/*.h'
-  end
-
-  s.subspec 'Model' do |ss|
-    ss.source_files = 'XeeSDK/Model/*.{h,m}'
-    ss.public_header_files = 'XeeSDK/Model/*.h'
-  end
-
-  s.subspec 'UI' do |ss|
-    ss.source_files = 'XeeSDK/UI/*.{h,m}'
-    ss.public_header_files = 'XeeSDK/UI/*.h'
-  end
-
-  s.subspec 'Route' do |ss|
-    ss.source_files = 'XeeSDK/Route/*.{h,m}'
-    ss.public_header_files = 'XeeSDK/Route/*.h'
-  end
-
-  s.subspec 'Category' do |ss|
-    ss.source_files = 'XeeSDK/Category/*.{h,m}'
-    ss.public_header_files = 'XeeSDK/Category/*.h'
-  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
