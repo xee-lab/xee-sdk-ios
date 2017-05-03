@@ -15,7 +15,7 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "globals.h"
+#import "NSDateFormatter+Xee.h"
 
 @interface XeeModel : NSObject
 

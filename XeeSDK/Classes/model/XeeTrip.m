@@ -26,11 +26,11 @@
         _beginLocation = [XeeLocation withJSON:[JSON objectForKey:@"beginLocation"]];
         _endLocation = [XeeLocation withJSON:[JSON objectForKey:@"endLocation"]];
         
-        _beginDate = dateWithRFC3339([JSON objectForKey:@"beginDate"]);
-        _endDate = dateWithRFC3339([JSON objectForKey:@"endDate"]);
+        _beginDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"beginDate"]];
+        _endDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"endDate"]];
         
-        _creationDate = dateWithRFC3339([JSON objectForKey:@"creationDate"]);
-        _lastUpdateDate = dateWithRFC3339([JSON objectForKey:@"lastUpdateDate"]);
+        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
         
         _mileage = [[XeeStat alloc] initWithJSON:[JSON objectForKey:@"mileage"]];
     }

@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "NSDateFormatter+Xee.h"
 #import "globals.h"
 #import "XeeAccelerometer.h"
 #import "XeeCar.h"

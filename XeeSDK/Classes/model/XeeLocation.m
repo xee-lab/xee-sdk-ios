@@ -29,7 +29,7 @@
         
         _satellites = (int)[[JSON objectForKey:@"satellites"] integerValue];
         
-        _date = dateWithRFC3339([JSON objectForKey:@"date"]);
+        _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
     }
     return self;
 }

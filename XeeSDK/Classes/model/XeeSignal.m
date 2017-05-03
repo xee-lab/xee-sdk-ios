@@ -23,7 +23,7 @@
     if (self) {
         _name = [JSON objectForKey:@"name"];
         _value = [[JSON objectForKey:@"value"] doubleValue];
-        _date = dateWithRFC3339([JSON objectForKey:@"date"]);
+        _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
     }
     return self;
 }

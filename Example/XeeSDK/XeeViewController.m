@@ -368,6 +368,10 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
     
+-(UIView *)connectManagerViewForSignUp {
+    return self.view;
+}
+    
 -(UIView *)connectManagerViewForLogin {
     return self.view;
 }
@@ -378,6 +382,10 @@
     
 -(void)connectManager:(XeeConnectManager *)connectManager didSuccess:(XeeAccessToken *)accessToken {
     [self show:accessToken.description];
+}
+    
+-(void)connectManagerDidCancel:(XeeConnectManager *)connectManager {
+    
 }
 
 @end

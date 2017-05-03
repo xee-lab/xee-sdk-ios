@@ -19,8 +19,8 @@
 @implementation XeeStatRoute
 
 -(void)mileageWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSString *urlString = [NSString stringWithFormat:@"cars/%d/stats/mileage?begin=%@&end=%@&initialValue=%f", carId, beginString, endString, initialValue];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
@@ -35,8 +35,8 @@
 }
 
 -(void)usedTimeWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSString *urlString = [NSString stringWithFormat:@"cars/%d/stats/usedtime?begin=%@&end=%@&initialValue=%f", carId, beginString, endString, initialValue];
     NSDictionary *headers = [self configureHeader];
     [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {

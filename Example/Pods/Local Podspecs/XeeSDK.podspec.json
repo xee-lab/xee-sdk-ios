@@ -2,7 +2,6 @@
   "name": "XeeSDK",
   "version": "0.1.0",
   "summary": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
-  "description": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
   "homepage": "https://github.com/xee-lab/xee-sdk-ios/tree/cocoapods",
   "license": {
     "type": "MIT",

@@ -15,7 +15,6 @@
  */
 
 #import "XeeConnectManager.h"
-#import "globals.h"
 #import "Xee.h"
 
 @interface XeeConnectManager () {

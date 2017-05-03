@@ -15,7 +15,6 @@
  */
 
 #import "XeeUser.h"
-#import "globals.h"
 
 @implementation XeeUser
 
@@ -27,12 +26,12 @@
         _firstName = [JSON objectForKey:@"firstName"];
         _nickname = [JSON objectForKey:@"nickname"];
         _gender = [JSON objectForKey:@"gender"];
-        _birthDate = dateWithRFC3339([JSON objectForKey:@"birthDate"]);
-        _licenceDeliveryDate = dateWithRFC3339([JSON objectForKey:@"licenceDeliveryDate"]);
+        _birthDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"birthDate"]];
+        _licenceDeliveryDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
         _role = [JSON objectForKey:@"role"];
         _isLocationEnabled = [[JSON objectForKey:@"isLocationEnabled"] boolValue];
-        _creationDate = dateWithRFC3339([JSON objectForKey:@"creationDate"]);
-        _lastUpdateDate = dateWithRFC3339([JSON objectForKey:@"lastUpdateDate"]);
+        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
     }
     return self;
 }

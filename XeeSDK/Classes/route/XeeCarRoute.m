@@ -47,8 +47,8 @@
 }
 
 -(void)locationsWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray<XeeLocation *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     if(limit != 0) {
         [dic setValue:@(limit) forKey:@"limit"];
@@ -77,8 +77,8 @@
 }
 
 -(void)locationsGeoJSONWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     if(limit != 0) {
         [dic setValue:@(limit) forKey:@"limit"];
@@ -103,8 +103,8 @@
 }
 
 -(void)signalsWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSString *nameString = [client createURLEncodedStringWithCommaWithArray:name];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     if(limit != 0) {
@@ -137,8 +137,8 @@
 }
 
 -(void)tripsWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray<XeeTrip *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     if(![beginString isEqualToString:@""]) {
         [dic setValue:beginString forKey:@"begin"];

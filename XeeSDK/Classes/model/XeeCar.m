@@ -29,8 +29,8 @@
         _numberPlate = [JSON objectForKey:@"numberPlate"];
         _deviceId = [JSON objectForKey:@"deviceId"] != [NSNull null] ? [JSON objectForKey:@"deviceId"] : @"";
         _cardbId = (int)[[JSON objectForKey:@"cardbId"] integerValue];
-        _creationDate = dateWithRFC3339([JSON objectForKey:@"creationDate"]);
-        _lastUpdateDate = dateWithRFC3339([JSON objectForKey:@"lastUpdateDate"]);
+        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
     }
     return self;
 }

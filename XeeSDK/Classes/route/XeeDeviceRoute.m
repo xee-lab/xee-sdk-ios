@@ -11,8 +11,8 @@
 @implementation XeeDeviceRoute
 
 -(void)signalsWithDeviceId:(NSString*)deviceId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = stringWithRFC3339Date(begin);
-    NSString *endString = stringWithRFC3339Date(end);
+    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
+    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
     NSString *nameString = [client createURLEncodedStringWithCommaWithArray:name];
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     if(limit != 0) {
