@@ -9,6 +9,6 @@
 #ifndef XeeSDK_h
 #define XeeSDK_h
 
-
+#import "Xee.h"
 
 #endif /* XeeSDK_h */
