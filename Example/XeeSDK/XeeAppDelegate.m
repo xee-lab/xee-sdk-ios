@@ -7,12 +7,21 @@
 //
 
 #import "XeeAppDelegate.h"
+#import "XeeSDK.h"
 
 @implementation XeeAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [Xee enableLog];
+    
+    XeeConfig *config = [[XeeConfig alloc] init];
+    config.secretKey = @"<Your SecretKey>";
+    config.clientID = @"<Your ClientID>";
+    config.redirectURI = @"<Your redirectURI>";
+    config.environment = XeeEnvironmentSTAGING;
+    [[Xee connectManager] setConfig:config];
+    
     return YES;
 }
 
@@ -41,6 +50,11 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+    
+-(BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+    [[Xee connectManager] openURL:url];
+    return YES;
 }
 
 @end

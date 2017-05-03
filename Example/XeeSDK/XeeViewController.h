@@ -9,5 +9,7 @@
 @import UIKit;
 
 @interface XeeViewController : UIViewController
+    
+@property (nonatomic, strong) IBOutlet UITextView *textView;
 
 @end

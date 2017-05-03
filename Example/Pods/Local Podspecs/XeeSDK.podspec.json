@@ -1,22 +1,25 @@
 {
   "name": "XeeSDK",
   "version": "0.1.0",
-  "summary": "A short description of XeeSDK.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/jbdujardin/XeeSDK",
+  "summary": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
+  "description": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
+  "homepage": "https://github.com/xee-lab/xee-sdk-ios/tree/cocoapods",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "jbdujardin": "jb.dujardin@gmail.com"
+    "Eliocity": "jbdujardin@xee.com"
   },
   "source": {
-    "git": "https://github.com/jbdujardin/XeeSDK.git",
+    "git": "https://github.com/xee-lab/xee-sdk-ios.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "XeeSDK/Classes/**/*"
+  "source_files": "XeeSDK/Classes/**/*",
+  "resource_bundles": {
+    "XeeSDKBundle": "XeeSDK/Resources/*"
+  }
 }
