@@ -2,7 +2,7 @@ use_frameworks!
 platform :ios, '9.0'
 
 target 'XeeSDK_Example' do
-  pod 'XeeSDK', :path => '../'
+  pod 'Xee-SDK', :path => '../'
 
   target 'XeeSDK_Tests' do
     inherit! :search_paths

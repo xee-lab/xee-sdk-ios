@@ -1,7 +1,7 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## XeeSDK
+## Xee-SDK
 
 Copyright 2016 Eliocity
 

@@ -10,12 +10,20 @@
 #endif
 #endif
 
+#import "XeeSDK.h"
 #import "NSDateFormatter+Xee.h"
-#import "globals.h"
+#import "Xee.h"
+#import "XeeConnectManager.h"
+#import "XeeHTTPClient.h"
+#import "XeeRequestManager.h"
 #import "XeeAccelerometer.h"
+#import "XeeAccessToken.h"
 #import "XeeCar.h"
 #import "XeeCarStatus.h"
+#import "XeeConfig.h"
+#import "XeeDevice.h"
 #import "XeeDeviceStatus.h"
+#import "XeeError.h"
 #import "XeeLocation.h"
 #import "XeeModel.h"
 #import "XeeSignal.h"
@@ -28,17 +36,8 @@
 #import "XeeStatRoute.h"
 #import "XeeTripRoute.h"
 #import "XeeUserRoute.h"
-#import "Xee.h"
-#import "XeeAccessToken.h"
-#import "XeeConfig.h"
-#import "XeeConnectManager.h"
-#import "XeeDevice.h"
-#import "XeeError.h"
-#import "XeeHTTPClient.h"
 #import "XeeLoginButton.h"
 #import "XeeRegisterButton.h"
-#import "XeeRequestManager.h"
-#import "XeeSDK.h"
 
 FOUNDATION_EXPORT double XeeSDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char XeeSDKVersionString[];

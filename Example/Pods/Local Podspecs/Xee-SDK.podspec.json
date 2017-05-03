@@ -1,0 +1,55 @@
+{
+  "name": "Xee-SDK",
+  "version": "0.1.0",
+  "summary": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
+  "homepage": "https://github.com/xee-lab/xee-sdk-ios/tree/cocoapods",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Eliocity": "jbdujardin@xee.com"
+  },
+  "source": {
+    "git": "https://github.com/xee-lab/xee-sdk-ios.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://www.facebook.com/XeeFR",
+  "requires_arc": true,
+  "module_name": "XeeSDK",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "public_header_files": "XeeSDK/XeeSDK.h",
+  "source_files": "XeeSDK/XeeSDK.h",
+  "resource_bundles": {
+    "XeeSDKBundle": "XeeSDK/Resources/**/*"
+  },
+  "subspecs": [
+    {
+      "name": "Client",
+      "source_files": "XeeSDK/Client/*.{h,m}",
+      "public_header_files": "XeeSDK/Client/*.h"
+    },
+    {
+      "name": "Model",
+      "source_files": "XeeSDK/Model/*.{h,m}",
+      "public_header_files": "XeeSDK/Model/*.h"
+    },
+    {
+      "name": "UI",
+      "source_files": "XeeSDK/UI/*.{h,m}",
+      "public_header_files": "XeeSDK/UI/*.h"
+    },
+    {
+      "name": "Route",
+      "source_files": "XeeSDK/Route/*.{h,m}",
+      "public_header_files": "XeeSDK/Route/*.h"
+    },
+    {
+      "name": "Category",
+      "source_files": "XeeSDK/Category/*.{h,m}",
+      "public_header_files": "XeeSDK/Category/*.h"
+    }
+  ]
+}

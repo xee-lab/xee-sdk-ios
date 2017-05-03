@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		420DECDBAC5101FCF06E74C0 /* XeeSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XeeSDK.podspec; path = ../XeeSDK.podspec; sourceTree = "<group>"; };
+		4A7E95BE1EBA06C30075DAF3 /* Xee-SDK.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "Xee-SDK.podspec"; path = "../Xee-SDK.podspec"; sourceTree = "<group>"; };
 		5805B22ED535BD0670A6B0C7 /* Pods-XeeSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XeeSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-XeeSDK_Example/Pods-XeeSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* XeeSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XeeSDK_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -178,7 +178,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				420DECDBAC5101FCF06E74C0 /* XeeSDK.podspec */,
+				4A7E95BE1EBA06C30075DAF3 /* Xee-SDK.podspec */,
 				A461C5AE6DD9458EB7755116 /* README.md */,
 				D60AA26F8D058201E054F346 /* LICENSE */,
 			);

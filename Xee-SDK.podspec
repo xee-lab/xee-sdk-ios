@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'XeeSDK'
+  s.name             = 'Xee-SDK'
   s.version          = '0.1.0'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
@@ -22,13 +22,40 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Eliocity' => 'jbdujardin@xee.com' }
   s.source           = { :git => 'https://github.com/xee-lab/xee-sdk-ios.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://www.facebook.com/XeeFR'
+
+  s.requires_arc = true
+  s.module_name = 'XeeSDK'
 
   s.ios.deployment_target = '8.0'
+  s.public_header_files = 'XeeSDK/XeeSDK.h'
+  s.source_files = 'XeeSDK/XeeSDK.h'
+  s.resource_bundle = { 'XeeSDKBundle' => 'XeeSDK/Resources/**/*'}
 
-  s.source_files = 'XeeSDK/Classes/**/*'
+  s.subspec 'Client' do |ss|
+    ss.source_files = 'XeeSDK/Client/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/Client/*.h'
+  end
 
-  s.resource_bundle = { 'XeeSDKBundle' => 'XeeSDK/Resources/*'}
+  s.subspec 'Model' do |ss|
+    ss.source_files = 'XeeSDK/Model/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/Model/*.h'
+  end
+
+  s.subspec 'UI' do |ss|
+    ss.source_files = 'XeeSDK/UI/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/UI/*.h'
+  end
+
+  s.subspec 'Route' do |ss|
+    ss.source_files = 'XeeSDK/Route/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/Route/*.h'
+  end
+
+  s.subspec 'Category' do |ss|
+    ss.source_files = 'XeeSDK/Category/*.{h,m}'
+    ss.public_header_files = 'XeeSDK/Category/*.h'
+  end
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
