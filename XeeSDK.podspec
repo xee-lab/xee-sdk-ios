@@ -7,7 +7,7 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'Xee-SDK'
+  s.name             = 'XeeSDK'
   s.version          = '0.1.1'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
@@ -19,13 +19,12 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios/tree/cocoapods'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Eliocity' => 'jbdujardin@xee.com' }
   s.source           = { :git => 'https://github.com/xee-lab/xee-sdk-ios.git', :tag => s.version.to_s }
   s.social_media_url = 'https://www.facebook.com/XeeFR'
 
   s.requires_arc = true
-  s.module_name = 'XeeSDK'
 
   s.ios.deployment_target = '8.0'
   s.public_header_files = 'XeeSDK/*.h'

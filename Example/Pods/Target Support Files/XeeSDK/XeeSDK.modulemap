@@ -1,5 +1,5 @@
 framework module XeeSDK {
-  umbrella header "Xee-SDK-umbrella.h"
+  umbrella header "XeeSDK-umbrella.h"
 
   export *
   module * { export * }

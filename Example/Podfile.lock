@@ -1,16 +1,16 @@
 PODS:
-  - Xee-SDK (0.1.1)
+  - XeeSDK (0.1.1)
 
 DEPENDENCIES:
-  - Xee-SDK (from `../`)
+  - XeeSDK (from `../`)
 
 EXTERNAL SOURCES:
-  Xee-SDK:
+  XeeSDK:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Xee-SDK: 26ec72166b702c017068f8dfc4220ebdbc5f13a7
+  XeeSDK: a0a657b5406fa30b9bdcec954f7e5d03a3f36c82
 
-PODFILE CHECKSUM: 78867a34d0c772e4bd1d4c892bb71d0a178ff584
+PODFILE CHECKSUM: 6a0ead9fbeead6047a493581ab9929ab9ad24255
 
 COCOAPODS: 1.2.1
