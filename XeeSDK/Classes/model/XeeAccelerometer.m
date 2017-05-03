@@ -21,7 +21,7 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        if(JSON != [NSNull null]) {
+        if(![JSON isKindOfClass:[NSNull class]]) {
             _x = (int)[[JSON objectForKey:@"x"] integerValue];
             _y = (int)[[JSON objectForKey:@"y"] integerValue];
             _z = (int)[[JSON objectForKey:@"z"] integerValue];

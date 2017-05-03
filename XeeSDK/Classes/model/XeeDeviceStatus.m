@@ -23,7 +23,7 @@
     if (self) {
         NSMutableArray *signals = [NSMutableArray array];
         NSArray *signalList = [JSON objectForKey:@"signals"];
-        if(signalList != [NSNull null] && signalList.count > 0) {
+        if(![signalList isKindOfClass:[NSNull class]] && signalList.count > 0) {
             for(NSDictionary *signalJSON in signalList) {
                 [signals addObject:[XeeSignal withJSON:signalJSON]];
             }
