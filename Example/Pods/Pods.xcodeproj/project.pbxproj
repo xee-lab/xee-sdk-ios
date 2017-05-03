@@ -7,73 +7,73 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00E4E0CFC8C5B0420E3FBEEDF83DC0AF /* XeeSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D6725EAFB6F7AB8EDD602A9C9758C9D /* XeeSignal.m */; };
-		0297A2FCCEB21C46BE871F2BDEF5D913 /* XeeSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 8689A4109D576E18E0D7CD68D73A7D0B /* XeeSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0394F6D2B12778C9369B43B7E2629845 /* XeeAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = C2E59FF35A26CDBA40161EA733C8ECAD /* XeeAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		00E4E0CFC8C5B0420E3FBEEDF83DC0AF /* XeeSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E9E33AE4EF443A849B5220BE763CB0 /* XeeSignal.m */; };
+		0297A2FCCEB21C46BE871F2BDEF5D913 /* XeeSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CF30B844FC93C5BFE40A0FAB93E7037 /* XeeSignal.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0394F6D2B12778C9369B43B7E2629845 /* XeeAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = D88C0835C39E8F2577866418969F0825 /* XeeAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0989586F2E98E8284F91F680CBA61972 /* Pods-XeeSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A19684C25AD73380D0E68692A403073B /* Pods-XeeSDK_Tests-dummy.m */; };
-		09A7DB81687751E86411970FD92001B2 /* Xee.m in Sources */ = {isa = PBXBuildFile; fileRef = 61628B1353966616BB8755E380BFECCA /* Xee.m */; };
-		0C3918A0D86F17D33F60522078407040 /* XeeTripRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E581BA4848142A6715C4B3FE6D9433C /* XeeTripRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		09A7DB81687751E86411970FD92001B2 /* Xee.m in Sources */ = {isa = PBXBuildFile; fileRef = F575F2A724DCB3DBC7E2CCC05085146A /* Xee.m */; };
+		0C3918A0D86F17D33F60522078407040 /* XeeTripRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = BACC38A78B337D37EE4E7B97E683DEF5 /* XeeTripRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0FB200B3352B24709B03A9A20B93DA61 /* Pods-XeeSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41BFA0E0409B6F9EA34B477D5D0DD80E /* Pods-XeeSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		113DBA5BFF4B3E48808BACE34CC48A13 /* XeeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B90D024FA2DF9CE838A3640B8DD539E /* XeeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		142C0DC43AAD8C9930F7C059EEA4B7B2 /* XeeRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 4327399AB7D526C39D332BDDB42FEE50 /* XeeRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		16907ADD45940ADBFA178B435B84D663 /* XeeRegisterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A48A3AEEF46FE5650A2DF651C9BD06 /* XeeRegisterButton.m */; };
-		185D7DC3BD1E3302B1719F70433A90D7 /* NSDateFormatter+Xee.h in Headers */ = {isa = PBXBuildFile; fileRef = 14A6C9C9FE6E6DDDCEE9CF5410575A9E /* NSDateFormatter+Xee.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F60F971CB05077D2C43CAB289236827 /* Xee-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3A938A646DB248CEFA7E9106147990 /* Xee-SDK-dummy.m */; };
-		2198BD9DECA0B86879B57014A70C7210 /* NSDateFormatter+Xee.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A0DF9AD3604B930463C5237CB4535C0 /* NSDateFormatter+Xee.m */; };
-		236638E83676284EF57D64B11338778A /* XeeTripRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C77CCAB9C343D72FC5DEC981AAFFC39 /* XeeTripRoute.m */; };
+		113DBA5BFF4B3E48808BACE34CC48A13 /* XeeConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = A2836DF4634CBD9D4EAB785741FA02B7 /* XeeConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		142C0DC43AAD8C9930F7C059EEA4B7B2 /* XeeRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C1A15E84008DD878F6D6F47F6102308 /* XeeRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16907ADD45940ADBFA178B435B84D663 /* XeeRegisterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A5265D3642F8CE082A86FCEF1B91D1F8 /* XeeRegisterButton.m */; };
+		185D7DC3BD1E3302B1719F70433A90D7 /* NSDateFormatter+Xee.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D2E2D74C7F694B89D2EA6AF146C01A1 /* NSDateFormatter+Xee.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F60F971CB05077D2C43CAB289236827 /* Xee-SDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF1E24356D44AA7B9FDBC6CFD120545 /* Xee-SDK-dummy.m */; };
+		2198BD9DECA0B86879B57014A70C7210 /* NSDateFormatter+Xee.m in Sources */ = {isa = PBXBuildFile; fileRef = F0CBE420B4AA6CA5701822A05087B49D /* NSDateFormatter+Xee.m */; };
+		236638E83676284EF57D64B11338778A /* XeeTripRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A043F02772753E580870CD7122450EB /* XeeTripRoute.m */; };
 		2519B5D9D9FE6F134AD89ED1AFDD07CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		2DCB8F2D6CE46F6E5B0137A4987BEC42 /* XeeRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = E28BB80D28FD5AC70DF49A8646E25B48 /* XeeRoute.m */; };
-		2EA88C0FFA9AC0A71605FA986B968256 /* XeeAccelerometer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9947A224187951163FEB781265275453 /* XeeAccelerometer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2DCB8F2D6CE46F6E5B0137A4987BEC42 /* XeeRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 54B216203051EC37B7D08125AEA7A5C2 /* XeeRoute.m */; };
+		2EA88C0FFA9AC0A71605FA986B968256 /* XeeAccelerometer.h in Headers */ = {isa = PBXBuildFile; fileRef = DD4E98F3A8076140EA3BBC7778F50FD9 /* XeeAccelerometer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2FA702F79991E5318C4256F54FEE74DC /* Pods-XeeSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC66E10204914666CB30921FEC1D19B7 /* Pods-XeeSDK_Example-dummy.m */; };
-		35C85BE63C3B7E06B6F68AD84E7D8276 /* XeeCar.h in Headers */ = {isa = PBXBuildFile; fileRef = 039214BE5D7CACAC79B428AEDC67D7CA /* XeeCar.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		35F5762C44F80EABAE79856813DE184E /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = C65C219DA444F0E6D7548CD242823D31 /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		36E6CC025B2F71DB4222568F6FDD768F /* XeeStatRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 63F0A7392ED37A7B4DE0219FEFBE8E4C /* XeeStatRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B4F0CCDA59E7515B020B158BF8D40CC /* XeeHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5DB131914E526AA212D526960F5E1F6 /* XeeHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35C85BE63C3B7E06B6F68AD84E7D8276 /* XeeCar.h in Headers */ = {isa = PBXBuildFile; fileRef = 148B0620994F910BB18A13F282C011AF /* XeeCar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		35F5762C44F80EABAE79856813DE184E /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 9451E024990ADECB6965ED61F93D195D /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		36E6CC025B2F71DB4222568F6FDD768F /* XeeStatRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B3209B607D750682D4A9AA06BD658F5 /* XeeStatRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B4F0CCDA59E7515B020B158BF8D40CC /* XeeHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 54710F39FF27A8739A421501A3B604F7 /* XeeHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		408816A5DA2AC4C556FF34C7DCA34701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		412B6F191D6E6D8A4E0DF146B91BD705 /* XeeStat.h in Headers */ = {isa = PBXBuildFile; fileRef = 08B7CFE7EE0FBA364972BAA6DA0023C0 /* XeeStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4199DC4FAADB39B71F9AE93D5ECCD2FA /* XeeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8392367EFC69864BA2EC209B8AEF8F60 /* XeeUser.m */; };
-		4324F4D1ED94C7241513C3427226CE56 /* XeeDeviceStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 73ABABD6D5CFB0DF25C54062CED0F1D3 /* XeeDeviceStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43FDAB120E90653741BE28D07584A1E9 /* XeeStatRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 5228386E52E67126F89ED1AFC3603707 /* XeeStatRoute.m */; };
-		46256E1C596FEC8AA5CC63150B549A1B /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 516717569AC57A9510929024BECDA7F8 /* XeeDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5466BDC60C68A1170EDC3885ACDBCDD2 /* XeeRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 02ED7A228E3EDA85970CE7DF4F52AA87 /* XeeRequestManager.m */; };
-		5D46D86D5B4968A6B33CB3DF78883F4D /* XeeDeviceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5CF3F06358C50F34D87659F6CA2EF6 /* XeeDeviceStatus.m */; };
-		5E4DCDE1B218F4593B48AEE1B5E71847 /* XeeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = AEE4B21AA23AC5C0BB2DF2C15900081B /* XeeLocation.m */; };
-		5FD0F7301FB36E88F91B76448DD9E577 /* XeeStat.m in Sources */ = {isa = PBXBuildFile; fileRef = D1DFA228CCD156CE016605543FAEFC13 /* XeeStat.m */; };
-		61DC12219C54A3D25CA3790D7349F869 /* XeeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = D8118CBDDA657C994A07EB6816E1A8FA /* XeeCar.m */; };
-		62172B8C2751C5A6B3B08CE67D0408C2 /* XeeConnectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C25F14976BFB237F59523EAD7CCA10D4 /* XeeConnectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63A82855CE24F7D6F7470DB0552CD410 /* XeeAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 71529E7A58ECC28AADC6C4F49CDE789D /* XeeAccessToken.m */; };
-		689E7EC9C724996146809050E033A6F6 /* XeeUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F884C7D123973AEFB6BDFAA79861204 /* XeeUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6B91CE80D057516EBB91ED40E79400D9 /* XeeTrip.h in Headers */ = {isa = PBXBuildFile; fileRef = 72C8CE5B3E1A1B2C8B3C7E9D8E192FD6 /* XeeTrip.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		412B6F191D6E6D8A4E0DF146B91BD705 /* XeeStat.h in Headers */ = {isa = PBXBuildFile; fileRef = AAE6DCD916A9046A4CD47A9CBDA882A8 /* XeeStat.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4199DC4FAADB39B71F9AE93D5ECCD2FA /* XeeUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E134BDE89BB25734D4E50A63956772CA /* XeeUser.m */; };
+		4324F4D1ED94C7241513C3427226CE56 /* XeeDeviceStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A07277C1ED903D4E210CD05CAC4B685 /* XeeDeviceStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		43FDAB120E90653741BE28D07584A1E9 /* XeeStatRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D8834023FA5657F098A34AA9078766 /* XeeStatRoute.m */; };
+		46256E1C596FEC8AA5CC63150B549A1B /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7282B61A7D3912B30805C2DA028504 /* XeeDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5466BDC60C68A1170EDC3885ACDBCDD2 /* XeeRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD89B4A73C06443C6D1A1289F5C7E3E /* XeeRequestManager.m */; };
+		5D46D86D5B4968A6B33CB3DF78883F4D /* XeeDeviceStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 71488D634983B848473E3B73B106BA16 /* XeeDeviceStatus.m */; };
+		5E4DCDE1B218F4593B48AEE1B5E71847 /* XeeLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5499C7DF5836A2E3472A045300702C /* XeeLocation.m */; };
+		5FD0F7301FB36E88F91B76448DD9E577 /* XeeStat.m in Sources */ = {isa = PBXBuildFile; fileRef = F8C483E471A2DB1E65510839401C8961 /* XeeStat.m */; };
+		61DC12219C54A3D25CA3790D7349F869 /* XeeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 545A4CB2F48A62A09BC05C7AFF646D24 /* XeeCar.m */; };
+		62172B8C2751C5A6B3B08CE67D0408C2 /* XeeConnectManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A29664E7F6C706AFF51E1C2D232E3D94 /* XeeConnectManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		63A82855CE24F7D6F7470DB0552CD410 /* XeeAccessToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 1336BE73FD9C3A77F22524FC2BE27F37 /* XeeAccessToken.m */; };
+		689E7EC9C724996146809050E033A6F6 /* XeeUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1C3A8358829C2A56D8C50470EF04F73B /* XeeUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B91CE80D057516EBB91ED40E79400D9 /* XeeTrip.h in Headers */ = {isa = PBXBuildFile; fileRef = 610BAFBB741DDC08F5B32590583BF35B /* XeeTrip.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6DD5D67422217A86CBB39BD10CDB11E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		8B5186C1E6A9C77D76BAB94A8709DDC6 /* XeeConnectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 07DF3AA986895CD9328001520071A1AB /* XeeConnectManager.m */; };
-		8EC25B332B427ABABD708A73A5A91347 /* XeeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = EE0C8FBFD24AFA0FD304E0DCEC55B1ED /* XeeDevice.m */; };
-		92F891C4698F559A99DB24A50CE3502E /* XeeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 6270FF7DBC634BA6226BA3230A5279FF /* XeeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97F53C05D534593E58A5EAC6257FD962 /* XeeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 833A4BFEFE8E4A3DC3BB2CE268220068 /* XeeModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9812CEB8C7BDB1B28AC8291AEAFAEC1B /* XeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A8666AFDCAFD909948A3B7082F0557A /* XeeModel.m */; };
-		9F0B4C0751EEDF5EB8E131C50E3D3713 /* XeeLoginButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C2EED884BBB3624EB1A2FF0928AAD1A /* XeeLoginButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A33AA4A1C84029EDA363FC27D5149BD4 /* XeeCarStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BB910DC41193EFED470EBC774C7D95E /* XeeCarStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A3B3F16E118A09E6401CEB91A891717B /* XeeAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C29E07E0FE1C9456CD00208C2D4E43 /* XeeAccelerometer.m */; };
-		ABD7BE865677362FCB2568D73690C319 /* XeeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 26087FBD968DEF2A0A59BEEE524A1E25 /* XeeConfig.m */; };
-		AC1BBB1BF626BF616258B3C1C20367D7 /* local.strings in Resources */ = {isa = PBXBuildFile; fileRef = 827AB7A21416929B4E4F927E09A964A4 /* local.strings */; };
-		B2B35EC3382A91C4FE3D37092C0863D2 /* XeeCarRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 88A1D13F6124B154E7547C3115536922 /* XeeCarRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9B3AB68EDAA67EC7336048D0A49A5BF /* Xee-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C4A6672E10593ABCC8A781F947360D21 /* Xee-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B9ED213B5AE328BF78EDF71A82B8C669 /* XeeTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 30B82C97B7BCC9810B28F40A558FB05D /* XeeTrip.m */; };
-		B9F24FC6462946C583FB2C7F07BC7A03 /* XeeUserRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C6F50ED6E4F84F03EB5123743AE4ECB /* XeeUserRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1FAFFA741D1AB8CA7044CDA2C10E9A8 /* Xee.h in Headers */ = {isa = PBXBuildFile; fileRef = 20A2801FB4DA15CC449C649B5DE4E875 /* Xee.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C5C9678CA65BCA7CD7756765A8C565CE /* XeeUserRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F973C3BA73A02CF9973ABE5DA1E99B /* XeeUserRoute.m */; };
-		C60117D572AA826877431AF128F753A8 /* XeeLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = B2FAE1D7E65B25F0474C8FA5E765FEE2 /* XeeLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C6B55220183CB4B68C55B3780A4D126A /* XeeHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 030BB1870C0C5E2EC7E01169AFF3084A /* XeeHTTPClient.m */; };
-		CBA182ED221AD9FB24750A88D505C48D /* XeeDeviceRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 36ECC9C23A93A57A0E39053BEADE4B9B /* XeeDeviceRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CFF26A24EFE0B721F8BB14A2263AD168 /* XeeDeviceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 9393763900E489FB341C64860DF6B27E /* XeeDeviceRoute.m */; };
+		8B5186C1E6A9C77D76BAB94A8709DDC6 /* XeeConnectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3204B8BEA9EEF435982BA9747E488691 /* XeeConnectManager.m */; };
+		8EC25B332B427ABABD708A73A5A91347 /* XeeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = F935C3DF95EE6E1C6617B740441C1898 /* XeeDevice.m */; };
+		92F891C4698F559A99DB24A50CE3502E /* XeeSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E97611D87672E3AAE00ADAC8A9FFD25 /* XeeSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		97F53C05D534593E58A5EAC6257FD962 /* XeeModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF434C85D4B08461599A23B478FE904F /* XeeModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9812CEB8C7BDB1B28AC8291AEAFAEC1B /* XeeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D775A81D93FCEB92C4D16C0635F1FE08 /* XeeModel.m */; };
+		9F0B4C0751EEDF5EB8E131C50E3D3713 /* XeeLoginButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 50808D8AB2F4E61D528E3FC3B0352EC4 /* XeeLoginButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A33AA4A1C84029EDA363FC27D5149BD4 /* XeeCarStatus.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CCE6BC08F111C617C6E28F6FDE1FEF4 /* XeeCarStatus.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3B3F16E118A09E6401CEB91A891717B /* XeeAccelerometer.m in Sources */ = {isa = PBXBuildFile; fileRef = B55D4C1F4F5D720A5001AD41E19013FE /* XeeAccelerometer.m */; };
+		ABD7BE865677362FCB2568D73690C319 /* XeeConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 915727D6718DD63DD50D49CF962E3A25 /* XeeConfig.m */; };
+		AC1BBB1BF626BF616258B3C1C20367D7 /* local.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA42C49D8E5775846FE9FD3DEA4E0518 /* local.strings */; };
+		B2B35EC3382A91C4FE3D37092C0863D2 /* XeeCarRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = E65C9B895F79068CA7CA8F6859663E45 /* XeeCarRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9B3AB68EDAA67EC7336048D0A49A5BF /* Xee-SDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 907873414B9F195DF960DB50DB219DC3 /* Xee-SDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9ED213B5AE328BF78EDF71A82B8C669 /* XeeTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE3337DD5AB80CB248427A4651B19B3 /* XeeTrip.m */; };
+		B9F24FC6462946C583FB2C7F07BC7A03 /* XeeUserRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = FDC7BE02117AEE8B823E55F3A15FF526 /* XeeUserRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C1FAFFA741D1AB8CA7044CDA2C10E9A8 /* Xee.h in Headers */ = {isa = PBXBuildFile; fileRef = 893683C8BD4F121F76EFA9A768BBBA5B /* Xee.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5C9678CA65BCA7CD7756765A8C565CE /* XeeUserRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = A6BD8ABF936F83BA4F503B7FD2D52653 /* XeeUserRoute.m */; };
+		C60117D572AA826877431AF128F753A8 /* XeeLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = F9D30EC11FF8B5185AFA2B9849396E9C /* XeeLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C6B55220183CB4B68C55B3780A4D126A /* XeeHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 54643AF95DCC0D78C2FAF0A0356A8B0B /* XeeHTTPClient.m */; };
+		CBA182ED221AD9FB24750A88D505C48D /* XeeDeviceRoute.h in Headers */ = {isa = PBXBuildFile; fileRef = 21DC975D85B55B93BAFB6E5F01BE6B7E /* XeeDeviceRoute.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFF26A24EFE0B721F8BB14A2263AD168 /* XeeDeviceRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = 053B9094FA7A246803C1ABB73F810BA1 /* XeeDeviceRoute.m */; };
 		D6A8D9E6E3577C26A36EA17CC9CAB50C /* XeeSDKBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BD9BAC8221E9058D8802E22DEE3B5648 /* XeeSDKBundle.bundle */; };
-		D6FDCE5CE06512CE5BE739F6591E220C /* XeeError.h in Headers */ = {isa = PBXBuildFile; fileRef = DED5006CBED1D479368C094EE27899FF /* XeeError.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DBE15E3421AD6CA1AF90292808BC1B57 /* XeeRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = BE2F749A12D450BACE81528ED6AB8A26 /* XeeRequestManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D6FDCE5CE06512CE5BE739F6591E220C /* XeeError.h in Headers */ = {isa = PBXBuildFile; fileRef = 6EC378607E9687DBA07DC1D17928B98D /* XeeError.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBE15E3421AD6CA1AF90292808BC1B57 /* XeeRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D615002B0520A7C282314D722064D098 /* XeeRequestManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E6FB27CE47B5C47CF0B5AB3A32C90640 /* Pods-XeeSDK_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4777B5365997B97D8FABC191D41C2ED3 /* Pods-XeeSDK_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ECB993D715CB7F88D6C049F8646B10F4 /* XeeCarStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 942EC20DB6817D9863D5AE5D1B25CDB8 /* XeeCarStatus.m */; };
-		F1E091136E5229CA80BA981FF0441C0E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F0454784A6B9DBDE32E690C1EF770CF /* Media.xcassets */; };
-		F8D2D2B109957139073F513DB277ED33 /* XeeLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 12F7F9D8B7673FF0F03B49BCE413D7A6 /* XeeLoginButton.m */; };
-		FBF21C7492D0E391F53DA51011849BF0 /* XeeError.m in Sources */ = {isa = PBXBuildFile; fileRef = B074AE7BBCDDEAEE7A35150DBE287955 /* XeeError.m */; };
-		FEFB7F994EF1E495EBE038BAC92FE57B /* XeeCarRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = BA0C63995EE04F211685D5E69B451998 /* XeeCarRoute.m */; };
+		ECB993D715CB7F88D6C049F8646B10F4 /* XeeCarStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E12A86EAAFC210BFA3596B225A9C207 /* XeeCarStatus.m */; };
+		F1E091136E5229CA80BA981FF0441C0E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06762539140DC4B868633BEE2D18F238 /* Media.xcassets */; };
+		F8D2D2B109957139073F513DB277ED33 /* XeeLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5F981475D41F72DD56FF82FE5CD8FD /* XeeLoginButton.m */; };
+		FBF21C7492D0E391F53DA51011849BF0 /* XeeError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BBCC432F061F73DED645C680EDA1DBD /* XeeError.m */; };
+		FEFB7F994EF1E495EBE038BAC92FE57B /* XeeCarRoute.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDF873BE544915244310CBCB851192B /* XeeCarRoute.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,101 +94,101 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		01C29E07E0FE1C9456CD00208C2D4E43 /* XeeAccelerometer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeAccelerometer.m; sourceTree = "<group>"; };
-		02ED7A228E3EDA85970CE7DF4F52AA87 /* XeeRequestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRequestManager.m; sourceTree = "<group>"; };
-		030BB1870C0C5E2EC7E01169AFF3084A /* XeeHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeHTTPClient.m; sourceTree = "<group>"; };
-		039214BE5D7CACAC79B428AEDC67D7CA /* XeeCar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCar.h; sourceTree = "<group>"; };
+		025F763F4DB3DACA7A5A27F78D739CD8 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
+		034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Xee-SDK.xcconfig"; sourceTree = "<group>"; };
 		04205488E05F84C536B1452F874FCF30 /* Pods-XeeSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XeeSDK_Example.modulemap"; sourceTree = "<group>"; };
-		04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Xee-SDK.xcconfig"; sourceTree = "<group>"; };
 		04DA63AB4DF387896037BFAC58DEE484 /* Pods-XeeSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		04F973C3BA73A02CF9973ABE5DA1E99B /* XeeUserRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeUserRoute.m; sourceTree = "<group>"; };
-		07DF3AA986895CD9328001520071A1AB /* XeeConnectManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeConnectManager.m; sourceTree = "<group>"; };
-		08B7CFE7EE0FBA364972BAA6DA0023C0 /* XeeStat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeStat.h; sourceTree = "<group>"; };
-		0D6725EAFB6F7AB8EDD602A9C9758C9D /* XeeSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeSignal.m; sourceTree = "<group>"; };
+		053B9094FA7A246803C1ABB73F810BA1 /* XeeDeviceRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDeviceRoute.m; sourceTree = "<group>"; };
+		06762539140DC4B868633BEE2D18F238 /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		0A043F02772753E580870CD7122450EB /* XeeTripRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeTripRoute.m; sourceTree = "<group>"; };
+		0B3209B607D750682D4A9AA06BD658F5 /* XeeStatRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeStatRoute.h; sourceTree = "<group>"; };
 		0EF897732DEDECE5FBE2B2DA69BD451E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		12F7F9D8B7673FF0F03B49BCE413D7A6 /* XeeLoginButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeLoginButton.m; sourceTree = "<group>"; };
-		14A6C9C9FE6E6DDDCEE9CF5410575A9E /* NSDateFormatter+Xee.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Xee.h"; sourceTree = "<group>"; };
-		20A2801FB4DA15CC449C649B5DE4E875 /* Xee.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Xee.h; sourceTree = "<group>"; };
-		26087FBD968DEF2A0A59BEEE524A1E25 /* XeeConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeConfig.m; sourceTree = "<group>"; };
-		2C77CCAB9C343D72FC5DEC981AAFFC39 /* XeeTripRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeTripRoute.m; sourceTree = "<group>"; };
-		2C978CDBB70491DBE8615A8A2C2F1D5A /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
-		30B82C97B7BCC9810B28F40A558FB05D /* XeeTrip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeTrip.m; sourceTree = "<group>"; };
-		36ECC9C23A93A57A0E39053BEADE4B9B /* XeeDeviceRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDeviceRoute.h; sourceTree = "<group>"; };
-		3A8666AFDCAFD909948A3B7082F0557A /* XeeModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeModel.m; sourceTree = "<group>"; };
-		3C35E73215BBE7EAC9D946D504186342 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = fr.lproj/local.strings; sourceTree = "<group>"; };
+		1336BE73FD9C3A77F22524FC2BE27F37 /* XeeAccessToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeAccessToken.m; sourceTree = "<group>"; };
+		148B0620994F910BB18A13F282C011AF /* XeeCar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCar.h; sourceTree = "<group>"; };
+		1B2315A5B2AD2D1ADB3C45C4B9886540 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = fr.lproj/local.strings; sourceTree = "<group>"; };
+		1C3A8358829C2A56D8C50470EF04F73B /* XeeUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeUser.h; sourceTree = "<group>"; };
+		21DC975D85B55B93BAFB6E5F01BE6B7E /* XeeDeviceRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDeviceRoute.h; sourceTree = "<group>"; };
+		225B0C35F2B440C0E8F095589EC46064 /* ResourceBundle-XeeSDKBundle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-XeeSDKBundle-Info.plist"; sourceTree = "<group>"; };
+		2D2E2D74C7F694B89D2EA6AF146C01A1 /* NSDateFormatter+Xee.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Xee.h"; sourceTree = "<group>"; };
+		3204B8BEA9EEF435982BA9747E488691 /* XeeConnectManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeConnectManager.m; sourceTree = "<group>"; };
 		41BFA0E0409B6F9EA34B477D5D0DD80E /* Pods-XeeSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4327399AB7D526C39D332BDDB42FEE50 /* XeeRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRoute.h; sourceTree = "<group>"; };
+		427966858B52E85B35AD36FA769FE71F /* Xee-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Xee-SDK-prefix.pch"; sourceTree = "<group>"; };
 		4777B5365997B97D8FABC191D41C2ED3 /* Pods-XeeSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Example-umbrella.h"; sourceTree = "<group>"; };
-		47A48A3AEEF46FE5650A2DF651C9BD06 /* XeeRegisterButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRegisterButton.m; sourceTree = "<group>"; };
-		4B90D024FA2DF9CE838A3640B8DD539E /* XeeConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeConfig.h; sourceTree = "<group>"; };
-		4C6F50ED6E4F84F03EB5123743AE4ECB /* XeeUserRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeUserRoute.h; sourceTree = "<group>"; };
-		4F884C7D123973AEFB6BDFAA79861204 /* XeeUser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeUser.h; sourceTree = "<group>"; };
+		4CF30B844FC93C5BFE40A0FAB93E7037 /* XeeSignal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeSignal.h; sourceTree = "<group>"; };
+		4E97611D87672E3AAE00ADAC8A9FFD25 /* XeeSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeSDK.h; sourceTree = "<group>"; };
+		50808D8AB2F4E61D528E3FC3B0352EC4 /* XeeLoginButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeLoginButton.h; sourceTree = "<group>"; };
 		50DEC013AE9CAFAB0B2032262D84979F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		51072AB7FA83569B2803AC8A657EACB9 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = es.lproj/local.strings; sourceTree = "<group>"; };
-		516717569AC57A9510929024BECDA7F8 /* XeeDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDevice.h; sourceTree = "<group>"; };
-		5228386E52E67126F89ED1AFC3603707 /* XeeStatRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeStatRoute.m; sourceTree = "<group>"; };
-		61628B1353966616BB8755E380BFECCA /* Xee.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Xee.m; sourceTree = "<group>"; };
-		625D81EC30E06C465480B96C8B45BF46 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = nl.lproj/local.strings; sourceTree = "<group>"; };
-		6270FF7DBC634BA6226BA3230A5279FF /* XeeSDK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeSDK.h; sourceTree = "<group>"; };
-		63F0A7392ED37A7B4DE0219FEFBE8E4C /* XeeStatRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeStatRoute.h; sourceTree = "<group>"; };
+		545A4CB2F48A62A09BC05C7AFF646D24 /* XeeCar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCar.m; sourceTree = "<group>"; };
+		54643AF95DCC0D78C2FAF0A0356A8B0B /* XeeHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeHTTPClient.m; sourceTree = "<group>"; };
+		54710F39FF27A8739A421501A3B604F7 /* XeeHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeHTTPClient.h; sourceTree = "<group>"; };
+		54B216203051EC37B7D08125AEA7A5C2 /* XeeRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRoute.m; sourceTree = "<group>"; };
+		5766C02B3D041D38853AF7D02E7712F4 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = es.lproj/local.strings; sourceTree = "<group>"; };
+		610BAFBB741DDC08F5B32590583BF35B /* XeeTrip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeTrip.h; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		675223C1F109444F47007DFA37FB9621 /* Xee-SDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Xee-SDK-prefix.pch"; sourceTree = "<group>"; };
-		71529E7A58ECC28AADC6C4F49CDE789D /* XeeAccessToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeAccessToken.m; sourceTree = "<group>"; };
-		72C8CE5B3E1A1B2C8B3C7E9D8E192FD6 /* XeeTrip.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeTrip.h; sourceTree = "<group>"; };
-		73ABABD6D5CFB0DF25C54062CED0F1D3 /* XeeDeviceStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDeviceStatus.h; sourceTree = "<group>"; };
-		7C2EED884BBB3624EB1A2FF0928AAD1A /* XeeLoginButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeLoginButton.h; sourceTree = "<group>"; };
+		6EC378607E9687DBA07DC1D17928B98D /* XeeError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeError.h; sourceTree = "<group>"; };
+		71488D634983B848473E3B73B106BA16 /* XeeDeviceStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDeviceStatus.m; sourceTree = "<group>"; };
+		73640CA91AD2058DCAE73418B6CCAFAD /* Xee-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Xee-SDK.modulemap"; sourceTree = "<group>"; };
+		7A07277C1ED903D4E210CD05CAC4B685 /* XeeDeviceStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDeviceStatus.h; sourceTree = "<group>"; };
+		7BBCC432F061F73DED645C680EDA1DBD /* XeeError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeError.m; sourceTree = "<group>"; };
+		7E12A86EAAFC210BFA3596B225A9C207 /* XeeCarStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCarStatus.m; sourceTree = "<group>"; };
 		7F47BEA36E14FDAA3280FF68A2FDE682 /* Pods_XeeSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XeeSDK_Example.framework; path = "Pods-XeeSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82F797F94BB388C40F6C4A18279DC490 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
-		833A4BFEFE8E4A3DC3BB2CE268220068 /* XeeModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeModel.h; sourceTree = "<group>"; };
-		8392367EFC69864BA2EC209B8AEF8F60 /* XeeUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeUser.m; sourceTree = "<group>"; };
-		8689A4109D576E18E0D7CD68D73A7D0B /* XeeSignal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeSignal.h; sourceTree = "<group>"; };
 		883F2F9693574A7EC6C58448749E15B6 /* Pods-XeeSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XeeSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		88A1D13F6124B154E7547C3115536922 /* XeeCarRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCarRoute.h; sourceTree = "<group>"; };
-		8A0DF9AD3604B930463C5237CB4535C0 /* NSDateFormatter+Xee.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Xee.m"; sourceTree = "<group>"; };
-		8BB910DC41193EFED470EBC774C7D95E /* XeeCarStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCarStatus.h; sourceTree = "<group>"; };
+		893683C8BD4F121F76EFA9A768BBBA5B /* Xee.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Xee.h; sourceTree = "<group>"; };
+		8C1A15E84008DD878F6D6F47F6102308 /* XeeRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRoute.h; sourceTree = "<group>"; };
 		8E0E40FFF829D6846421D881641E81DD /* Pods_XeeSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XeeSDK_Tests.framework; path = "Pods-XeeSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E581BA4848142A6715C4B3FE6D9433C /* XeeTripRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeTripRoute.h; sourceTree = "<group>"; };
-		8F0454784A6B9DBDE32E690C1EF770CF /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		9393763900E489FB341C64860DF6B27E /* XeeDeviceRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDeviceRoute.m; sourceTree = "<group>"; };
+		8F5499C7DF5836A2E3472A045300702C /* XeeLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeLocation.m; sourceTree = "<group>"; };
+		8FF1E24356D44AA7B9FDBC6CFD120545 /* Xee-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Xee-SDK-dummy.m"; sourceTree = "<group>"; };
+		907873414B9F195DF960DB50DB219DC3 /* Xee-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Xee-SDK-umbrella.h"; sourceTree = "<group>"; };
+		914FD50B538AB8ED7451B70DA1A8A313 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = nl.lproj/local.strings; sourceTree = "<group>"; };
+		915727D6718DD63DD50D49CF962E3A25 /* XeeConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeConfig.m; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		942EC20DB6817D9863D5AE5D1B25CDB8 /* XeeCarStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCarStatus.m; sourceTree = "<group>"; };
+		9451E024990ADECB6965ED61F93D195D /* XeeRegisterButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRegisterButton.h; sourceTree = "<group>"; };
 		97AE61B2A5FF4F621A9BB5D92D9A055C /* Pods-XeeSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		9947A224187951163FEB781265275453 /* XeeAccelerometer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeAccelerometer.h; sourceTree = "<group>"; };
+		97E9E33AE4EF443A849B5220BE763CB0 /* XeeSignal.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeSignal.m; sourceTree = "<group>"; };
+		9B7282B61A7D3912B30805C2DA028504 /* XeeDevice.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeDevice.h; sourceTree = "<group>"; };
 		9C3FC800813A35F0F928B1B5749C22D5 /* Pods-XeeSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XeeSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		9CCE6BC08F111C617C6E28F6FDE1FEF4 /* XeeCarStatus.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCarStatus.h; sourceTree = "<group>"; };
 		A19684C25AD73380D0E68692A403073B /* Pods-XeeSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XeeSDK_Tests-dummy.m"; sourceTree = "<group>"; };
+		A2836DF4634CBD9D4EAB785741FA02B7 /* XeeConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeConfig.h; sourceTree = "<group>"; };
+		A29664E7F6C706AFF51E1C2D232E3D94 /* XeeConnectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeConnectManager.h; sourceTree = "<group>"; };
 		A513258B1793941E5653BFB8E5AFA65C /* Pods-XeeSDK_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Tests-resources.sh"; sourceTree = "<group>"; };
+		A5265D3642F8CE082A86FCEF1B91D1F8 /* XeeRegisterButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRegisterButton.m; sourceTree = "<group>"; };
+		A6B84EEC8A1422D7B07F42CA34B96D26 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
+		A6BD8ABF936F83BA4F503B7FD2D52653 /* XeeUserRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeUserRoute.m; sourceTree = "<group>"; };
 		A746C11F65F7A3DC9EB298251D12F375 /* Pods-XeeSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XeeSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		AEE4B21AA23AC5C0BB2DF2C15900081B /* XeeLocation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeLocation.m; sourceTree = "<group>"; };
-		B074AE7BBCDDEAEE7A35150DBE287955 /* XeeError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeError.m; sourceTree = "<group>"; };
+		AAE6DCD916A9046A4CD47A9CBDA882A8 /* XeeStat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeStat.h; sourceTree = "<group>"; };
+		AF434C85D4B08461599A23B478FE904F /* XeeModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeModel.h; sourceTree = "<group>"; };
 		B08ECD87E643838CE253559825C4DF56 /* Pods-XeeSDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		B094AEA2DB2D7D8211F481535D2F84D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B2FAE1D7E65B25F0474C8FA5E765FEE2 /* XeeLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeLocation.h; sourceTree = "<group>"; };
-		B5DB131914E526AA212D526960F5E1F6 /* XeeHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeHTTPClient.h; sourceTree = "<group>"; };
-		B6163684528EAA755B0E8FA2F808D98E /* Xee-SDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Xee-SDK.modulemap"; sourceTree = "<group>"; };
-		BA0C63995EE04F211685D5E69B451998 /* XeeCarRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCarRoute.m; sourceTree = "<group>"; };
+		B55D4C1F4F5D720A5001AD41E19013FE /* XeeAccelerometer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeAccelerometer.m; sourceTree = "<group>"; };
+		BACC38A78B337D37EE4E7B97E683DEF5 /* XeeTripRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeTripRoute.h; sourceTree = "<group>"; };
 		BD9BAC8221E9058D8802E22DEE3B5648 /* XeeSDKBundle.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = XeeSDKBundle.bundle; path = XeeSDKBundle.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE2F749A12D450BACE81528ED6AB8A26 /* XeeRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRequestManager.h; sourceTree = "<group>"; };
-		BF5CF3F06358C50F34D87659F6CA2EF6 /* XeeDeviceStatus.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDeviceStatus.m; sourceTree = "<group>"; };
-		C25F14976BFB237F59523EAD7CCA10D4 /* XeeConnectManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeConnectManager.h; sourceTree = "<group>"; };
-		C2E59FF35A26CDBA40161EA733C8ECAD /* XeeAccessToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeAccessToken.h; sourceTree = "<group>"; };
-		C4A6672E10593ABCC8A781F947360D21 /* Xee-SDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Xee-SDK-umbrella.h"; sourceTree = "<group>"; };
 		C4F2B98AAE0D1CB60DA80A398132D19C /* Pods-XeeSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XeeSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		C65C219DA444F0E6D7548CD242823D31 /* XeeRegisterButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRegisterButton.h; sourceTree = "<group>"; };
 		CA50A58D5B1533C09106AEAF16C64B23 /* Pods-XeeSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
 		CC05C06595BC3C545CB1360BFBBD78F3 /* Pods-XeeSDK_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XeeSDK_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CE3A938A646DB248CEFA7E9106147990 /* Xee-SDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Xee-SDK-dummy.m"; sourceTree = "<group>"; };
-		D1DFA228CCD156CE016605543FAEFC13 /* XeeStat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeStat.m; sourceTree = "<group>"; };
-		D8118CBDDA657C994A07EB6816E1A8FA /* XeeCar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCar.m; sourceTree = "<group>"; };
-		DED5006CBED1D479368C094EE27899FF /* XeeError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeError.h; sourceTree = "<group>"; };
-		E28BB80D28FD5AC70DF49A8646E25B48 /* XeeRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRoute.m; sourceTree = "<group>"; };
+		CEDF873BE544915244310CBCB851192B /* XeeCarRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeCarRoute.m; sourceTree = "<group>"; };
+		D615002B0520A7C282314D722064D098 /* XeeRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeRequestManager.h; sourceTree = "<group>"; };
+		D775A81D93FCEB92C4D16C0635F1FE08 /* XeeModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeModel.m; sourceTree = "<group>"; };
+		D8329097CB5247C018C1B0585E7C97A7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D88C0835C39E8F2577866418969F0825 /* XeeAccessToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeAccessToken.h; sourceTree = "<group>"; };
+		DC5F981475D41F72DD56FF82FE5CD8FD /* XeeLoginButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeLoginButton.m; sourceTree = "<group>"; };
+		DD4E98F3A8076140EA3BBC7778F50FD9 /* XeeAccelerometer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeAccelerometer.h; sourceTree = "<group>"; };
+		DF38E7CD9CB2DFCAB15E2CE10762755A /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = it.lproj/local.strings; sourceTree = "<group>"; };
+		E134BDE89BB25734D4E50A63956772CA /* XeeUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeUser.m; sourceTree = "<group>"; };
+		E65C9B895F79068CA7CA8F6859663E45 /* XeeCarRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeCarRoute.h; sourceTree = "<group>"; };
 		ECA3ABA82E053CEC7E78441165DE77B1 /* XeeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XeeSDK.framework; path = "Xee-SDK.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECD6095A4AA1235676F62C4012ACA8A4 /* Pods-XeeSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Example-resources.sh"; sourceTree = "<group>"; };
-		EE0C8FBFD24AFA0FD304E0DCEC55B1ED /* XeeDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDevice.m; sourceTree = "<group>"; };
-		F3BDE7B28386890D208FF0CC0B665B99 /* ResourceBundle-XeeSDKBundle-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-XeeSDKBundle-Info.plist"; sourceTree = "<group>"; };
+		ECE3337DD5AB80CB248427A4651B19B3 /* XeeTrip.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeTrip.m; sourceTree = "<group>"; };
+		EFD89B4A73C06443C6D1A1289F5C7E3E /* XeeRequestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeRequestManager.m; sourceTree = "<group>"; };
+		F0CBE420B4AA6CA5701822A05087B49D /* NSDateFormatter+Xee.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Xee.m"; sourceTree = "<group>"; };
+		F575F2A724DCB3DBC7E2CCC05085146A /* Xee.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Xee.m; sourceTree = "<group>"; };
 		F6ADE4FE455522F13DA79FDF2A88D2BC /* Pods-XeeSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F6D87F7C76B9F176EB55048AB236E4A5 /* Pods-XeeSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
+		F7D8834023FA5657F098A34AA9078766 /* XeeStatRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeStatRoute.m; sourceTree = "<group>"; };
+		F8C483E471A2DB1E65510839401C8961 /* XeeStat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeStat.m; sourceTree = "<group>"; };
+		F935C3DF95EE6E1C6617B740441C1898 /* XeeDevice.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = XeeDevice.m; sourceTree = "<group>"; };
+		F9D30EC11FF8B5185AFA2B9849396E9C /* XeeLocation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeLocation.h; sourceTree = "<group>"; };
 		FC66E10204914666CB30921FEC1D19B7 /* Pods-XeeSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XeeSDK_Example-dummy.m"; sourceTree = "<group>"; };
-		FDBD2EE1DA8247EC3F5CD59A90255C12 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = it.lproj/local.strings; sourceTree = "<group>"; };
+		FDC7BE02117AEE8B823E55F3A15FF526 /* XeeUserRoute.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = XeeUserRoute.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,100 +226,93 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12C72DCE99AF8695ABEDCFA1B5E41890 /* Development Pods */ = {
+		2CB26A5A471E5343DAF3C6D878DD9922 /* Xee-SDK */ = {
 			isa = PBXGroup;
 			children = (
-				8D2F8125866FCCB24A88D6D592D15F8C /* Xee-SDK */,
+				D9F1DD516A064F229AB74C54659A8B40 /* Resources */,
+				4B814AF86F621467E0A2821F80CA8447 /* Support Files */,
+				50FB531A92321318CC5D6FF0CB32F32C /* XeeSDK */,
 			);
-			name = "Development Pods";
+			name = "Xee-SDK";
+			path = ../..;
 			sourceTree = "<group>";
 		};
-		12F0B252815353964B28873CCF64027A /* Model */ = {
+		4B814AF86F621467E0A2821F80CA8447 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				9947A224187951163FEB781265275453 /* XeeAccelerometer.h */,
-				01C29E07E0FE1C9456CD00208C2D4E43 /* XeeAccelerometer.m */,
-				C2E59FF35A26CDBA40161EA733C8ECAD /* XeeAccessToken.h */,
-				71529E7A58ECC28AADC6C4F49CDE789D /* XeeAccessToken.m */,
-				039214BE5D7CACAC79B428AEDC67D7CA /* XeeCar.h */,
-				D8118CBDDA657C994A07EB6816E1A8FA /* XeeCar.m */,
-				8BB910DC41193EFED470EBC774C7D95E /* XeeCarStatus.h */,
-				942EC20DB6817D9863D5AE5D1B25CDB8 /* XeeCarStatus.m */,
-				4B90D024FA2DF9CE838A3640B8DD539E /* XeeConfig.h */,
-				26087FBD968DEF2A0A59BEEE524A1E25 /* XeeConfig.m */,
-				516717569AC57A9510929024BECDA7F8 /* XeeDevice.h */,
-				EE0C8FBFD24AFA0FD304E0DCEC55B1ED /* XeeDevice.m */,
-				73ABABD6D5CFB0DF25C54062CED0F1D3 /* XeeDeviceStatus.h */,
-				BF5CF3F06358C50F34D87659F6CA2EF6 /* XeeDeviceStatus.m */,
-				DED5006CBED1D479368C094EE27899FF /* XeeError.h */,
-				B074AE7BBCDDEAEE7A35150DBE287955 /* XeeError.m */,
-				B2FAE1D7E65B25F0474C8FA5E765FEE2 /* XeeLocation.h */,
-				AEE4B21AA23AC5C0BB2DF2C15900081B /* XeeLocation.m */,
-				833A4BFEFE8E4A3DC3BB2CE268220068 /* XeeModel.h */,
-				3A8666AFDCAFD909948A3B7082F0557A /* XeeModel.m */,
-				8689A4109D576E18E0D7CD68D73A7D0B /* XeeSignal.h */,
-				0D6725EAFB6F7AB8EDD602A9C9758C9D /* XeeSignal.m */,
-				08B7CFE7EE0FBA364972BAA6DA0023C0 /* XeeStat.h */,
-				D1DFA228CCD156CE016605543FAEFC13 /* XeeStat.m */,
-				72C8CE5B3E1A1B2C8B3C7E9D8E192FD6 /* XeeTrip.h */,
-				30B82C97B7BCC9810B28F40A558FB05D /* XeeTrip.m */,
-				4F884C7D123973AEFB6BDFAA79861204 /* XeeUser.h */,
-				8392367EFC69864BA2EC209B8AEF8F60 /* XeeUser.m */,
-			);
-			name = Model;
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2B0E4D8B1B148406375C65A52B2798BC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				B094AEA2DB2D7D8211F481535D2F84D2 /* Info.plist */,
-				F3BDE7B28386890D208FF0CC0B665B99 /* ResourceBundle-XeeSDKBundle-Info.plist */,
-				B6163684528EAA755B0E8FA2F808D98E /* Xee-SDK.modulemap */,
-				04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */,
-				CE3A938A646DB248CEFA7E9106147990 /* Xee-SDK-dummy.m */,
-				675223C1F109444F47007DFA37FB9621 /* Xee-SDK-prefix.pch */,
-				C4A6672E10593ABCC8A781F947360D21 /* Xee-SDK-umbrella.h */,
+				D8329097CB5247C018C1B0585E7C97A7 /* Info.plist */,
+				225B0C35F2B440C0E8F095589EC46064 /* ResourceBundle-XeeSDKBundle-Info.plist */,
+				73640CA91AD2058DCAE73418B6CCAFAD /* Xee-SDK.modulemap */,
+				034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */,
+				8FF1E24356D44AA7B9FDBC6CFD120545 /* Xee-SDK-dummy.m */,
+				427966858B52E85B35AD36FA769FE71F /* Xee-SDK-prefix.pch */,
+				907873414B9F195DF960DB50DB219DC3 /* Xee-SDK-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "Example/Pods/Target Support Files/Xee-SDK";
 			sourceTree = "<group>";
 		};
-		33063B286088B406019B647891AE0656 /* XeeSDK */ = {
+		50FB531A92321318CC5D6FF0CB32F32C /* XeeSDK */ = {
 			isa = PBXGroup;
 			children = (
-				CF5DF4E9E7529AAEDAA6F7E212724D06 /* UI */,
+				2D2E2D74C7F694B89D2EA6AF146C01A1 /* NSDateFormatter+Xee.h */,
+				F0CBE420B4AA6CA5701822A05087B49D /* NSDateFormatter+Xee.m */,
+				893683C8BD4F121F76EFA9A768BBBA5B /* Xee.h */,
+				F575F2A724DCB3DBC7E2CCC05085146A /* Xee.m */,
+				DD4E98F3A8076140EA3BBC7778F50FD9 /* XeeAccelerometer.h */,
+				B55D4C1F4F5D720A5001AD41E19013FE /* XeeAccelerometer.m */,
+				D88C0835C39E8F2577866418969F0825 /* XeeAccessToken.h */,
+				1336BE73FD9C3A77F22524FC2BE27F37 /* XeeAccessToken.m */,
+				148B0620994F910BB18A13F282C011AF /* XeeCar.h */,
+				545A4CB2F48A62A09BC05C7AFF646D24 /* XeeCar.m */,
+				E65C9B895F79068CA7CA8F6859663E45 /* XeeCarRoute.h */,
+				CEDF873BE544915244310CBCB851192B /* XeeCarRoute.m */,
+				9CCE6BC08F111C617C6E28F6FDE1FEF4 /* XeeCarStatus.h */,
+				7E12A86EAAFC210BFA3596B225A9C207 /* XeeCarStatus.m */,
+				A2836DF4634CBD9D4EAB785741FA02B7 /* XeeConfig.h */,
+				915727D6718DD63DD50D49CF962E3A25 /* XeeConfig.m */,
+				A29664E7F6C706AFF51E1C2D232E3D94 /* XeeConnectManager.h */,
+				3204B8BEA9EEF435982BA9747E488691 /* XeeConnectManager.m */,
+				9B7282B61A7D3912B30805C2DA028504 /* XeeDevice.h */,
+				F935C3DF95EE6E1C6617B740441C1898 /* XeeDevice.m */,
+				21DC975D85B55B93BAFB6E5F01BE6B7E /* XeeDeviceRoute.h */,
+				053B9094FA7A246803C1ABB73F810BA1 /* XeeDeviceRoute.m */,
+				7A07277C1ED903D4E210CD05CAC4B685 /* XeeDeviceStatus.h */,
+				71488D634983B848473E3B73B106BA16 /* XeeDeviceStatus.m */,
+				6EC378607E9687DBA07DC1D17928B98D /* XeeError.h */,
+				7BBCC432F061F73DED645C680EDA1DBD /* XeeError.m */,
+				54710F39FF27A8739A421501A3B604F7 /* XeeHTTPClient.h */,
+				54643AF95DCC0D78C2FAF0A0356A8B0B /* XeeHTTPClient.m */,
+				F9D30EC11FF8B5185AFA2B9849396E9C /* XeeLocation.h */,
+				8F5499C7DF5836A2E3472A045300702C /* XeeLocation.m */,
+				50808D8AB2F4E61D528E3FC3B0352EC4 /* XeeLoginButton.h */,
+				DC5F981475D41F72DD56FF82FE5CD8FD /* XeeLoginButton.m */,
+				AF434C85D4B08461599A23B478FE904F /* XeeModel.h */,
+				D775A81D93FCEB92C4D16C0635F1FE08 /* XeeModel.m */,
+				9451E024990ADECB6965ED61F93D195D /* XeeRegisterButton.h */,
+				A5265D3642F8CE082A86FCEF1B91D1F8 /* XeeRegisterButton.m */,
+				D615002B0520A7C282314D722064D098 /* XeeRequestManager.h */,
+				EFD89B4A73C06443C6D1A1289F5C7E3E /* XeeRequestManager.m */,
+				8C1A15E84008DD878F6D6F47F6102308 /* XeeRoute.h */,
+				54B216203051EC37B7D08125AEA7A5C2 /* XeeRoute.m */,
+				4E97611D87672E3AAE00ADAC8A9FFD25 /* XeeSDK.h */,
+				4CF30B844FC93C5BFE40A0FAB93E7037 /* XeeSignal.h */,
+				97E9E33AE4EF443A849B5220BE763CB0 /* XeeSignal.m */,
+				AAE6DCD916A9046A4CD47A9CBDA882A8 /* XeeStat.h */,
+				F8C483E471A2DB1E65510839401C8961 /* XeeStat.m */,
+				0B3209B607D750682D4A9AA06BD658F5 /* XeeStatRoute.h */,
+				F7D8834023FA5657F098A34AA9078766 /* XeeStatRoute.m */,
+				610BAFBB741DDC08F5B32590583BF35B /* XeeTrip.h */,
+				ECE3337DD5AB80CB248427A4651B19B3 /* XeeTrip.m */,
+				BACC38A78B337D37EE4E7B97E683DEF5 /* XeeTripRoute.h */,
+				0A043F02772753E580870CD7122450EB /* XeeTripRoute.m */,
+				1C3A8358829C2A56D8C50470EF04F73B /* XeeUser.h */,
+				E134BDE89BB25734D4E50A63956772CA /* XeeUser.m */,
+				FDC7BE02117AEE8B823E55F3A15FF526 /* XeeUserRoute.h */,
+				A6BD8ABF936F83BA4F503B7FD2D52653 /* XeeUserRoute.m */,
 			);
 			name = XeeSDK;
 			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		40A5748C3EA7073963B0ADDB21B5699B /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				14A6C9C9FE6E6DDDCEE9CF5410575A9E /* NSDateFormatter+Xee.h */,
-				8A0DF9AD3604B930463C5237CB4535C0 /* NSDateFormatter+Xee.m */,
-			);
-			name = Category;
-			path = Category;
-			sourceTree = "<group>";
-		};
-		498411C1C8137197C316871CCEE7E0E6 /* XeeSDK */ = {
-			isa = PBXGroup;
-			children = (
-				6270FF7DBC634BA6226BA3230A5279FF /* XeeSDK.h */,
-			);
-			name = XeeSDK;
-			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		5BA777599A96815E1EE6DC0F5548DD9E /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				94E47D7E1F382B56FD4E86F7308C33F5 /* Route */,
-				A377B6CC2D8C9127B1F6E1D4111DB988 /* XeeSDK */,
-			);
-			name = Client;
 			sourceTree = "<group>";
 		};
 		6A6083960883A2261B75788AC464E0A7 /* Products */ = {
@@ -333,34 +326,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		74C6BA85B47AEFEEC79D400DE62156A8 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				827AB7A21416929B4E4F927E09A964A4 /* local.strings */,
-				8F0454784A6B9DBDE32E690C1EF770CF /* Media.xcassets */,
-			);
-			name = Resources;
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				12C72DCE99AF8695ABEDCFA1B5E41890 /* Development Pods */,
+				83D64F821FF7C812E512D0265B3855D3 /* Development Pods */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
 				6A6083960883A2261B75788AC464E0A7 /* Products */,
 				C1522D979AFAFD8D688569CEB40E1EBA /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		7EAAFC041D77F07C4E0C618177F4DF0F /* XeeSDK */ = {
-			isa = PBXGroup;
-			children = (
-				74C6BA85B47AEFEEC79D400DE62156A8 /* Resources */,
-			);
-			name = XeeSDK;
-			path = XeeSDK;
 			sourceTree = "<group>";
 		};
 		810A3120A8A4EEF89468B1297BFE28DA /* Pods-XeeSDK_Tests */ = {
@@ -381,52 +355,12 @@
 			path = "Target Support Files/Pods-XeeSDK_Tests";
 			sourceTree = "<group>";
 		};
-		8D2F8125866FCCB24A88D6D592D15F8C /* Xee-SDK */ = {
+		83D64F821FF7C812E512D0265B3855D3 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E5E3E8E37B5117131CA091BF46F8DA14 /* Category */,
-				5BA777599A96815E1EE6DC0F5548DD9E /* Client */,
-				A3B39C170E66C9BD183456D41F1CD50D /* Model */,
-				9ECC0DB275E02CF5227CD6384F9E7989 /* Resources */,
-				2B0E4D8B1B148406375C65A52B2798BC /* Support Files */,
-				E450FC458D92710BB4BC9E0FC82317EC /* UI */,
-				498411C1C8137197C316871CCEE7E0E6 /* XeeSDK */,
+				2CB26A5A471E5343DAF3C6D878DD9922 /* Xee-SDK */,
 			);
-			name = "Xee-SDK";
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		94E47D7E1F382B56FD4E86F7308C33F5 /* Route */ = {
-			isa = PBXGroup;
-			children = (
-				C207E4FB3B1EC0D12BE20007F7E3432A /* XeeSDK */,
-			);
-			name = Route;
-			sourceTree = "<group>";
-		};
-		9ECC0DB275E02CF5227CD6384F9E7989 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				7EAAFC041D77F07C4E0C618177F4DF0F /* XeeSDK */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		A377B6CC2D8C9127B1F6E1D4111DB988 /* XeeSDK */ = {
-			isa = PBXGroup;
-			children = (
-				BD01DA62E065EECC3BD8C6243EDB4F82 /* Client */,
-			);
-			name = XeeSDK;
-			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		A3B39C170E66C9BD183456D41F1CD50D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				B264B3E58792B7550BA9678842B92776 /* XeeSDK */,
-			);
-			name = Model;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		A742E2380DBC8BA960F520BE5AC8E2DE /* Pods-XeeSDK_Example */ = {
@@ -447,22 +381,13 @@
 			path = "Target Support Files/Pods-XeeSDK_Example";
 			sourceTree = "<group>";
 		};
-		B264B3E58792B7550BA9678842B92776 /* XeeSDK */ = {
+		AF56D22CD40B5777BA7288FEA91CD974 /* XeeSDK */ = {
 			isa = PBXGroup;
 			children = (
-				12F0B252815353964B28873CCF64027A /* Model */,
+				D26EB1773373E67BE416B7E3318C4504 /* Resources */,
 			);
 			name = XeeSDK;
 			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		B8B3C6E9C98D8F42023A827F6434AF8C /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				D88D689CF8412E0498121E6B99A80079 /* Route */,
-			);
-			name = Client;
-			path = Client;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -471,22 +396,6 @@
 				D35AF013A5F0BAD4F32504907A52519E /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BD01DA62E065EECC3BD8C6243EDB4F82 /* Client */ = {
-			isa = PBXGroup;
-			children = (
-				20A2801FB4DA15CC449C649B5DE4E875 /* Xee.h */,
-				61628B1353966616BB8755E380BFECCA /* Xee.m */,
-				C25F14976BFB237F59523EAD7CCA10D4 /* XeeConnectManager.h */,
-				07DF3AA986895CD9328001520071A1AB /* XeeConnectManager.m */,
-				B5DB131914E526AA212D526960F5E1F6 /* XeeHTTPClient.h */,
-				030BB1870C0C5E2EC7E01169AFF3084A /* XeeHTTPClient.m */,
-				BE2F749A12D450BACE81528ED6AB8A26 /* XeeRequestManager.h */,
-				02ED7A228E3EDA85970CE7DF4F52AA87 /* XeeRequestManager.m */,
-			);
-			name = Client;
-			path = Client;
 			sourceTree = "<group>";
 		};
 		C1522D979AFAFD8D688569CEB40E1EBA /* Targets Support Files */ = {
@@ -498,25 +407,14 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		C207E4FB3B1EC0D12BE20007F7E3432A /* XeeSDK */ = {
+		D26EB1773373E67BE416B7E3318C4504 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B8B3C6E9C98D8F42023A827F6434AF8C /* Client */,
+				FA42C49D8E5775846FE9FD3DEA4E0518 /* local.strings */,
+				06762539140DC4B868633BEE2D18F238 /* Media.xcassets */,
 			);
-			name = XeeSDK;
-			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		CF5DF4E9E7529AAEDAA6F7E212724D06 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				7C2EED884BBB3624EB1A2FF0928AAD1A /* XeeLoginButton.h */,
-				12F7F9D8B7673FF0F03B49BCE413D7A6 /* XeeLoginButton.m */,
-				C65C219DA444F0E6D7548CD242823D31 /* XeeRegisterButton.h */,
-				47A48A3AEEF46FE5650A2DF651C9BD06 /* XeeRegisterButton.m */,
-			);
-			name = UI;
-			path = UI;
+			name = Resources;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		D35AF013A5F0BAD4F32504907A52519E /* iOS */ = {
@@ -527,49 +425,12 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		D3BCD8DBB35D39EAFA6E4B19F0EB55A5 /* XeeSDK */ = {
+		D9F1DD516A064F229AB74C54659A8B40 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				40A5748C3EA7073963B0ADDB21B5699B /* Category */,
+				AF56D22CD40B5777BA7288FEA91CD974 /* XeeSDK */,
 			);
-			name = XeeSDK;
-			path = XeeSDK;
-			sourceTree = "<group>";
-		};
-		D88D689CF8412E0498121E6B99A80079 /* Route */ = {
-			isa = PBXGroup;
-			children = (
-				88A1D13F6124B154E7547C3115536922 /* XeeCarRoute.h */,
-				BA0C63995EE04F211685D5E69B451998 /* XeeCarRoute.m */,
-				36ECC9C23A93A57A0E39053BEADE4B9B /* XeeDeviceRoute.h */,
-				9393763900E489FB341C64860DF6B27E /* XeeDeviceRoute.m */,
-				4327399AB7D526C39D332BDDB42FEE50 /* XeeRoute.h */,
-				E28BB80D28FD5AC70DF49A8646E25B48 /* XeeRoute.m */,
-				63F0A7392ED37A7B4DE0219FEFBE8E4C /* XeeStatRoute.h */,
-				5228386E52E67126F89ED1AFC3603707 /* XeeStatRoute.m */,
-				8E581BA4848142A6715C4B3FE6D9433C /* XeeTripRoute.h */,
-				2C77CCAB9C343D72FC5DEC981AAFFC39 /* XeeTripRoute.m */,
-				4C6F50ED6E4F84F03EB5123743AE4ECB /* XeeUserRoute.h */,
-				04F973C3BA73A02CF9973ABE5DA1E99B /* XeeUserRoute.m */,
-			);
-			name = Route;
-			path = Route;
-			sourceTree = "<group>";
-		};
-		E450FC458D92710BB4BC9E0FC82317EC /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				33063B286088B406019B647891AE0656 /* XeeSDK */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		E5E3E8E37B5117131CA091BF46F8DA14 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				D3BCD8DBB35D39EAFA6E4B19F0EB55A5 /* XeeSDK */,
-			);
-			name = Category;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -827,15 +688,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		827AB7A21416929B4E4F927E09A964A4 /* local.strings */ = {
+		FA42C49D8E5775846FE9FD3DEA4E0518 /* local.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				82F797F94BB388C40F6C4A18279DC490 /* local.strings */,
-				51072AB7FA83569B2803AC8A657EACB9 /* local.strings */,
-				3C35E73215BBE7EAC9D946D504186342 /* local.strings */,
-				FDBD2EE1DA8247EC3F5CD59A90255C12 /* local.strings */,
-				625D81EC30E06C465480B96C8B45BF46 /* local.strings */,
-				2C978CDBB70491DBE8615A8A2C2F1D5A /* local.strings */,
+				025F763F4DB3DACA7A5A27F78D739CD8 /* local.strings */,
+				5766C02B3D041D38853AF7D02E7712F4 /* local.strings */,
+				1B2315A5B2AD2D1ADB3C45C4B9886540 /* local.strings */,
+				DF38E7CD9CB2DFCAB15E2CE10762755A /* local.strings */,
+				914FD50B538AB8ED7451B70DA1A8A313 /* local.strings */,
+				A6B84EEC8A1422D7B07F42CA34B96D26 /* local.strings */,
 			);
 			name = local.strings;
 			path = .;
@@ -846,7 +707,7 @@
 /* Begin XCBuildConfiguration section */
 		0265BA368DC09059473A95A631BD30F7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */;
+			baseConfigurationReference = 034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Xee-SDK";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -935,7 +796,7 @@
 		};
 		2A7D3A974E72750BD439F405245BF5BD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */;
+			baseConfigurationReference = 034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1051,7 +912,7 @@
 		};
 		54FE738B002CB0DA0ED7CFB8DC9BDFF4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */;
+			baseConfigurationReference = 034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1083,7 +944,7 @@
 		};
 		9C94CC2B1E3966DACD22EE10D7F79D4B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04BD467A91F6989F84DADA7B46ABCB1E /* Xee-SDK.xcconfig */;
+			baseConfigurationReference = 034B7B002C869FB75B2AC9C77CD62BBA /* Xee-SDK.xcconfig */;
 			buildSettings = {
 				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/Xee-SDK";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

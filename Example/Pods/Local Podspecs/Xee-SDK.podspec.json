@@ -20,53 +20,9 @@
   "platforms": {
     "ios": "8.0"
   },
-  "public_header_files": "XeeSDK/XeeSDK.h",
-  "source_files": "XeeSDK/XeeSDK.h",
+  "public_header_files": "XeeSDK/*.h",
+  "source_files": "XeeSDK/*.{h,m}",
   "resource_bundles": {
     "XeeSDKBundle": "XeeSDK/Resources/**/*"
-  },
-  "subspecs": [
-    {
-      "name": "Category",
-      "source_files": "XeeSDK/Category/*.{h,m}",
-      "public_header_files": "XeeSDK/Category/*.h"
-    },
-    {
-      "name": "Model",
-      "source_files": "XeeSDK/Model/*.{h,m}",
-      "public_header_files": "XeeSDK/Model/*.h",
-      "dependencies": {
-        "Xee-SDK/Category": [
-
-        ]
-      }
-    },
-    {
-      "name": "Client",
-      "source_files": "XeeSDK/Client/*.{h,m}",
-      "public_header_files": "XeeSDK/Client/*.h",
-      "dependencies": {
-        "Xee-SDK/Model": [
-
-        ]
-      },
-      "subspecs": [
-        {
-          "name": "Route",
-          "source_files": "XeeSDK/Client/Route/*.{h,m}",
-          "public_header_files": "XeeSDK/Client/Route/*.h"
-        }
-      ]
-    },
-    {
-      "name": "UI",
-      "source_files": "XeeSDK/UI/*.{h,m}",
-      "public_header_files": "XeeSDK/UI/*.h",
-      "dependencies": {
-        "Xee-SDK/Client": [
-
-        ]
-      }
-    }
-  ]
+  }
 }
