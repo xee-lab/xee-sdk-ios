@@ -29,15 +29,21 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _accelerometer = [XeeAccelerometer withJSON:[JSON objectForKey:@"accelerometer"]];
-        if([JSON objectForKey:@"location"] && [JSON objectForKey:@"location"] != [NSNull null]) {
-            _location = [XeeLocation withJSON:[JSON objectForKey:@"location"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            if ([JSON objectForKey:@"accelerometer"]) {
+                _accelerometer = [XeeAccelerometer withJSON:[JSON objectForKey:@"accelerometer"]];
+            }
+            if ([JSON objectForKey:@"location"]) {
+                _location = [XeeLocation withJSON:[JSON objectForKey:@"location"]];
+            }
+            if ([JSON objectForKey:@"signals"]) {
+                NSMutableArray *signals = [NSMutableArray array];
+                for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
+                    [signals addObject:[XeeSignal withJSON:signalJSON]];
+                }
+                _signals = signals;
+            }
         }
-        NSMutableArray *signals = [NSMutableArray array];
-        for(NSDictionary *signalJSON in [JSON objectForKey:@"signals"]) {
-            [signals addObject:[XeeSignal withJSON:signalJSON]];
-        }
-        _signals = signals;
     }
     return self;
 }

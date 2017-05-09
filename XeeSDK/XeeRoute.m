@@ -19,17 +19,4 @@
 
 @implementation XeeRoute
 
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        client = [XeeHTTPClient client];
-    }
-    return self;
-}
-
--(NSDictionary*)configureHeader {
-    return @{@"Authorization" : [NSString stringWithFormat:@"Bearer %@", [Xee connectManager].accessToken.access_token], @"User-Agent" : [Xee connectManager].config.userAgent};
-}
-
 @end

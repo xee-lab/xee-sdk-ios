@@ -29,4 +29,8 @@
     return [[[self class] alloc] initWithJSON:JSON];
 }
 
+-(NSDictionary *)asDictionary {
+    return nil;
+}
+
 @end

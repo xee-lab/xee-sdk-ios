@@ -21,12 +21,14 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if(self) {
-        _beginDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"beginDate"]];
-        _endDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"endDate"]];
-        
-        _type = [JSON objectForKey:@"type"];
-        
-        _value = [JSON objectForKey:@"value"];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _beginDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"beginDate"]];
+            _endDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"endDate"]];
+            
+            _type = [JSON objectForKey:@"type"];
+            
+            _value = [JSON objectForKey:@"value"];
+        }
     }
     return self;
 }

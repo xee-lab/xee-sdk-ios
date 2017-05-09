@@ -16,7 +16,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "XeeHTTPClient.h"
+#import "XeeClient.h"
 
 #import "XeeUser.h"
 #import "XeeTrip.h"
@@ -26,10 +26,6 @@
 #import "XeeStat.h"
 #import "XeeDevice.h"
 
-@interface XeeRoute : NSObject {
-    XeeHTTPClient *client;
-}
-
--(NSDictionary*)configureHeader;
+@interface XeeRoute : NSObject
 
 @end

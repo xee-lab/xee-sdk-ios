@@ -10,11 +10,13 @@
 #endif
 #endif
 
+#import "NSArray+Xee.h"
+#import "NSDictionary+Xee.h"
 #import "Xee.h"
 #import "XeeCarRoute.h"
+#import "XeeClient.h"
 #import "XeeConnectManager.h"
 #import "XeeDeviceRoute.h"
-#import "XeeHTTPClient.h"
 #import "XeeLoginButton.h"
 #import "XeeRegisterButton.h"
 #import "XeeRequestManager.h"
@@ -31,7 +33,6 @@
 #import "XeeConfig.h"
 #import "XeeDevice.h"
 #import "XeeDeviceStatus.h"
-#import "XeeError.h"
 #import "XeeLocation.h"
 #import "XeeModel.h"
 #import "XeeSignal.h"

@@ -21,24 +21,26 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _id = (int)[[JSON objectForKey:@"id"] integerValue];
-        _lastName = [JSON objectForKey:@"lastName"];
-        _firstName = [JSON objectForKey:@"firstName"];
-        _nickname = [JSON objectForKey:@"nickname"];
-        _gender = [JSON objectForKey:@"gender"];
-        _birthDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"birthDate"]];
-        _licenceDeliveryDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
-        _role = [JSON objectForKey:@"role"];
-        _isLocationEnabled = [[JSON objectForKey:@"isLocationEnabled"] boolValue];
-        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
-        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _id = [JSON objectForKey:@"id"];
+            _lastName = [JSON objectForKey:@"lastName"];
+            _firstName = [JSON objectForKey:@"firstName"];
+            _nickname = [JSON objectForKey:@"nickname"];
+            _gender = [JSON objectForKey:@"gender"];
+            _birthDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"birthDate"]];
+            _licenceDeliveryDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
+            _role = [JSON objectForKey:@"role"];
+            _isLocationEnabled = [JSON objectForKey:@"isLocationEnabled"];
+            _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+            _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+        }
     }
     return self;
 }
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
-            id: %d\r\
+            id: %@\r\
             lastName: %@\r\
             firstName: %@\r\
             nickname: %@\r\
@@ -46,7 +48,7 @@
             birthDate: %@\r\
             licenceDeliveryDate: %@\r\
             role: %@\r\
-            isLocationEnabled: %d\r\
+            isLocationEnabled: %@\r\
             creationDate: %@\r\
             lastUpdateDate: %@",
             _id, _lastName, _firstName, _nickname, _gender, _birthDate, _licenceDeliveryDate, _role, _isLocationEnabled, _creationDate, _lastUpdateDate];

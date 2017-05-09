@@ -10,76 +10,95 @@
 
 @implementation XeeDeviceRoute
 
--(void)signalsWithDeviceId:(NSString*)deviceId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSString *nameString = [client createURLEncodedStringWithCommaWithArray:name];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(limit != 0) {
-        [dic setValue:@(limit) forKey:@"limit"];
+-(void)signalsWithDeviceId:(NSString*)deviceId
+                     limit:(NSNumber *)limit
+                     begin:(NSDate *)begin
+                       end:(NSDate *)end
+                      name:(NSArray<NSString *> *)name
+         completionHandler:(void (^)(NSArray<XeeSignal *> *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
     }
-    if(![beginString isEqualToString:@""]) {
-        [dic setValue:beginString forKey:@"begin"];
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
     }
-    if(![endString isEqualToString:@""]) {
-        [dic setValue:endString forKey:@"end"];
+    if (limit) {
+        [params setObject:limit forKey:@"limit"];
     }
-    if(![nameString isEqualToString:@""]) {
-        [dic setValue:nameString forKey:@"name"];
+    if (name && [name isKindOfClass:[NSArray class]]) {
+        [params setObject:[name componentsJoinedByString:@","] forKey:@"name"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/signals%@%@", deviceId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *signals = [NSMutableArray array];
-            for(NSDictionary *signalJSON in JSON) {
-                [signals addObject:[XeeSignal withJSON:signalJSON]];
-            }
-            completionHandler(signals, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"devices/%@/signals", deviceId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *signals = [NSMutableArray array];
+                              for(NSDictionary *signalJSON in responseObject) {
+                                  [signals addObject:[XeeSignal withJSON:signalJSON]];
+                              }
+                              completionHandler(signals, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)deviceStatusWithDeviceId:(NSString *)deviceId completionHandler:(void (^)(XeeDeviceStatus *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/status", deviceId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeDeviceStatus *deviceStatus = [XeeDeviceStatus withJSON:JSON];
-            completionHandler(deviceStatus, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)deviceStatusWithDeviceId:(NSString *)deviceId
+              completionHandler:(void (^)(XeeDeviceStatus *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"devices/%@/status", deviceId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeDeviceStatus *deviceStatus = [XeeDeviceStatus withJSON:responseObject];
+                              completionHandler(deviceStatus, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)associateDeviceId:(NSString*)deviceId withCar:(NSString*)carId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?carId=%@", deviceId, carId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        completionHandler(errors);
-    }] resume];
+-(void)associateDeviceId:(NSString*)deviceId
+                 withCar:(NSString*)carId
+       completionHandler:(void (^)(NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] POST:[NSString stringWithFormat:@"devices/%@/associate?carId=%@", deviceId, carId]
+                        parameters:nil
+                          progress:nil
+                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                               completionHandler(nil);
+                           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                               completionHandler(error);
+                           }];
 }
 
--(void)associateDeviceId:(NSString*)deviceId withPin:(NSString*)pin completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/associate?pin=%@", deviceId, pin];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        completionHandler(errors);
-    }] resume];
+-(void)associateDeviceId:(NSString*)deviceId
+                 withPin:(NSString*)pin
+       completionHandler:(void (^)(NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] POST:[NSString stringWithFormat:@"devices/%@/associate?pin=%@", deviceId, pin]
+                        parameters:nil
+                          progress:nil
+                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                               completionHandler(nil);
+                           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                               completionHandler(error);
+                           }];
 }
 
--(void)dissociateDeviceWithId:(NSString*)deviceId completionHandler:(void (^)(NSArray<XeeError *> *errors))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"devices/%@/dissociate", deviceId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"POST" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        completionHandler(errors);
-    }] resume];
+-(void)dissociateDeviceWithId:(NSString*)deviceId
+            completionHandler:(void (^)(NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] POST:[NSString stringWithFormat:@"devices/%@/dissociate", deviceId]
+                        parameters:nil
+                          progress:nil
+                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                               completionHandler(nil);
+                           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                               completionHandler(error);
+                           }];
 }
 
 @end

@@ -18,149 +18,156 @@
 
 @implementation XeeCarRoute
 
--(void)carWithCarId:(uint)carId completionHandler:(void (^)(XeeCar *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d", carId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeCar *car = [XeeCar withJSON:JSON];
-            completionHandler(car, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)carWithCarId:(NSNumber *)carId
+  completionHandler:(void (^)(XeeCar *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@", carId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeCar *car = [XeeCar withJSON:responseObject];
+                              completionHandler(car, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)statusWithCarId:(uint)carId completionHandler:(void (^)(XeeCarStatus *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/status", carId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeCarStatus *carStatus = [XeeCarStatus withJSON:JSON];
-            completionHandler(carStatus, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)statusWithCarId:(NSNumber *)carId
+     completionHandler:(void (^)(XeeCarStatus *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/status", carId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeCarStatus *carStatus = [XeeCarStatus withJSON:responseObject];
+                              completionHandler(carStatus, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)locationsWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray<XeeLocation *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(limit != 0) {
-        [dic setValue:@(limit) forKey:@"limit"];
+-(void)locationsWithCarId:(NSNumber *)carId
+                    limit:(NSNumber *)limit
+                    begin:(NSDate *)begin
+                      end:(NSDate *)end
+        completionHandler:(void (^)(NSArray<XeeLocation *> *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
     }
-    if(![beginString isEqualToString:@""]) {
-        [dic setValue:beginString forKey:@"begin"];
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
     }
-    if(![endString isEqualToString:@""]) {
-        [dic setValue:endString forKey:@"end"];
+    if (limit) {
+        [params setObject:limit forKey:@"limit"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/locations%@%@", carId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *locations = [NSMutableArray array];
-            for(NSDictionary *locationJSON in JSON) {
-                [locations addObject:[XeeLocation withJSON:locationJSON]];
-            }
-            completionHandler(locations, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/locations", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *locations = [NSMutableArray array];
+                              for(NSDictionary *locationJSON in responseObject) {
+                                  [locations addObject:[XeeLocation withJSON:locationJSON]];
+                              }
+                              completionHandler(locations, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)locationsGeoJSONWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(limit != 0) {
-        [dic setValue:@(limit) forKey:@"limit"];
+-(void)locationsGeoJSONWithCarId:(NSNumber *)carId
+                           limit:(NSNumber *)limit
+                           begin:(NSDate *)begin
+                             end:(NSDate *)end
+               completionHandler:(void (^)(NSArray *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
     }
-    if(![beginString isEqualToString:@""]) {
-        [dic setValue:beginString forKey:@"begin"];
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
     }
-    if(![endString isEqualToString:@""]) {
-        [dic setValue:endString forKey:@"end"];
+    if (limit) {
+        [params setObject:limit forKey:@"limit"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/locations.geojson%@%@", carId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            completionHandler(locations, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/locations.geojson", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              completionHandler(responseObject, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)signalsWithCarId:(uint)carId limit:(NSInteger)limit begin:(NSDate *)begin end:(NSDate *)end name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSString *nameString = [client createURLEncodedStringWithCommaWithArray:name];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(limit != 0) {
-        [dic setValue:@(limit) forKey:@"limit"];
+-(void)signalsWithCarId:(NSNumber *)carId
+                  limit:(NSNumber *)limit
+                  begin:(NSDate *)begin
+                    end:(NSDate *)end
+                   name:(NSArray<NSString *> *)name
+      completionHandler:(void (^)(NSArray<XeeSignal *> *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
     }
-    if(![beginString isEqualToString:@""]) {
-        [dic setValue:beginString forKey:@"begin"];
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
     }
-    if(![endString isEqualToString:@""]) {
-        [dic setValue:endString forKey:@"end"];
+    if (limit) {
+        [params setObject:limit forKey:@"limit"];
     }
-    if(![nameString isEqualToString:@""]) {
-        [dic setValue:nameString forKey:@"name"];
+    if (name && [name isKindOfClass:[NSArray class]]) {
+        [params setObject:[name componentsJoinedByString:@","] forKey:@"name"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/signals%@%@", carId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *signals = [NSMutableArray array];
-            for(NSDictionary *signalJSON in JSON) {
-                [signals addObject:[XeeSignal withJSON:signalJSON]];
-            }
-            completionHandler(signals, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/signals", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *signals = [NSMutableArray array];
+                              for(NSDictionary *signalJSON in responseObject) {
+                                  [signals addObject:[XeeSignal withJSON:signalJSON]];
+                              }
+                              completionHandler(signals, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)tripsWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end completionHandler:(void (^)(NSArray<XeeTrip *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(![beginString isEqualToString:@""]) {
-        [dic setValue:beginString forKey:@"begin"];
+-(void)tripsWithCarId:(NSNumber *)carId
+                begin:(NSDate *)begin
+                  end:(NSDate *)end
+    completionHandler:(void (^)(NSArray<XeeTrip *> *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
     }
-    if(![endString isEqualToString:@""]) {
-        [dic setValue:endString forKey:@"end"];
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/trips%@%@", carId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *trips = [NSMutableArray array];
-            for(NSDictionary *tripJSON in JSON) {
-                [trips addObject:[XeeTrip withJSON:tripJSON]];
-            }
-            completionHandler(trips, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/trips", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *trips = [NSMutableArray array];
+                              for(NSDictionary *tripJSON in responseObject) {
+                                  [trips addObject:[XeeTrip withJSON:tripJSON]];
+                              }
+                              completionHandler(trips, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
 @end

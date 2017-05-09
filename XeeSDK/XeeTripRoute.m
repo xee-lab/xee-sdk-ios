@@ -18,88 +18,89 @@
 
 @implementation XeeTripRoute
 
--(void)tripWithId:(NSString*)tripId completionHandler:(void (^)(XeeTrip *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"trips/%@", tripId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeTrip *trip = [XeeTrip withJSON:JSON];
-            completionHandler(trip, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)tripWithId:(NSString*)tripId
+completionHandler:(void (^)(XeeTrip *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"trips/%@", tripId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeTrip *trip = [XeeTrip withJSON:responseObject];
+                              completionHandler(trip, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)locationsWithTripId:(NSString*)tripId completionHandler:(void (^)(NSArray<XeeLocation *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"trips/%@/locations", tripId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *locations = [NSMutableArray array];
-            for(NSDictionary *locationJSON in JSON) {
-                [locations addObject:[XeeLocation withJSON:locationJSON]];
-            }
-            completionHandler(locations, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)locationsWithTripId:(NSString*)tripId
+         completionHandler:(void (^)(NSArray<XeeLocation *> *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"trips/%@/locations", tripId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *locations = [NSMutableArray array];
+                              for(NSDictionary *locationJSON in responseObject) {
+                                  [locations addObject:[XeeLocation withJSON:locationJSON]];
+                              }
+                              completionHandler(locations, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)locationsGeoJSONWithTripId:(NSString*)tripId completionHandler:(void (^)(NSArray *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"trips/%@/locations.geojson", tripId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *locations = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            completionHandler(locations, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)locationsGeoJSONWithTripId:(NSString*)tripId
+                completionHandler:(void (^)(NSArray *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"trips/%@/locations.geojson", tripId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              completionHandler(responseObject, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)signalsWithTripId:(NSString*)tripId name:(NSArray<NSString *> *)name completionHandler:(void (^)(NSArray<XeeSignal *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *nameString = [client createURLEncodedStringWithCommaWithArray:name];
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
-    if(![nameString isEqualToString:@""]) {
-        [dic setValue:nameString forKey:@"name"];
+-(void)signalsWithTripId:(NSString*)tripId
+                    name:(NSArray<NSString *> *)name
+       completionHandler:(void (^)(NSArray<XeeSignal *> *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (name && [name isKindOfClass:[NSArray class]]) {
+        [params setObject:[name componentsJoinedByString:@","] forKey:@"name"];
     }
-    NSString *params = [client createHTTPParamsWithDictionary:dic];
-    NSString *urlString = [NSString stringWithFormat:@"trips/%@/signals%@%@", tripId, dic.count > 0 ? @"?" : @"", params];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *signals = [NSMutableArray array];
-            for(NSDictionary *signalJSON in JSON) {
-                [signals addObject:[XeeSignal withJSON:signalJSON]];
-            }
-            completionHandler(signals, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"trips/%@/signals", tripId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *signals = [NSMutableArray array];
+                              for(NSDictionary *signalJSON in responseObject) {
+                                  [signals addObject:[XeeSignal withJSON:signalJSON]];
+                              }
+                              completionHandler(signals, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)statsWithTripId:(NSString *)tripId completionHandler:(void (^)(NSArray<XeeStat *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = [NSString stringWithFormat:@"trips/%@/stats", tripId];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *stats = [NSMutableArray array];
-            for(NSDictionary *stat in JSON) {
-                [stats addObject:[XeeStat withJSON:stat]];
-            }
-            completionHandler(stats, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)statsWithTripId:(NSString *)tripId
+     completionHandler:(void (^)(NSArray<XeeStat *> *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"trips/%@/stats", tripId]
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *stats = [NSMutableArray array];
+                              for(NSDictionary *stat in responseObject) {
+                                  [stats addObject:[XeeStat withJSON:stat]];
+                              }
+                              completionHandler(stats, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
 @end

@@ -21,26 +21,28 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if(self) {
-        _latitude = [[JSON objectForKey:@"latitude"] doubleValue];
-        _longitude = [[JSON objectForKey:@"longitude"] doubleValue];
-        
-        _altitude = [[JSON objectForKey:@"altitude"] doubleValue];
-        _heading = [[JSON objectForKey:@"heading"] doubleValue];
-        
-        _satellites = (int)[[JSON objectForKey:@"satellites"] integerValue];
-        
-        _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _latitude = [JSON objectForKey:@"latitude"];
+            _longitude = [JSON objectForKey:@"longitude"];
+            
+            _altitude = [JSON objectForKey:@"altitude"];
+            _heading = [JSON objectForKey:@"heading"];
+            
+            _satellites = [JSON objectForKey:@"satellites"];
+            
+            _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+        }
     }
     return self;
 }
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
-            latitude: %f\r\
-            longitude: %f\r\
-            altitude: %f\r\
-            heading: %f\r\
-            satellites: %d\r\
+            latitude: %@\r\
+            longitude: %@\r\
+            altitude: %@\r\
+            heading: %@\r\
+            satellites: %@\r\
             date: %@",
             _latitude, _longitude, _altitude, _heading, _satellites, _date];
 }

@@ -18,15 +18,15 @@
 
 @interface XeeCar : XeeModel
 
-@property (nonatomic, assign) int id;
+@property (nonatomic, strong) NSNumber *id;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *make;
 @property (nonatomic, strong) NSString *model;
-@property (nonatomic, assign) int year;
+@property (nonatomic, strong) NSNumber *year;
 @property (nonatomic, strong) NSString *numberPlate;
 
 @property (nonatomic, strong) NSString *deviceId;
-@property (nonatomic, assign) int cardbId;
+@property (nonatomic, strong) NSNumber *cardbId;
 
 @property (nonatomic, strong) NSDate *creationDate;
 @property (nonatomic, strong) NSDate *lastUpdateDate;

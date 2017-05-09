@@ -21,11 +21,13 @@
 -(instancetype)initWithJSON:(NSDictionary *)json {
     self = [super init];
     if (self) {
-        _access_token = [json objectForKey:@"access_token"];
-        _refresh_token = [json objectForKey:@"refresh_token"];
-        _token_type = [json objectForKey:@"token_type"];
-        _expires_at = (int)[[json objectForKey:@"expires_at"] integerValue];
-        _expires_in = (int)[[json objectForKey:@"expires_in"] integerValue];
+        if ([json isKindOfClass:[NSDictionary class]]) {
+            _access_token = [json objectForKey:@"access_token"];
+            _refresh_token = [json objectForKey:@"refresh_token"];
+            _token_type = [json objectForKey:@"token_type"];
+            _expires_at = [json objectForKey:@"expires_at"];
+            _expires_in = [json objectForKey:@"expires_in"];
+        }
     }
     return self;
 }
@@ -35,8 +37,8 @@
             access_token: %@\r\
             refresh_token: %@\r\
             token_type: %@\r\
-            expires_at: %d\r\
-            expires_in: %d\r",
+            expires_at: %@\r\
+            expires_in: %@\r",
             _access_token, _refresh_token, _token_type, _expires_at, _expires_in];
 }
 

@@ -13,9 +13,11 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _xeeId = [JSON objectForKey:@"xeeId"];
-        _status = (int)[[JSON objectForKey:@"status"] integerValue];
-        _associationAttempts = (int)[[JSON objectForKey:@"associationAttempts"] integerValue];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _xeeId = [JSON objectForKey:@"xeeId"];
+            _status = [JSON objectForKey:@"status"];
+            _associationAttempts = [JSON objectForKey:@"associationAttempts"];
+        }
     }
     return self;
 }
@@ -23,8 +25,8 @@
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
             xeeId: %@\r\
-            status: %d\r\
-            associationAttempts: %d",
+            status: %@\r\
+            associationAttempts: %@",
             _xeeId, _status, _associationAttempts];
     return nil;
 }

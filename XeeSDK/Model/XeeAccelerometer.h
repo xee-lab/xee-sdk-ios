@@ -18,9 +18,9 @@
 
 @interface XeeAccelerometer : XeeModel
 
-@property (nonatomic, assign) int x;
-@property (nonatomic, assign) int y;
-@property (nonatomic, assign) int z;
+@property (nonatomic, strong) NSNumber *x;
+@property (nonatomic, strong) NSNumber *y;
+@property (nonatomic, strong) NSNumber *z;
 
 @property (nonatomic, strong) NSDate *date;
 

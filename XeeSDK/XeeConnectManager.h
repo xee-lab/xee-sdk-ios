@@ -17,7 +17,6 @@
 #import <UIKit/UIKit.h>
 #import "XeeConfig.h"
 #import "XeeAccessToken.h"
-#import "XeeHTTPClient.h"
 
 @class XeeConnectManager;
 
@@ -28,7 +27,7 @@
 -(UIView*)connectManagerViewForSignUp;
 -(UIView*)connectManagerViewForLogin;
 -(void)connectManager:(XeeConnectManager*)connectManager didSuccess:(XeeAccessToken*)accessToken;
--(void)connectManager:(XeeConnectManager*)connectManager didFailWithErrors:(NSArray<XeeError*>*)errors;
+-(void)connectManager:(XeeConnectManager*)connectManager didFailWithError:(NSError *)error;
 -(void)connectManagerDidCancel:(XeeConnectManager*)connectManager;
 
 @end

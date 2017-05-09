@@ -23,8 +23,8 @@
 
 @property (nonatomic, strong) NSString *token_type;
 
-@property (nonatomic, assign) int expires_in;
-@property (nonatomic, assign) int expires_at;
+@property (nonatomic, strong) NSNumber *expires_in;
+@property (nonatomic, strong) NSDate *expires_at;
 
 -(instancetype)initWithJSON:(NSDictionary*)json;
 

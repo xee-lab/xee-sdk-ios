@@ -21,18 +21,20 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if(self) {
-        _id = [JSON objectForKey:@"id"];
-        
-        _beginLocation = [XeeLocation withJSON:[JSON objectForKey:@"beginLocation"]];
-        _endLocation = [XeeLocation withJSON:[JSON objectForKey:@"endLocation"]];
-        
-        _beginDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"beginDate"]];
-        _endDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"endDate"]];
-        
-        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
-        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
-        
-        _mileage = [[XeeStat alloc] initWithJSON:[JSON objectForKey:@"mileage"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _id = [JSON objectForKey:@"id"];
+            
+            _beginLocation = [XeeLocation withJSON:[JSON objectForKey:@"beginLocation"]];
+            _endLocation = [XeeLocation withJSON:[JSON objectForKey:@"endLocation"]];
+            
+            _beginDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"beginDate"]];
+            _endDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"endDate"]];
+            
+            _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+            _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+            
+            _mileage = [XeeStat withJSON:[JSON objectForKey:@"mileage"]];
+        }
     }
     return self;
 }

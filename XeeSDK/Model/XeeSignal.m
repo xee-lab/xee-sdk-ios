@@ -21,9 +21,11 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _name = [JSON objectForKey:@"name"];
-        _value = [[JSON objectForKey:@"value"] doubleValue];
-        _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _name = [JSON objectForKey:@"name"];
+            _value = [JSON objectForKey:@"value"];
+            _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+        }
     }
     return self;
 }
@@ -31,7 +33,7 @@
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
             name: %@\r\
-            value: %f\r\
+            value: %@\r\
             date: %@",
             _name, _value, _date];
 }

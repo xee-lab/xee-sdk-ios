@@ -18,36 +18,62 @@
 
 @implementation XeeStatRoute
 
--(void)mileageWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/stats/mileage?begin=%@&end=%@&initialValue=%f", carId, beginString, endString, initialValue];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeStat *stat = [XeeStat withJSON:JSON];
-            completionHandler(stat, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)mileageWithCarId:(NSNumber *)carId
+                  begin:(NSDate *)begin
+                    end:(NSDate *)end
+           initialValue:(NSNumber *)initialValue
+      completionHandler:(void (^)(XeeStat *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+    }
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+    }
+    if (initialValue) {
+        [params setObject:initialValue forKey:@"initialValue"];
+    }
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/stats/mileage", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeStat *stat = [XeeStat withJSON:responseObject];
+                              completionHandler(stat, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)usedTimeWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *, NSArray<XeeError *> *))completionHandler {
-    NSString *beginString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin];
-    NSString *endString = [[NSDateFormatter RFC3339DateFormatter] stringFromDate:end];
-    NSString *urlString = [NSString stringWithFormat:@"cars/%d/stats/usedtime?begin=%@&end=%@&initialValue=%f", carId, beginString, endString, initialValue];
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeStat *stat = [XeeStat withJSON:JSON];
-            completionHandler(stat, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)usedTimeWithCarId:(NSNumber *)carId
+                   begin:(NSDate *)begin
+                     end:(NSDate *)end
+            initialValue:(NSNumber *)initialValue
+       completionHandler:(void (^)(XeeStat *, NSError *))completionHandler {
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    if (begin) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+    }
+    if (end) {
+        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+    }
+    if (initialValue) {
+        [params setObject:initialValue forKey:@"initialValue"];
+    }
+    
+    [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/stats/usedtime", carId]
+                       parameters:params
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeStat *stat = [XeeStat withJSON:responseObject];
+                              completionHandler(stat, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
 @end

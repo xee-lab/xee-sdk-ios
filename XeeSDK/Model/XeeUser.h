@@ -18,7 +18,7 @@
 
 @interface XeeUser : XeeModel
 
-@property (nonatomic, assign) int id;
+@property (nonatomic, strong) NSNumber *id;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *nickname;
@@ -29,7 +29,7 @@
 
 @property (nonatomic, strong) NSString *role;
 
-@property (nonatomic, assign) BOOL isLocationEnabled;
+@property (nonatomic, strong) NSNumber *isLocationEnabled;
 
 @property (nonatomic, strong) NSDate *creationDate;
 @property (nonatomic, strong) NSDate *lastUpdateDate;

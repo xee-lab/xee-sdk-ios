@@ -22,4 +22,6 @@
 -(instancetype)initWithJSON:(NSDictionary*)JSON;
 +(instancetype)withJSON:(NSDictionary*)JSON;
 
+-(NSDictionary *)asDictionary;
+
 @end

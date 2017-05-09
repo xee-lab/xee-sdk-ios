@@ -19,7 +19,7 @@
 @interface XeeSignal : XeeModel
 
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, assign) double value;
+@property (nonatomic, assign) NSNumber *value;
 @property (nonatomic, strong) NSDate *date;
 
 @end

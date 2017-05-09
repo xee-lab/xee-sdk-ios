@@ -21,33 +21,81 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        _id = (int)[[JSON objectForKey:@"id"] integerValue];
-        _name = [JSON objectForKey:@"name"];
-        _make = [JSON objectForKey:@"make"];
-        _model = [JSON objectForKey:@"model"];
-        _year = (int)[[JSON objectForKey:@"year"] integerValue];
-        _numberPlate = [JSON objectForKey:@"numberPlate"];
-        _deviceId = [JSON objectForKey:@"deviceId"] != [NSNull null] ? [JSON objectForKey:@"deviceId"] : @"";
-        _cardbId = (int)[[JSON objectForKey:@"cardbId"] integerValue];
-        _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
-        _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+        if ([JSON isKindOfClass:[NSDictionary class]]) {
+            _id = [JSON objectForKey:@"id"];
+            _name = [JSON objectForKey:@"name"];
+            _make = [JSON objectForKey:@"make"];
+            _model = [JSON objectForKey:@"model"];
+            _year = [JSON objectForKey:@"year"];
+            _numberPlate = [JSON objectForKey:@"numberPlate"];
+            _deviceId = [JSON objectForKey:@"deviceId"];
+            _cardbId = [JSON objectForKey:@"cardbId"];
+            _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
+            _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+        }
     }
     return self;
 }
 
 -(NSString *)description {
     return [NSString stringWithFormat:@"\
-            id: %d\r\
+            id: %@\r\
             name: %@\r\
             make: %@\r\
             model: %@\r\
-            year: %d\r\
+            year: %@\r\
             numberPlate: %@\r\
             deviceId: %@\r\
-            cardbId: %d\r\
+            cardbId: %@\r\
             creationDate: %@\r\
             lastUpdateDate: %@",
             _id, _name, _make, _model, _year, _numberPlate, _deviceId, _cardbId, _creationDate, _lastUpdateDate];
+}
+
+-(NSDictionary *)asDictionary {
+    NSMutableDictionary *carDictionary = [NSMutableDictionary dictionary];
+    
+    if (self.id) {
+        [carDictionary setObject:self.id forKey:@"id"];
+    }
+    
+    if (self.name) {
+        [carDictionary setObject:self.name forKey:@"name"];
+    }
+    
+    if (self.make) {
+        [carDictionary setObject:self.name forKey:@"make"];
+    }
+    
+    if (self.model) {
+        [carDictionary setObject:self.model forKey:@"model"];
+    }
+    
+    if (self.year) {
+        [carDictionary setObject:self.year forKey:@"year"];
+    }
+    
+    if (self.numberPlate) {
+        [carDictionary setObject:self.numberPlate forKey:@"numberPlate"];
+    }
+    
+    if (self.deviceId) {
+        [carDictionary setObject:self.deviceId forKey:@"deviceId"];
+    }
+    
+    if (self.cardbId) {
+        [carDictionary setObject:self.cardbId forKey:@"cardbId"];
+    }
+    
+    if (self.creationDate) {
+        [carDictionary setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:self.creationDate] forKey:@"creationDate"];
+    }
+    
+    if (self.lastUpdateDate) {
+        [carDictionary setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:self.lastUpdateDate] forKey:@"lastUpdateDate"];
+    }
+    
+    return carDictionary;
 }
 
 @end

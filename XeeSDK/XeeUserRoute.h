@@ -18,9 +18,12 @@
 
 @interface XeeUserRoute : XeeRoute
 
--(void)me:(void (^)(XeeUser *user, NSArray<XeeError*> *errors))completionHandler;
--(void)meCars:(void (^)(NSArray<XeeCar*> *cars, NSArray<XeeError*> *errors))completionHandler;
--(void)meDevices:(void (^)(NSArray<XeeDevice*> *devices, NSArray<XeeError*> *errors))completionHandler;
--(void)meCreateCarWithName:(NSString *)name Completion:(void (^)(XeeCar *car, NSArray<XeeError*> *errors))completionHandler;
+-(void)me:(void (^)(XeeUser *user, NSError *error))completionHandler;
+
+-(void)meCars:(void (^)(NSArray<XeeCar*> *cars, NSError *error))completionHandler;
+
+-(void)meDevices:(void (^)(NSArray<XeeDevice*> *devices, NSError *error))completionHandler;
+
+-(void)meCreateCarWithCar:(XeeCar *)car Completion:(void (^)(XeeCar *car, NSError *error))completionHandler;
 
 @end

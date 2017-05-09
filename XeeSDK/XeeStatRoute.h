@@ -25,7 +25,11 @@
  @param end The end of the interval when you want the mileage to be computed, Format is 2016-04-20T13:37:42Z(+/-HH:mm) default value is Current moment when you send request
  @param initialValue An offset to add to the mileage stat. Default value is 0
  */
--(void)mileageWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *stat, NSArray<XeeError *> *errors))completionHandler;
+-(void)mileageWithCarId:(NSNumber *)carId
+                  begin:(NSDate *)begin
+                    end:(NSDate *)end
+           initialValue:(NSNumber *)initialValue
+      completionHandler:(void (^)(XeeStat *stat, NSError *error))completionHandler;
 
 /*!
  Get the used time value for a specific car
@@ -34,6 +38,10 @@
  @param end The end of the interval when you want the used time to be computed, Format is 2016-04-20T13:37:42Z(+/-HH:mm) default value is Current moment when you send request
  @param initialValue An offset to add to the used time stat (in seconds). Default value is 0
  */
--(void)usedTimeWithCarId:(uint)carId begin:(NSDate *)begin end:(NSDate *)end initialValue:(float)initialValue completionHandler:(void (^)(XeeStat *stat, NSArray<XeeError *> *errors))completionHandler;
+-(void)usedTimeWithCarId:(NSNumber *)carId
+                   begin:(NSDate *)begin
+                     end:(NSDate *)end
+            initialValue:(NSNumber *)initialValue
+       completionHandler:(void (^)(XeeStat *stat, NSError *error))completionHandler;
 
 @end

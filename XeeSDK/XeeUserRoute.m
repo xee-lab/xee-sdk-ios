@@ -18,69 +18,64 @@
 
 @implementation XeeUserRoute
 
--(void)me:(void (^)(XeeUser *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = @"users/me";
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeUser *user = [[XeeUser alloc] initWithJSON:json];
-            completionHandler(user, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)me:(void (^)(XeeUser *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:@"users/me"
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              XeeUser *user = [[XeeUser alloc] initWithJSON:responseObject];
+                              completionHandler(user, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)meCars:(void (^)(NSArray<XeeCar *> *, NSArray<XeeError *> *))completionHandler {
-    NSString *urlString = @"users/me/cars";
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *cars = [NSMutableArray array];
-            for(NSDictionary *jsonCar in json) {
-                [cars addObject:[[XeeCar alloc] initWithJSON:jsonCar]];
-            }
-            completionHandler(cars, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)meCars:(void (^)(NSArray<XeeCar *> *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:@"users/me/cars"
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *cars = [NSMutableArray array];
+                              for(NSDictionary *jsonCar in responseObject) {
+                                  [cars addObject:[[XeeCar alloc] initWithJSON:jsonCar]];
+                              }
+                              completionHandler(cars, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
 
--(void)meDevices:(void (^)(NSArray<XeeDevice*> *devices, NSArray<XeeError*> *errors))completionHandler {
-    NSString *urlString = @"users/me/devices";
-    NSDictionary *headers = [self configureHeader];
-    [[client method:@"GET" urlString:urlString params:nil headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            NSMutableArray *devices = [NSMutableArray array];
-            for(NSDictionary *jsonDevice in json) {
-                [devices addObject:[[XeeDevice alloc] initWithJSON:jsonDevice]];
-            }
-            completionHandler(devices, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+-(void)meDevices:(void (^)(NSArray<XeeDevice*> *, NSError *))completionHandler {
+    
+    [[XeeClient sharedClient] GET:@"users/me/devices"
+                       parameters:nil
+                         progress:nil
+                          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                              NSMutableArray *devices = [NSMutableArray array];
+                              for(NSDictionary *jsonDevice in responseObject) {
+                                  [devices addObject:[[XeeDevice alloc] initWithJSON:jsonDevice]];
+                              }
+                              completionHandler(devices, nil);
+                          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                              completionHandler(nil, error);
+                          }];
 }
     
--(void)meCreateCarWithName:(NSString *)name Completion:(void (^)(XeeCar *car, NSArray<XeeError*> *errors))completionHandler {
-    NSString *urlString = @"users/me/cars";
-    NSDictionary *headers = [self configureHeader];
+-(void)meCreateCarWithCar:(XeeCar *)car Completion:(void (^)(XeeCar *, NSError *))completionHandler {
     
-    NSDictionary *params = [NSDictionary dictionaryWithObject:name forKey:@"name"];
+    NSDictionary *params = [car asDictionary];
     
-    [[client method:@"POST" urlString:urlString params:params headers:headers completionHandler:^(NSData *data, NSArray<XeeError *> *errors) {
-        if(!errors) {
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
-            XeeCar *car = [[XeeCar alloc] initWithJSON:json];
-            completionHandler(car, errors);
-        } else {
-            completionHandler(nil, errors);
-        }
-    }] resume];
+    [[XeeClient sharedClient] POST:@"users/me/cars"
+                        parameters:params
+                          progress:nil
+                           success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                               XeeCar *car = [[XeeCar alloc] initWithJSON:responseObject];
+                               completionHandler(car, nil);
+                           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                               completionHandler(nil, error);
+                           }];
 }
 
 @end

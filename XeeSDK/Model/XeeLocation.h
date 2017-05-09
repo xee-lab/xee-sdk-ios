@@ -18,13 +18,13 @@
 
 @interface XeeLocation : XeeModel
 
-@property (nonatomic, assign) double latitude;
-@property (nonatomic, assign) double longitude;
+@property (nonatomic, strong) NSNumber *latitude;
+@property (nonatomic, strong) NSNumber *longitude;
 
-@property (nonatomic, assign) double altitude;
-@property (nonatomic, assign) double heading;
+@property (nonatomic, strong) NSNumber *altitude;
+@property (nonatomic, strong) NSNumber *heading;
 
-@property (nonatomic, assign) int satellites;
+@property (nonatomic, strong) NSNumber *satellites;
 
 @property (nonatomic, strong) NSDate *date;
 

@@ -21,14 +21,16 @@
 -(instancetype)initWithJSON:(NSDictionary *)JSON {
     self = [super initWithJSON:JSON];
     if (self) {
-        NSMutableArray *signals = [NSMutableArray array];
-        NSArray *signalList = [JSON objectForKey:@"signals"];
-        if(![signalList isKindOfClass:[NSNull class]] && signalList.count > 0) {
-            for(NSDictionary *signalJSON in signalList) {
-                [signals addObject:[XeeSignal withJSON:signalJSON]];
+        if ([JSON isKindOfClass:[NSDictionary class]] && [JSON objectForKey:@"signals"]) {
+            NSMutableArray *signals = [NSMutableArray array];
+            NSArray *signalList = [JSON objectForKey:@"signals"];
+            if(![signalList isKindOfClass:[NSNull class]] && signalList.count > 0) {
+                for(NSDictionary *signalJSON in signalList) {
+                    [signals addObject:[XeeSignal withJSON:signalJSON]];
+                }
             }
+            _signals = signals;
         }
-        _signals = signals;
     }
     return self;
 }
