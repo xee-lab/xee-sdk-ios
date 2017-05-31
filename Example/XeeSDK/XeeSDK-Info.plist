@@ -27,7 +27,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>demubi</string>
+				<string>xeesdk-example</string>
 			</array>
 		</dict>
 	</array>

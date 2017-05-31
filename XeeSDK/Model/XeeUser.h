@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *nickname;
 @property (nonatomic, strong) NSString *gender;
+@property (nonatomic, strong) NSString *email;
 
 @property (nonatomic, strong) NSDate *birthDate;
 @property (nonatomic, strong) NSDate *licenceDeliveryDate;

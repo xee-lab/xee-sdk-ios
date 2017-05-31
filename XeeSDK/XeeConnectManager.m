@@ -29,7 +29,6 @@
 {
     self = [super init];
     if (self) {
-        [self createWebView];
         NSDictionary *json = [[NSUserDefaults standardUserDefaults] objectForKey:@"XeeSDKInternalAccessToken"];
         if(json)
             _accessToken = [[XeeAccessToken alloc] initWithJSON:json];
@@ -37,11 +36,8 @@
     return self;
 }
 
--(void)createWebView {
-    self.embeddedWV = [[UIWebView alloc] init];
-}
-
 -(void)showWebViewInView:(UIView *)view WithURL:(NSURL *)url {
+    self.embeddedWV = [[UIWebView alloc] init];
     CGRect frame = view.bounds;
     frame.origin.y = frame.size.height;
     self.embeddedWV.frame = frame;

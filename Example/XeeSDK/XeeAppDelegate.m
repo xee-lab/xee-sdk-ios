@@ -16,9 +16,9 @@
     [Xee enableLog];
     
     XeeConfig *config = [[XeeConfig alloc] init];
-    config.secretKey = @"94SY0bjXVhvzutCm29Rw";
-    config.clientID = @"ZSbL3eCNddfGTLMIgSw5";
-    config.redirectURI = @"demubi://app";
+    config.secretKey = @"<App SecretKey>";
+    config.clientID = @"<App ClientID>";
+    config.redirectURI = @"<App RedirectURI>";
     config.environment = XeeEnvironmentSTAGING;
     [[Xee connectManager] setConfig:config];
     

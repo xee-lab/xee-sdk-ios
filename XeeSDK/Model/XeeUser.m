@@ -27,6 +27,7 @@
             _firstName = [JSON objectForKey:@"firstName"];
             _nickname = [JSON objectForKey:@"nickname"];
             _gender = [JSON objectForKey:@"gender"];
+            _email = [JSON objectForKey:@"email"];
             _birthDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"birthDate"]];
             _licenceDeliveryDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
             _role = [JSON objectForKey:@"role"];
