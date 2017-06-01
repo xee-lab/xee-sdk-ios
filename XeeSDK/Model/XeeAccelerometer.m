@@ -25,7 +25,7 @@
             _x = [JSON objectForKey:@"x"];
             _y = [JSON objectForKey:@"y"];
             _z = [JSON objectForKey:@"z"];
-            _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+            _date = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"date"]];
         }
     }
     return self;

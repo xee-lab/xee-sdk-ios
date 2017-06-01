@@ -28,12 +28,12 @@
             _nickname = [JSON objectForKey:@"nickname"];
             _gender = [JSON objectForKey:@"gender"];
             _email = [JSON objectForKey:@"email"];
-            _birthDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"birthDate"]];
-            _licenceDeliveryDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
+            _birthDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"birthDate"]];
+            _licenceDeliveryDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"licenceDeliveryDate"]];
             _role = [JSON objectForKey:@"role"];
             _isLocationEnabled = [JSON objectForKey:@"isLocationEnabled"];
-            _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
-            _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+            _creationDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"creationDate"]];
+            _lastUpdateDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"lastUpdateDate"]];
         }
     }
     return self;

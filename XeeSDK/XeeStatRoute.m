@@ -27,10 +27,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     if (initialValue) {
         [params setObject:initialValue forKey:@"initialValue"];
@@ -56,10 +56,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     if (initialValue) {
         [params setObject:initialValue forKey:@"initialValue"];

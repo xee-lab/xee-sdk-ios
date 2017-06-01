@@ -11,5 +11,11 @@
 @interface NSDateFormatter (Xee)
 
 + (instancetype)RFC3339DateFormatter;
+
++ (instancetype)RFC3339DateFormatterWithMS;
+
++ (NSDate *)xeeDateFromString:(NSString *)string;
+
++ (NSString *)xeeStringFromDate:(NSDate *)date;
     
 @end

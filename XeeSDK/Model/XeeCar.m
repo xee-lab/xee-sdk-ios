@@ -30,8 +30,8 @@
             _numberPlate = [JSON objectForKey:@"numberPlate"];
             _deviceId = [JSON objectForKey:@"deviceId"];
             _cardbId = [JSON objectForKey:@"cardbId"];
-            _creationDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"creationDate"]];
-            _lastUpdateDate = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"lastUpdateDate"]];
+            _creationDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"creationDate"]];
+            _lastUpdateDate = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"lastUpdateDate"]];
         }
     }
     return self;
@@ -88,11 +88,11 @@
     }
     
     if (self.creationDate) {
-        [carDictionary setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:self.creationDate] forKey:@"creationDate"];
+        [carDictionary setObject:[NSDateFormatter xeeStringFromDate:self.creationDate] forKey:@"creationDate"];
     }
     
     if (self.lastUpdateDate) {
-        [carDictionary setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:self.lastUpdateDate] forKey:@"lastUpdateDate"];
+        [carDictionary setObject:[NSDateFormatter xeeStringFromDate:self.lastUpdateDate] forKey:@"lastUpdateDate"];
     }
     
     return carDictionary;

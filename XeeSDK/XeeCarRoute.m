@@ -55,10 +55,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     if (limit) {
         [params setObject:limit forKey:@"limit"];
@@ -87,10 +87,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     if (limit) {
         [params setObject:limit forKey:@"limit"];
@@ -116,10 +116,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     if (limit) {
         [params setObject:limit forKey:@"limit"];
@@ -150,10 +150,10 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     if (begin) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:begin] forKey:@"begin"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:begin] forKey:@"begin"];
     }
     if (end) {
-        [params setObject:[[NSDateFormatter RFC3339DateFormatter] stringFromDate:end] forKey:@"end"];
+        [params setObject:[NSDateFormatter xeeStringFromDate:end] forKey:@"end"];
     }
     
     [[XeeClient sharedClient] GET:[NSString stringWithFormat:@"cars/%@/trips", carId]

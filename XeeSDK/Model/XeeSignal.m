@@ -24,7 +24,7 @@
         if ([JSON isKindOfClass:[NSDictionary class]]) {
             _name = [JSON objectForKey:@"name"];
             _value = [JSON objectForKey:@"value"];
-            _date = [[NSDateFormatter RFC3339DateFormatter] dateFromString:[JSON objectForKey:@"date"]];
+            _date = [NSDateFormatter xeeDateFromString:[JSON objectForKey:@"date"]];
         }
     }
     return self;
