@@ -9,3 +9,4 @@
 "connecter" = "Sign in";
 "creer_compte" = "Sign Up";
 "cancel" = "Cancel";
+"timeout_message" = "Check your internet connection";

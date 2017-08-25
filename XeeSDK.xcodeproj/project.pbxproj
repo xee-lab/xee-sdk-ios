@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0772131F50483A00A85293 /* JDStatusBarNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A07720D1F50483A00A85293 /* JDStatusBarNotification.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0772141F50483A00A85293 /* JDStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A07720E1F50483A00A85293 /* JDStatusBarNotification.m */; };
+		4A0772151F50483A00A85293 /* JDStatusBarStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A07720F1F50483A00A85293 /* JDStatusBarStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0772161F50483A00A85293 /* JDStatusBarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0772101F50483A00A85293 /* JDStatusBarStyle.m */; };
+		4A0772171F50483A00A85293 /* JDStatusBarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A0772111F50483A00A85293 /* JDStatusBarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4A0772181F50483A00A85293 /* JDStatusBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A0772121F50483A00A85293 /* JDStatusBarView.m */; };
 		4A7B657C1EB0A4430053C1BC /* XeeDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A7B657A1EB0A4430053C1BC /* XeeDevice.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A7B657D1EB0A4430053C1BC /* XeeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A7B657B1EB0A4430053C1BC /* XeeDevice.m */; };
 		4AA846461E9E7E5A00A3BB39 /* XeeRegisterButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +72,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A07720D1F50483A00A85293 /* JDStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarNotification.h; sourceTree = "<group>"; };
+		4A07720E1F50483A00A85293 /* JDStatusBarNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDStatusBarNotification.m; sourceTree = "<group>"; };
+		4A07720F1F50483A00A85293 /* JDStatusBarStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarStyle.h; sourceTree = "<group>"; };
+		4A0772101F50483A00A85293 /* JDStatusBarStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDStatusBarStyle.m; sourceTree = "<group>"; };
+		4A0772111F50483A00A85293 /* JDStatusBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDStatusBarView.h; sourceTree = "<group>"; };
+		4A0772121F50483A00A85293 /* JDStatusBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDStatusBarView.m; sourceTree = "<group>"; };
 		4A7B657A1EB0A4430053C1BC /* XeeDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeDevice.h; sourceTree = "<group>"; };
 		4A7B657B1EB0A4430053C1BC /* XeeDevice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XeeDevice.m; sourceTree = "<group>"; };
 		4AA846441E9E7E5A00A3BB39 /* XeeRegisterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XeeRegisterButton.h; sourceTree = "<group>"; };
@@ -142,6 +154,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A07720C1F50483A00A85293 /* JDStatusBarNotification */ = {
+			isa = PBXGroup;
+			children = (
+				4A07720D1F50483A00A85293 /* JDStatusBarNotification.h */,
+				4A07720E1F50483A00A85293 /* JDStatusBarNotification.m */,
+				4A07720F1F50483A00A85293 /* JDStatusBarStyle.h */,
+				4A0772101F50483A00A85293 /* JDStatusBarStyle.m */,
+				4A0772111F50483A00A85293 /* JDStatusBarView.h */,
+				4A0772121F50483A00A85293 /* JDStatusBarView.m */,
+			);
+			path = JDStatusBarNotification;
+			sourceTree = "<group>";
+		};
 		92A57C2D1E23D51800590352 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +195,7 @@
 		92C71BDF1D1D2B0500E06FA5 /* XeeSDK */ = {
 			isa = PBXGroup;
 			children = (
+				4A07720C1F50483A00A85293 /* JDStatusBarNotification */,
 				92C71C041D1D2BDC00E06FA5 /* routes */,
 				92C71BFB1D1D2BA800E06FA5 /* model */,
 				92C71BE01D1D2B0500E06FA5 /* XeeSDK.h */,
@@ -261,17 +287,20 @@
 				92C22ED91D22AD230003D165 /* XeeAccelerometer.h in Headers */,
 				92C71C1B1D1D2EF800E06FA5 /* XeeRequestManager.h in Headers */,
 				92C71C171D1D2EE200E06FA5 /* Xee.h in Headers */,
+				4A0772151F50483A00A85293 /* JDStatusBarStyle.h in Headers */,
 				92DC69A61D4B551B00E6448A /* XeeStat.h in Headers */,
 				923205931D22719C0035BBCD /* XeeRoute.h in Headers */,
 				92C71C0F1D1D2C3600E06FA5 /* XeeCarRoute.h in Headers */,
 				92F4B6271D1DA03900716C58 /* globals.h in Headers */,
 				92C71BF91D1D2BA200E06FA5 /* XeeCar.h in Headers */,
 				92C71C0B1D1D2C2A00E06FA5 /* XeeTripRoute.h in Headers */,
+				4A0772131F50483A00A85293 /* JDStatusBarNotification.h in Headers */,
 				92C22EDD1D22AD790003D165 /* XeeCarStatus.h in Headers */,
 				92C71C231D1D31D400E06FA5 /* XeeLocation.h in Headers */,
 				92C71C071D1D2C1A00E06FA5 /* XeeUserRoute.h in Headers */,
 				92C22ED51D22ACB90003D165 /* XeeSignal.h in Headers */,
 				92E4471A1D216EB400EFE259 /* XeeError.h in Headers */,
+				4A0772171F50483A00A85293 /* JDStatusBarView.h in Headers */,
 				92C71BE11D1D2B0500E06FA5 /* XeeSDK.h in Headers */,
 				92D2A1941DF9A7E5006B2EAF /* XeeLoginButton.h in Headers */,
 				92E564201D22BD20002A6263 /* XeeModel.h in Headers */,
@@ -359,6 +388,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92228FB81D6AFC2F00EF9876 /* XeeDeviceRoute.m in Sources */,
+				4A0772141F50483A00A85293 /* JDStatusBarNotification.m in Sources */,
 				92DC69A71D4B551B00E6448A /* XeeStat.m in Sources */,
 				92C71C241D1D31D400E06FA5 /* XeeLocation.m in Sources */,
 				92C22EDA1D22AD230003D165 /* XeeAccelerometer.m in Sources */,
@@ -374,12 +404,14 @@
 				92E4471B1D216EB400EFE259 /* XeeError.m in Sources */,
 				92C71BFF1D1D2BCA00E06FA5 /* XeeUser.m in Sources */,
 				9273229B1D6F1DDD00A02DD3 /* XeeDeviceStatus.m in Sources */,
+				4A0772161F50483A00A85293 /* JDStatusBarStyle.m in Sources */,
 				92C71C181D1D2EE200E06FA5 /* Xee.m in Sources */,
 				4AA846471E9E7E5A00A3BB39 /* XeeRegisterButton.m in Sources */,
 				92E564211D22BD20002A6263 /* XeeModel.m in Sources */,
 				9280064C1D216BBA00F5684A /* XeeHTTPClient.m in Sources */,
 				92DC69A31D4B53EB00E6448A /* XeeStatRoute.m in Sources */,
 				92C71C1C1D1D2EF800E06FA5 /* XeeRequestManager.m in Sources */,
+				4A0772181F50483A00A85293 /* JDStatusBarView.m in Sources */,
 				923205941D22719C0035BBCD /* XeeRoute.m in Sources */,
 				92C22EDE1D22AD790003D165 /* XeeCarStatus.m in Sources */,
 				92C71C031D1D2BD700E06FA5 /* XeeTrip.m in Sources */,

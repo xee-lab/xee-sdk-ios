@@ -16,6 +16,7 @@
 
 #import "XeeHTTPClient.h"
 #import "Xee.h"
+#import "JDStatusBarNotification.h"
 
 @implementation XeeHTTPClient
 
@@ -30,6 +31,8 @@
     }
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    configuration.timeoutIntervalForRequest = 30.0;
+    configuration.timeoutIntervalForResource = 30.0;
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     
     // create the URL
@@ -53,9 +56,13 @@
     return [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         // if there's a network error
         if(error) {
-            XeeError *networkError = [[XeeError alloc] init];
-            networkError.message = error.description;
-            completionHandler(nil, @[networkError]);
+            if (error.code == NSURLErrorTimedOut) {
+                [JDStatusBarNotification showWithStatus:NSLocalizedString(@"timeout_message", @"") dismissAfter:3.0 styleName:JDStatusBarStyleError];
+            }else {
+                XeeError *networkError = [[XeeError alloc] init];
+                networkError.message = error.description;
+                completionHandler(nil, @[networkError]);
+            }
         }
         else {
             // if there's an api error
