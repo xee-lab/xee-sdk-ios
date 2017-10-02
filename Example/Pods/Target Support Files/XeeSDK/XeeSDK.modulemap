@@ -1,6 +1,0 @@
-framework module XeeSDK {
-  umbrella header "XeeSDK-umbrella.h"
-
-  export *
-  module * { export * }
-}
