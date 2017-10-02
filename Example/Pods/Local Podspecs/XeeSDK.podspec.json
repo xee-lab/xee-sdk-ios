@@ -1,0 +1,22 @@
+{
+  "name": "XeeSDK",
+  "version": "0.1.0",
+  "summary": "A short description of XeeSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/jbdujardin/XeeSDK",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "jbdujardin": "jb.dujardin@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/jbdujardin/XeeSDK.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "XeeSDK/Classes/**/*"
+}
