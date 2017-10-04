@@ -1,22 +1,27 @@
 {
   "name": "XeeSDK",
-  "version": "0.1.0",
-  "summary": "A short description of XeeSDK.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/jbdujardin/XeeSDK",
+  "version": "4.0.0",
+  "summary": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
+  "homepage": "https://github.com/xee-lab/xee-sdk-ios/tree/swift4",
   "license": {
-    "type": "MIT",
+    "type": "Apache License, Version 2.0",
     "file": "LICENSE"
   },
   "authors": {
-    "jbdujardin": "jb.dujardin@gmail.com"
+    "Eliocity": "jbdujardin@xee.com"
   },
   "source": {
-    "git": "https://github.com/jbdujardin/XeeSDK.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/xee-lab/xee-sdk-ios.git",
+    "tag": "4.0.0"
   },
+  "social_media_url": "https://www.facebook.com/XeeFR",
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "XeeSDK/Classes/**/*"
+  "source_files": "XeeSDK/Classes/**/*",
+  "dependencies": {
+    "AlamofireObjectMapper": [
+
+    ]
+  }
 }

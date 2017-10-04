@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XeeSDK'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of XeeSDK.'
+  s.version          = '4.0.0'
+  s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,16 +17,12 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/jbdujardin/XeeSDK'
+  s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios/tree/swift4'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'jbdujardin' => 'jb.dujardin@gmail.com' }
-  s.source           = { :git => 'https://github.com/jbdujardin/XeeSDK.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
+  s.author           = { 'Eliocity' => 'jbdujardin@xee.com' }
+  s.source           = { :git => 'https://github.com/xee-lab/xee-sdk-ios.git', :tag => s.version.to_s }
+  s.social_media_url = 'https://www.facebook.com/XeeFR'
 
   s.ios.deployment_target = '8.0'
 
@@ -37,6 +33,6 @@ TODO: Add long description of the pod here.
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.dependency 'AlamofireObjectMapper'
 end

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XeeSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +16,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+        let xeeConfig = XeeConfig(withClientID: "c30a2cd5c0a4ac3483388002e45b26a8",
+                                  SecretKet: "73be86bc2c42e63bc9bc8184692a8667c9ffd289628f824725cd8d71b925fc8e",
+                                  Scopes: ["account.read", "account.management", "vehicles.read", "vehicles.management", "vehicles.privacies.read", "vehicles.signals.read", "vehicles.locations.read", "vehicles.privacies.management", "vehicles.trips.read"],
+                                  RedirectURI: "xee-sdk-example://app",
+                                  Environment: .XeeEnvironmentSTAGING)
+        
+        XeeConnectManager.shared.config = xeeConfig
+        
         return true
     }
 
@@ -41,6 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        XeeConnectManager.shared.openURL(URL: url)
+        return true
+    }
 
 }
 

@@ -1,5 +1,11 @@
 PODS:
-  - XeeSDK (0.1.0)
+  - Alamofire (4.5.1)
+  - AlamofireObjectMapper (5.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
+  - ObjectMapper (3.0.0)
+  - XeeSDK (4.0.0):
+    - AlamofireObjectMapper
 
 DEPENDENCIES:
   - XeeSDK (from `../`)
@@ -9,7 +15,10 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  XeeSDK: 7fe532794d2c27054d2bc16ccffb3bb7227849db
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  XeeSDK: 68e79f82dbeef8bc12b3ed6200b789f41f024cc8
 
 PODFILE CHECKSUM: b0697111066fb65c24b0b4826337ca83a629930a
 
