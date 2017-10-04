@@ -19,8 +19,12 @@
     "ios": "8.0"
   },
   "source_files": "XeeSDK/Classes/**/*",
+  "frameworks": "UIKit",
   "dependencies": {
     "AlamofireObjectMapper": [
+
+    ],
+    "AFDateHelper": [
 
     ]
   }

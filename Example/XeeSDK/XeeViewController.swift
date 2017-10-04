@@ -27,7 +27,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -39,6 +39,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 1:
             cell.textLabel?.text = "Connect"
+            break
+        case 2:
+            cell.textLabel?.text = "Users/me"
             break
         default:
             break
@@ -56,6 +59,15 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
         case 1:
             XeeConnectManager.shared.delegate = self
             XeeConnectManager.shared.connect()
+            break
+        case 2:
+            XeeRequestManager.shared.getUser(completionHandler: { (error, user) in
+                if let error = error {
+                    self.textView.text = error.localizedDescription
+                }else if let user = user {
+                    self.textView.text = user.toJSONString(prettyPrint: true)
+                }
+            })
         default:
             break
         }

@@ -86,8 +86,8 @@ public class XeeConnectManager {
     }
     
     public func connect() {
-        if let token = token {
-            XeeRequestManager.shared.refreshToken(withRefreshToken: token.refreshToken!, Scope: token.scope!, completionHandler: { (error, token) in
+        if token != nil {
+            XeeRequestManager.shared.refreshToken(completionHandler: { (error, token) in
                 if let error = error {
                     self.delegate?.didFail(WithError: error)
                 }else {

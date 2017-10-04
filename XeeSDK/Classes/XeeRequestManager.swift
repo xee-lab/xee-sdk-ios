@@ -44,6 +44,16 @@ public class XeeRequestManager {
         }
     }
     
+    var scope: String? {
+        get {
+            if let scope = XeeConnectManager.shared.token?.scope {
+                return scope
+            }else {
+                return nil
+            }
+        }
+    }
+    
     public func getToken(withCode code: String, completionHandler: ((_ error: Error?, _ token: XeeToken?) -> Void)? ) {
         
         let parameters: Parameters = ["grant_type":"authorization_code", "code":code]
@@ -81,9 +91,16 @@ public class XeeRequestManager {
         }
     }
     
-    public func refreshToken(withRefreshToken refreshToken: String, Scope scope: String, completionHandler: ((_ error: Error?, _ token: XeeToken?) -> Void)? ) {
+    public func refreshToken(completionHandler: ((_ error: Error?, _ token: XeeToken?) -> Void)? ) {
         
-        let parameters: Parameters = ["grant_type":"refresh_token", "scope":scope, "refresh_token":refreshToken]
+        var parameters: Parameters = ["grant_type":"refresh_token"]
+        if let refreshToken = XeeConnectManager.shared.token?.refreshToken {
+            parameters["refresh_token"] = refreshToken
+        }
+        if let scope = XeeConnectManager.shared.token?.scope {
+            parameters["scope"] = scope
+        }
+        
         var headers: HTTPHeaders = [:]
         
         if let authorizationHeader = Request.authorizationHeader(user: clientID!, password: secretKey!) {
@@ -111,6 +128,35 @@ public class XeeRequestManager {
                         UserDefaults.standard.synchronize()
                         if let completionHandler = completionHandler {
                             completionHandler(nil, token)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func getUser(completionHandler: ((_ error: Error?, _ user: XeeUser?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)" + "/users/me", encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let user = response.result.value {
+                    if let error = user.error, let errorMessage = user.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, user)
                         }
                     }
                 }
