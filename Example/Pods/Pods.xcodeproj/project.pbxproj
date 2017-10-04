@@ -28,6 +28,7 @@
 		4863B9B382D2BA7A07C414A91E1DD6B0 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1366C8D2B3A8AB85467335B347C19C /* ObjectMapper-dummy.m */; };
 		4AA0044E1F83948A00C51346 /* XeeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA0044D1F83948A00C51346 /* XeeRequestManager.swift */; };
 		4AC401DF1F84D63A0001A8DD /* XeeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC401DE1F84D63A0001A8DD /* XeeToken.swift */; };
+		4AC401EB1F85179A0001A8DD /* XeeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC401EA1F85179A0001A8DD /* XeeObject.swift */; };
 		4E144A5F6A61AACDFDFF8E00A4E5C17B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0193825564CFDBD56812D93E90FA2E4D /* Alamofire.framework */; };
 		53520873F706861482D8A1E2AB1F29DD /* XeeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0DA3D58A6F4BC091D64366C22CDB59 /* XeeConfig.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1783D7A34EB66A031BF558A3110D78 /* Request.swift */; };
@@ -174,6 +175,7 @@
 		4AA004551F83BB6900C51346 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/local.strings; sourceTree = "<group>"; };
 		4AA004561F83BB6900C51346 /* pt-PT */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-PT"; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
 		4AC401DE1F84D63A0001A8DD /* XeeToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeToken.swift; sourceTree = "<group>"; };
+		4AC401EA1F85179A0001A8DD /* XeeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeObject.swift; sourceTree = "<group>"; };
 		4E80275986B4E5DE31AE084A25399239 /* XeeSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XeeSDK-dummy.m"; sourceTree = "<group>"; };
 		50DEC013AE9CAFAB0B2032262D84979F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D544C8A59616D0B71C49516901BC50 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 		1E690B45E5F7FEFB1EE893FA1A4A29DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4AC401EA1F85179A0001A8DD /* XeeObject.swift */,
 				CF0DA3D58A6F4BC091D64366C22CDB59 /* XeeConfig.swift */,
 				4AC401DE1F84D63A0001A8DD /* XeeToken.swift */,
 			);
@@ -857,6 +860,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AC401DF1F84D63A0001A8DD /* XeeToken.swift in Sources */,
+				4AC401EB1F85179A0001A8DD /* XeeObject.swift in Sources */,
 				53520873F706861482D8A1E2AB1F29DD /* XeeConfig.swift in Sources */,
 				A3B57E30D61C5DC2015206B96D3EB02B /* XeeConnectManager.swift in Sources */,
 				4AA0044E1F83948A00C51346 /* XeeRequestManager.swift in Sources */,

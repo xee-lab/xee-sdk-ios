@@ -62,14 +62,19 @@ public class XeeRequestManager {
                 }
             }else {
                 if let token = response.result.value {
-                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                    UserDefaults.standard.synchronize()
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, token)
-                    }
-                }else {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil , nil)
+                    if let error = token.error, let errorMessage = token.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
+                        UserDefaults.standard.synchronize()
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                        UserDefaults.standard.synchronize()
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, token)
+                        }
                     }
                 }
             }
@@ -94,14 +99,19 @@ public class XeeRequestManager {
                 }
             }else {
                 if let token = response.result.value {
-                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                    UserDefaults.standard.synchronize()
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, token)
-                    }
-                }else {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil , nil)
+                    if let error = token.error, let errorMessage = token.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
+                        UserDefaults.standard.synchronize()
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                        UserDefaults.standard.synchronize()
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, token)
+                        }
                     }
                 }
             }
