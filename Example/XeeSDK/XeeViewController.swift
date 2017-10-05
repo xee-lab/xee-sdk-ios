@@ -47,7 +47,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,6 +68,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 4:
             cell.textLabel?.text = "Vehicle"
+            break
+        case 5:
+            cell.textLabel?.text = "Device"
             break
         default:
             break
@@ -104,6 +107,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     }else if let vehicules = vehicules {
                         let vehicule = vehicules[0]
                         self.vehiculeID = vehicule.vehiculeID!
+                        self.deviceID = vehicule.device?.deviceID!
                         self.textView.text = vehicules.toJSONString(prettyPrint: true)
                     }
                 })
@@ -116,6 +120,17 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                         self.textView.text = error.localizedDescription
                     }else if let vehicule = vehicule {
                         self.textView.text = vehicule.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
+        case 5:
+            if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.getDevice(ForVehicleID: vehicleID, completionHandler: { (error, device) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let device = device {
+                        self.textView.text = device.toJSONString(prettyPrint: true)
                     }
                 })
             }
