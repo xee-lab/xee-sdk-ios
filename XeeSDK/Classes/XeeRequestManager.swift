@@ -200,5 +200,34 @@ public class XeeRequestManager {
         }
     }
     
+    public func getVehicle(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)", headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let vehicle = response.result.value {
+                    if let error = vehicle.error, let errorMessage = vehicle.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, vehicle)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 
 }

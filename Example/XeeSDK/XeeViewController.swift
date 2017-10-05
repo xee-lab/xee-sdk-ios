@@ -12,9 +12,26 @@ import XeeSDK
 class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XeeConnectManagerDelegate {
     
     @IBOutlet var textView: UITextView!
+    @IBOutlet var carIDLabel: UILabel!
+    @IBOutlet var tripIDLabel: UILabel!
+    @IBOutlet var deviceIDLabel: UILabel!
     
     var userID: String?
-    var vehiculeID: String?
+    var vehiculeID: String? {
+        didSet {
+            carIDLabel.text = "carID : \(vehiculeID!)"
+        }
+    }
+    var tripID: String? {
+        didSet {
+            tripIDLabel.text = "tripID : \(tripID!)"
+        }
+    }
+    var deviceID: String? {
+        didSet {
+            deviceIDLabel.text = "deviceID : \(deviceID!)"
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +47,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,6 +65,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 3:
             cell.textLabel?.text = "Vehicles"
+            break
+        case 4:
+            cell.textLabel?.text = "Vehicle"
             break
         default:
             break
@@ -89,9 +109,43 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
+        case 4:
+            if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.getVehicle(WithVehicleID: vehicleID, completionHandler: { (error, vehicule) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let vehicule = vehicule {
+                        self.textView.text = vehicule.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
         default:
             break
         }
+    }
+    
+    @IBAction func edit(_ sender: UIButton) {
+        let alert: UIAlertController = UIAlertController(title: "Edit", message: "Quelle est la nouvelle valeur ?", preferredStyle: .alert)
+        alert.addTextField(configurationHandler: nil)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+            if let newID = alert.textFields?[0].text {
+                switch sender.tag {
+                case 1:
+                    self.vehiculeID = newID
+                    break
+                case 2:
+                    self.tripID = newID
+                    break
+                case 3:
+                    self.deviceID = newID
+                    break
+                default:
+                    break
+                }
+            }
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - XeeConnectManagerDelegate
