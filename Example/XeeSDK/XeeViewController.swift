@@ -48,7 +48,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 11
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,18 +71,21 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.textLabel?.text = "Vehicle"
             break
         case 5:
-            cell.textLabel?.text = "Device"
+            cell.textLabel?.text = "Update Vehicle"
             break
         case 6:
-            cell.textLabel?.text = "Get Privacies"
+            cell.textLabel?.text = "Device"
             break
         case 7:
-            cell.textLabel?.text = "Start Privacy"
+            cell.textLabel?.text = "Get Privacies"
             break
         case 8:
-            cell.textLabel?.text = "Stop Privacy"
+            cell.textLabel?.text = "Start Privacy"
             break
         case 9:
+            cell.textLabel?.text = "Stop Privacy"
+            break
+        case 10:
             cell.textLabel?.text = "Disconnect"
             break
         default:
@@ -139,6 +142,25 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 5:
             if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.getVehicle(WithVehicleID: vehicleID, completionHandler: { (error, vehicle) in
+                    if let vehicle = vehicle {
+                        let temp = vehicle.name
+                        vehicle.name = "TEST"
+                        XeeRequestManager.shared.updateVehicle(WithVehicle: vehicle, completionHandler: { (error, vehicle) in
+                            if let error = error {
+                                self.textView.text = error.localizedDescription
+                            }else if let vehicle = vehicle {
+                                self.textView.text = vehicle.toJSONString(prettyPrint: true)
+                                vehicle.name = temp
+                                XeeRequestManager.shared.updateVehicle(WithVehicle: vehicle, completionHandler: nil)
+                            }
+                        })
+                    }
+                })
+            }
+            break
+        case 6:
+            if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getDevice(ForVehicleID: vehicleID, completionHandler: { (error, device) in
                     if let error = error {
                         self.textView.text = error.localizedDescription
@@ -148,7 +170,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 6:
+        case 7:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getPrivacies(ForVehicleID: vehicleID, From: nil, To: nil, Limit: nil, completionHandler: { (error, privacies) in
                     if let error = error {
@@ -160,7 +182,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 7:
+        case 8:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.startPrivacy(ForVehicleID: vehicleID, completionHandler: { (error, privacy) in
                     if let error = error {
@@ -171,7 +193,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 8:
+        case 9:
             if let privacyID = privacyID {
                 XeeRequestManager.shared.stopPrivacy(ForVPrivacyID: privacyID, completionHandler: { (error, privacy) in
                     if let error = error {
@@ -182,7 +204,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 9:
+        case 10:
             XeeConnectManager.shared.disconnect()
             break
         default:

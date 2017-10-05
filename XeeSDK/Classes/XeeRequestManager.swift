@@ -239,6 +239,42 @@ public class XeeRequestManager {
         }
     }
     
+    public func updateVehicle(WithVehicle vehicle:XeeVehicle, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
+        
+        let parameters: Parameters = vehicle.toJSON()
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let vehicle = response.result.value {
+                    if let error = vehicle.error, let errorMessage = vehicle.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = vehicle.message, let _ = vehicle.tip, let type = vehicle.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, vehicle)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func getDevice(ForVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ vehicle: XeeDevice?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
