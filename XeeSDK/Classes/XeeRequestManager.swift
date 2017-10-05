@@ -169,6 +169,42 @@ public class XeeRequestManager {
         }
     }
     
+    public func updateUser(WithUser user:XeeUser, completionHandler: ((_ error: Error?, _ vehicle: XeeUser?) -> Void)? ) {
+        
+        let parameters: Parameters = user.toJSON()
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)users/\(user.userID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let user = response.result.value {
+                    if let error = user.error, let errorMessage = user.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = user.message, let _ = user.tip, let type = user.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, user)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func getVehicles(WithUserID userId:String?, completionHandler: ((_ error: Error?, _ vehicles: [XeeVehicle]?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]

@@ -48,7 +48,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
+        return 12
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,27 +65,30 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.textLabel?.text = "Users/me"
             break
         case 3:
-            cell.textLabel?.text = "Vehicles"
+            cell.textLabel?.text = "Users/me"
             break
         case 4:
-            cell.textLabel?.text = "Vehicle"
+            cell.textLabel?.text = "Vehicles"
             break
         case 5:
-            cell.textLabel?.text = "Update Vehicle"
+            cell.textLabel?.text = "Vehicle"
             break
         case 6:
-            cell.textLabel?.text = "Device"
+            cell.textLabel?.text = "Update Vehicle"
             break
         case 7:
-            cell.textLabel?.text = "Get Privacies"
+            cell.textLabel?.text = "Device"
             break
         case 8:
-            cell.textLabel?.text = "Start Privacy"
+            cell.textLabel?.text = "Get Privacies"
             break
         case 9:
-            cell.textLabel?.text = "Stop Privacy"
+            cell.textLabel?.text = "Start Privacy"
             break
         case 10:
+            cell.textLabel?.text = "Stop Privacy"
+            break
+        case 11:
             cell.textLabel?.text = "Disconnect"
             break
         default:
@@ -116,6 +119,23 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             })
             break
         case 3:
+            XeeRequestManager.shared.getUser(completionHandler: { (error, user) in
+                if let user = user {
+                    let temp = user.firstName
+                    user.firstName = "TEST"
+                    XeeRequestManager.shared.updateUser(WithUser: user, completionHandler: { (error, user) in
+                        if let error = error {
+                            self.textView.text = error.localizedDescription
+                        }else if let user = user {
+                            self.textView.text = user.toJSONString(prettyPrint: true)
+                            user.firstName = temp
+                            XeeRequestManager.shared.updateUser(WithUser: user, completionHandler: nil)
+                        }
+                    })
+                }
+            })
+            break
+        case 4:
             if let userID = userID {
                 XeeRequestManager.shared.getVehicles(WithUserID: userID, completionHandler: { (error, vehicules) in
                     if let error = error {
@@ -129,7 +149,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 4:
+        case 5:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getVehicle(WithVehicleID: vehicleID, completionHandler: { (error, vehicule) in
                     if let error = error {
@@ -140,7 +160,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 5:
+        case 6:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getVehicle(WithVehicleID: vehicleID, completionHandler: { (error, vehicle) in
                     if let vehicle = vehicle {
@@ -159,7 +179,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 6:
+        case 7:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getDevice(ForVehicleID: vehicleID, completionHandler: { (error, device) in
                     if let error = error {
@@ -170,7 +190,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 7:
+        case 8:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.getPrivacies(ForVehicleID: vehicleID, From: nil, To: nil, Limit: nil, completionHandler: { (error, privacies) in
                     if let error = error {
@@ -182,7 +202,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 8:
+        case 9:
             if let vehicleID = vehiculeID {
                 XeeRequestManager.shared.startPrivacy(ForVehicleID: vehicleID, completionHandler: { (error, privacy) in
                     if let error = error {
@@ -193,7 +213,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 9:
+        case 10:
             if let privacyID = privacyID {
                 XeeRequestManager.shared.stopPrivacy(ForVPrivacyID: privacyID, completionHandler: { (error, privacy) in
                     if let error = error {
@@ -204,7 +224,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        case 10:
+        case 11:
             XeeConnectManager.shared.disconnect()
             break
         default:
