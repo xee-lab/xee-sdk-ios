@@ -23,9 +23,6 @@
   "dependencies": {
     "AlamofireObjectMapper": [
 
-    ],
-    "AFDateHelper": [
-
     ]
   }
 }

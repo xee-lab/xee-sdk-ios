@@ -9,11 +9,11 @@ import ObjectMapper
 
 public class XeeToken: XeeObject {
     
-    var tokenType: String?
-    var refreshToken: String?
-    var scope: String?
-    var accessToken: String?
-    var expiresIn: Int?
+    public var tokenType: String?
+    public var refreshToken: String?
+    public var scope: String?
+    public var accessToken: String?
+    public var expiresIn: Int?
 
     required public init?(map: Map) {
         super.init(map: map)

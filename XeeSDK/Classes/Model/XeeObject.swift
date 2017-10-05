@@ -9,20 +9,20 @@ import ObjectMapper
 
 public class XeeObject: Mappable {
     
-    var error: String?
-    var errorMessage: String?
+    public var error: String?
+    public var errorMessage: String?
     
     required public init?(map: Map) {}
     
     let dateTransform = TransformOf<Date, String>(fromJSON: { (value: String?) -> Date? in
         if let value = value {
-            return Date(fromString: value, format: .custom("yyyy-MM-dd'T'HH:mm:ssZZZZZ"), locale:Locale(identifier: "en_US_POSIX"))
+            return value.dateFromISO8601
         }else {
             return nil
         }
     }, toJSON: { (value: Date?) -> String? in
         if let value = value {
-            return value.toString(format: .custom("yyyy-MM-dd'T'HH:mm:ssZZZZZ"), locale:Locale(identifier: "en_US_POSIX"))
+            return value.iso8601
         }else {
             return nil
         }

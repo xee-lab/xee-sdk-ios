@@ -12,6 +12,9 @@ import XeeSDK
 class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, XeeConnectManagerDelegate {
     
     @IBOutlet var textView: UITextView!
+    
+    var userID: String?
+    var vehiculeID: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,6 +45,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 2:
             cell.textLabel?.text = "Users/me"
+            break
+        case 3:
+            cell.textLabel?.text = "Vehicles"
             break
         default:
             break
@@ -65,9 +71,24 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 if let error = error {
                     self.textView.text = error.localizedDescription
                 }else if let user = user {
+                    self.userID = user.userID
                     self.textView.text = user.toJSONString(prettyPrint: true)
                 }
             })
+            break
+        case 3:
+            if let userID = userID {
+                XeeRequestManager.shared.getVehicles(WithUserID: userID, completionHandler: { (error, vehicules) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let vehicules = vehicules {
+                        let vehicule = vehicules[0]
+                        self.vehiculeID = vehicule.vehiculeID!
+                        self.textView.text = vehicules.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
         default:
             break
         }

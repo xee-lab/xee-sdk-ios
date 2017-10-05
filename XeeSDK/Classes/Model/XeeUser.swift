@@ -6,17 +6,16 @@
 //
 
 import ObjectMapper
-import AFDateHelper
 
 public class XeeUser: XeeObject {
     
-    var userID: String?
-    var gender: String?
-    var firstName: String?
-    var lastName: String?
-    var email: String?
-    var createdAt: Date?
-    var updatedAt: Date?
+    public var userID: String?
+    public var gender: String?
+    public var firstName: String?
+    public var lastName: String?
+    public var email: String?
+    public var createdAt: Date?
+    public var updatedAt: Date?
     
     required public init?(map: Map) {
         super.init(map: map)
