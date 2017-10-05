@@ -12,6 +12,7 @@ public protocol XeeConnectManagerDelegate: class {
     func didSuccess(token: XeeToken)
     func didFail(WithError error: Error)
     func didCancel()
+    func didDisconnected()
 }
 
 public class XeeConnectManager {
@@ -101,6 +102,12 @@ public class XeeConnectManager {
         }else {
             showAuthPage()
         }
+    }
+    
+    public func disconnect() {
+        UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
+        UserDefaults.standard.synchronize()
+        delegate?.didDisconnected()
     }
     
     func showRegisterPage() {

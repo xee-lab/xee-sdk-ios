@@ -154,6 +154,11 @@ public class XeeRequestManager {
                         if let completionHandler = completionHandler {
                             completionHandler(apiError, nil)
                         }
+                    }else if let message = user.message, let _ = user.tip, let type = user.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
                     }else {
                         if let completionHandler = completionHandler {
                             completionHandler(nil, user)
@@ -219,6 +224,11 @@ public class XeeRequestManager {
                         if let completionHandler = completionHandler {
                             completionHandler(apiError, nil)
                         }
+                    }else if let message = vehicle.message, let _ = vehicle.tip, let type = vehicle.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
                     }else {
                         if let completionHandler = completionHandler {
                             completionHandler(nil, vehicle)
@@ -248,9 +258,122 @@ public class XeeRequestManager {
                         if let completionHandler = completionHandler {
                             completionHandler(apiError, nil)
                         }
+                    }else if let message = device.message, let _ = device.tip, let type = device.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
                     }else {
                         if let completionHandler = completionHandler {
                             completionHandler(nil, device)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func getPrivacies(ForVehicleID vehicleId:String, From from:Date?, To to:Date?, Limit limit:Int?, completionHandler: ((_ error: Error?, _ privacies: [XeePrivacy]?) -> Void)? ) {
+        
+        var parameters: Parameters = [:]
+        if let from = from {
+            parameters["from"] = from.iso8601
+        }
+        if let to = to {
+            parameters["to"] = to.iso8601
+        }
+        if let limit = limit {
+            parameters["limit"] = limit
+        }
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/privacies", parameters:parameters, headers:headers).responseArray { (response: DataResponse<[XeePrivacy]>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let privacies = response.result.value {
+                    if privacies.count > 0 {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, privacies)
+                        }
+                    }else {
+                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No privacy"])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func startPrivacy(ForVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ privacy: XeePrivacy?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/privacies", method:.post, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let privacy = response.result.value {
+                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, privacy)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func stopPrivacy(ForVPrivacyID privacyID:String, completionHandler: ((_ error: Error?, _ privacy: XeePrivacy?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)privacies/\(privacyID)", method:.put, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let privacy = response.result.value {
+                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, privacy)
                         }
                     }
                 }

@@ -11,6 +11,9 @@ public class XeeObject: Mappable {
     
     public var error: String?
     public var errorMessage: String?
+    public var type: String?
+    public var message: String?
+    public var tip: String?
     
     required public init?(map: Map) {}
     
@@ -31,6 +34,9 @@ public class XeeObject: Mappable {
     public func mapping(map: Map) {
         error <- map["error"]
         errorMessage <- map["error_description"]
+        type <- map["type"]
+        message <- map["message"]
+        tip <- map["tip"]
     }
 
 }

@@ -32,6 +32,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             deviceIDLabel.text = "deviceID : \(deviceID!)"
         }
     }
+    var privacyID: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +48,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 10
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,6 +72,18 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         case 5:
             cell.textLabel?.text = "Device"
+            break
+        case 6:
+            cell.textLabel?.text = "Get Privacies"
+            break
+        case 7:
+            cell.textLabel?.text = "Start Privacy"
+            break
+        case 8:
+            cell.textLabel?.text = "Stop Privacy"
+            break
+        case 9:
+            cell.textLabel?.text = "Disconnect"
             break
         default:
             break
@@ -135,6 +148,43 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
+        case 6:
+            if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.getPrivacies(ForVehicleID: vehicleID, From: nil, To: nil, Limit: nil, completionHandler: { (error, privacies) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let privacies = privacies {
+                        self.privacyID = privacies[0].privacyID
+                        self.textView.text = privacies.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
+        case 7:
+            if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.startPrivacy(ForVehicleID: vehicleID, completionHandler: { (error, privacy) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let privacy = privacy {
+                        self.textView.text = privacy.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
+        case 8:
+            if let privacyID = privacyID {
+                XeeRequestManager.shared.stopPrivacy(ForVPrivacyID: privacyID, completionHandler: { (error, privacy) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let privacy = privacy {
+                        self.textView.text = privacy.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
+        case 9:
+            XeeConnectManager.shared.disconnect()
+            break
         default:
             break
         }
@@ -175,6 +225,10 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     func didCancel() {
         self.textView.text = "Canceled"
+    }
+    
+    func didDisconnected() {
+        self.textView.text = "Disconnected"
     }
 
 }
