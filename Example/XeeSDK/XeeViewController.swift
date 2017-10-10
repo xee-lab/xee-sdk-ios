@@ -53,7 +53,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 12
+        return 14
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -97,6 +97,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.textLabel?.text = "Stop Privacy"
             break
         case 12:
+            cell.textLabel?.text = "Trips"
+            break
+        case 13:
             cell.textLabel?.text = "Disconnect"
             break
         default:
@@ -253,11 +256,23 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     }
                 })
             }else {
-                self.textView.text = "Create Privacy before"
+                self.textView.text = "No privacy created"
+            }
+            break
+        // Vehicle Trips
+        case 12:
+            if let vehicleID = vehiculeID {
+                XeeRequestManager.shared.getTrips(WithVehicleID: vehicleID, completionHandler: { (error, trips) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let trips = trips {
+                        self.textView.text = trips.toJSONString(prettyPrint: true)
+                    }
+                })
             }
             break
         // Disconnect
-        case 12:
+        case 13:
             XeeConnectManager.shared.disconnect()
             break
         default:

@@ -11,9 +11,7 @@ public class XeeLocation: XeeObject {
     
     public var latitude: Double?
     public var longitude: Double?
-    public var nbSat: Int?
     public var date: Date?
-    public var hdp: Double?
     public var heading: Double?
     public var altitude: Double?
     
@@ -25,9 +23,7 @@ public class XeeLocation: XeeObject {
         super.mapping(map: map)
         latitude <- map["latitude"]
         longitude <- map["longitude"]
-        nbSat <- map["nbSat"]
         date <- (map["date"], dateTransform)
-        hdp <- map["HDP"]
         heading <- map["heading"]
         altitude <- map["altitude"]
     }

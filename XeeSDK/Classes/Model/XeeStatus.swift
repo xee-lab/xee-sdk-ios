@@ -13,6 +13,7 @@ public class XeeStatus: XeeObject {
     public var vehicleID: String?
     public var createdAt: Date?
     public var updatedAt: Date?
+    public var accelerometer: XeeAccelerometer?
     public var signals: [XeeSignal]?
     
     required public init?(map: Map) {
@@ -25,6 +26,7 @@ public class XeeStatus: XeeObject {
         vehicleID <- map["vehicleId"]
         createdAt <- (map["createdAt"], dateTransform)
         updatedAt <- (map["updatedAt"], dateTransform)
+        accelerometer <- map["accelerometer"]
         signals <- map["signals"]
     }
     

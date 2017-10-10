@@ -309,6 +309,35 @@ public class XeeRequestManager {
         }
     }
     
+    public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ status: [XeeTrip]?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers).responseArray { (response: DataResponse<[XeeTrip]>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let trips = response.result.value {
+                    if trips.count > 0 {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, trips)
+                        }
+                    }else {
+                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No trip"])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func updateVehicle(WithVehicle vehicle:XeeVehicle, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
         
         let parameters: Parameters = vehicle.toJSON()
