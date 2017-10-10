@@ -275,6 +275,40 @@ public class XeeRequestManager {
         }
     }
     
+    public func getStatus(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ status: XeeStatus?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/status", headers:headers).responseObject { (response: DataResponse<XeeStatus>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let status = response.result.value {
+                    if let error = status.error, let errorMessage = status.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = status.message, let _ = status.tip, let type = status.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, status)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func updateVehicle(WithVehicle vehicle:XeeVehicle, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
         
         let parameters: Parameters = vehicle.toJSON()
