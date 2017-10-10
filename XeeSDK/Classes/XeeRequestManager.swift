@@ -309,7 +309,7 @@ public class XeeRequestManager {
         }
     }
     
-    public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ status: [XeeTrip]?) -> Void)? ) {
+    public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ trips: [XeeTrip]?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
@@ -331,6 +331,40 @@ public class XeeRequestManager {
                         let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No trip"])
                         if let completionHandler = completionHandler {
                             completionHandler(apiError, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    public func getTrip(WithTripID tripID:String, completionHandler: ((_ error: Error?, _ trip: XeeTrip?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        Alamofire.request("\(baseURL!)trips/\(tripID)", headers:headers).responseObject { (response: DataResponse<XeeTrip>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let trip = response.result.value {
+                    if let error = trip.error, let errorMessage = trip.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = trip.message, let _ = trip.tip, let type = trip.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, trip)
                         }
                     }
                 }
