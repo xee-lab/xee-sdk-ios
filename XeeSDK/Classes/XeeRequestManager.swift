@@ -429,6 +429,47 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
+    public func getLocations(WithTripID tripId:String, completionHandler: ((_ error: Error?, _ locations: [XeeLocation]?) -> Void)? ) {
+        
+        self.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
+            var redirectedRequest = request
+            
+            if let originalRequest = task.originalRequest, let headers = originalRequest.allHTTPHeaderFields, let authorizationHeaderValue = headers["Authorization"] {
+                let mutableRequest = request as! NSMutableURLRequest
+                mutableRequest.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
+                redirectedRequest = mutableRequest as URLRequest
+            }
+            
+            return redirectedRequest
+        }
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.request("\(baseURL!)trips/\(tripId)/locations", headers:headers).responseArray { (response: DataResponse<[XeeLocation]>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let locations = response.result.value {
+                    if locations.count > 0 {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, locations)
+                        }
+                    }else {
+                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No location"])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func updateVehicle(WithVehicle vehicle:XeeVehicle, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
         
         let parameters: Parameters = vehicle.toJSON()

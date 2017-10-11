@@ -53,7 +53,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 16
+        return 17
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,6 +106,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.textLabel?.text = "Trip Signals"
             break
         case 15:
+            cell.textLabel?.text = "Trip Locations"
+            break
+        case 16:
             cell.textLabel?.text = "Disconnect"
             break
         default:
@@ -302,8 +305,20 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        // Disconnect
+        // Trip Locations
         case 15:
+            if let tripID = tripID {
+                XeeRequestManager.shared.getLocations(WithTripID: tripID, completionHandler: { (error, locations) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let locations = locations {
+                        self.textView.text = locations.toJSONString(prettyPrint: true)
+                    }
+                })
+            }
+            break
+        // Disconnect
+        case 16:
             XeeConnectManager.shared.disconnect()
             break
         default:
