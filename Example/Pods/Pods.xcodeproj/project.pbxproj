@@ -11,88 +11,88 @@
 		0202E91BD433E428B5ABA0057800D7BD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
 		028F7BF3F13D9D6CD093BE577808B1B1 /* DateFormatterTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDA993EC8C34829B83B7C527401EA1FF /* DateFormatterTransform.swift */; };
 		05CB6B5B3A5024A0678959CCBFC2A0F7 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DBEE1354EB2B74C2490CEC876C5E44 /* Operators.swift */; };
-		05F9A70FE32A4257E654DEDD51DD6108 /* XeeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24AD27A1E368415667F958BD1FEB81F /* XeeToken.swift */; };
 		0989586F2E98E8284F91F680CBA61972 /* Pods-XeeSDK_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A19684C25AD73380D0E68692A403073B /* Pods-XeeSDK_Tests-dummy.m */; };
 		0FB200B3352B24709B03A9A20B93DA61 /* Pods-XeeSDK_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 41BFA0E0409B6F9EA34B477D5D0DD80E /* Pods-XeeSDK_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		10EB23E9ECC4B33E16933BB1EA560B6A /* Timeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9FAC159DF216DEBC697BBA1C2F3A3F /* Timeline.swift */; };
+		11B39AA64FE409FE1A757EFB334F2ACE /* XeeVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959A0631EF1AECC682A0BDDF4DA29743 /* XeeVehicle.swift */; };
+		1665B1E164BD4CFFCE1CEC3EDB121A10 /* XeeTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C0B9933847337A3709F39532107E1F /* XeeTrip.swift */; };
 		1674976E5691AC6C3F018C2E42683218 /* ObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 58842F94DB5A654A43E36EB229E104C5 /* ObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1B9EDEDC964E6B08F78920B4F4B9DB84 /* Alamofire-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 10BE86DA3D5E1FC2E267FEB3E5C04B9C /* Alamofire-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		23D2A44BE22ABB345E49C49F98FD98D6 /* XeeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A846ADBEE109C3C48DEB8DF5861BCA /* XeeDevice.swift */; };
-		25F8E6A508CC7EC62AD1BD8207EC88E6 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 0A2AFFC1E8BA095D292C228FCC488589 /* local.strings */; };
+		2272EC679A78F37C75445F9B9B9F619A /* XeeAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA5E9A2DB0D15DCD13F47CEB4C5A260 /* XeeAccelerometer.swift */; };
 		260112ED9612CF82C0D3B42913FE73BC /* AlamofireObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F89AA801689E71C17F25FA2A0E93D8B /* AlamofireObjectMapper-dummy.m */; };
 		3000EF5DAA54B7B361CE8CC387EC769E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
+		333919E12777FA0FADBC9D7B45E49308 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 95B57B9DE09360DC691B0C7D30A9C3BC /* local.strings */; };
 		35AFBFB34DA1956EF7FCB64BC50946D8 /* EnumTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9091397C4729B3DCC1CE6856904B976 /* EnumTransform.swift */; };
 		3626B94094672CB1C9DEA32B9F9502E1 /* TaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B2426289289A77E7E548DE8EBD7A6B /* TaskDelegate.swift */; };
 		375698920E797E91DBDB8A3249B56B0E /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E827D71BF2F91A6742C882EC593324C /* Map.swift */; };
 		375AD5B4037B367C74B348C0644C0509 /* FromJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339A9D352CAD3A021BE61898B6FB9F8 /* FromJSON.swift */; };
 		38DFD470B1C6824AF5E624BB08F6EBA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
 		3EB9DC3783A4296C8BAAB07AC36C05F3 /* AlamofireObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DCA6A9FCC4B1D65F83A545AF02C612 /* AlamofireObjectMapper.swift */; };
-		3EFE0F33646126FFBABE9581BD3E877E /* XeeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6178F1B67C926AE7EA6A13B07B8AAABE /* XeeConfig.swift */; };
-		3F057F5F74C822A7B2DF18553839D00C /* XeeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BECF57A19C77FC5E66855652F757C0 /* XeeUser.swift */; };
+		404134231BA70D1FAAB9989322B84677 /* XeeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */; };
 		484B78D03C0138BCB2254D15CA333729 /* AlamofireObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B946693EEE2CF1AED8907DB353A20CE1 /* AlamofireObjectMapper.framework */; };
 		4863B9B382D2BA7A07C414A91E1DD6B0 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1366C8D2B3A8AB85467335B347C19C /* ObjectMapper-dummy.m */; };
 		48D13E9BDA1D12C35500441FCFD2CEA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
-		4A3C47A61F8CB84C00C68CF5 /* XeeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C47A51F8CB84C00C68CF5 /* XeeStatus.swift */; };
-		4A3C47A81F8CB9D200C68CF5 /* XeeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C47A71F8CB9D200C68CF5 /* XeeLocation.swift */; };
-		4A3C47AC1F8CBDCD00C68CF5 /* XeeSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C47AB1F8CBDCD00C68CF5 /* XeeSignal.swift */; };
-		4A3C47AE1F8CC73800C68CF5 /* XeeTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C47AD1F8CC73800C68CF5 /* XeeTrip.swift */; };
-		4A3C47B01F8CCDDD00C68CF5 /* XeeAccelerometer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3C47AF1F8CCDDC00C68CF5 /* XeeAccelerometer.swift */; };
-		4A6921771F863B58000B5D66 /* XeePrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A6921761F863B58000B5D66 /* XeePrivacy.swift */; };
+		4913AF3736B06A470C84D64EB4454E3D /* XeeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74227E59CB9B9803530527219B0826B4 /* XeeToken.swift */; };
 		4E144A5F6A61AACDFDFF8E00A4E5C17B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E652D879A5A78AC59A5EAA47AB7A6B /* Alamofire.framework */; };
-		5119EFAC7984D3AABB9A4E3A100BE8BF /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 7C290A1C7F6C7FE61EB201D56A536B68 /* local.strings */; };
-		5320350198370B611C09A8DAA7781C67 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78F94AB52049310536FA8552B9A95E03 /* Extensions.swift */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1783D7A34EB66A031BF558A3110D78 /* Request.swift */; };
 		54334A036232F3AD1BD3D9D682EA702D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF68ACB68863BBEA9B6AE14A9519895 /* HexColorTransform.swift */; };
-		5A8C4263CA80550A4D4F5F527E99F572 /* XeeSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CEF71B49EB350F86C937199A4DF9401 /* XeeSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5A8C4263CA80550A4D4F5F527E99F572 /* XeeSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8779B1C3F4CEF7956A03B18CE93C126E /* XeeSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BEC65F1E64F4BC3B0AD838E60E1C4A9 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A82EE9C1C556B2E8BFBA8D068C8401 /* ToJSON.swift */; };
 		5CCE3EF00A423C98B799BF32315AB9B5 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D1D1D66220FB9EE2CF3446499306F9 /* ObjectMapper.framework */; };
+		5DF7BCB64D07E3B36B4D4146F94F7FC2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D5FAB7BB93E73B5DF85A67C0D1BDB9 /* DispatchQueue+Alamofire.swift */; };
 		6140699B499701C95C16CA9E10A60B10 /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42153AB600F91887F98BEDF4BB9A6BC /* EnumOperators.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF63DC915CBBB5A6A37C5693618BCE9 /* ServerTrustPolicy.swift */; };
 		6561EFAAAFE0E3FB560D8B87D50C0414 /* DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5D744537DA1AB15AD87CC74D96215DA /* DateTransform.swift */; };
+		665EB43FFBCC131633A58692EF64E6FC /* XeeStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF06DE86A4E6B16CC264F0F3B4119010 /* XeeStatus.swift */; };
+		69AF383BA7B3B4764429D183BBB21E22 /* XeeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CA3550981F887819859461473BDDB3 /* XeeConfig.swift */; };
 		6DD5D67422217A86CBB39BD10CDB11E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
+		7169FB00303FA278D0E4361185321524 /* XeeLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26B97AFAEF91E634B5265C5FAEAE9919 /* XeeLocation.swift */; };
 		73B9C996AED49ED7CF8EC2A6F1738059 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
 		74D7B56EE91ACB42EB352CEF073CF4BB /* MapError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B264E8DFD26C5EDB5EB2ECB92D655321 /* MapError.swift */; };
 		765624085108240F1A2952486A60B66F /* DataTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF6916D13AB7FD63E2FD155102F52DA /* DataTransform.swift */; };
 		7B5FE28C7EA4122B0598738E54DBEBD8 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE5E4BD5634AA3F7F9790B3737626EC4 /* SessionDelegate.swift */; };
-		7B78EA041E4234E6744AD6EA9EF4F33A /* XeeSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B742315AFE1163DB7917F044FFEE9C3D /* XeeSDK-dummy.m */; };
 		7BE81D28BE233A47AC5BE1B3FA26FDB5 /* TransformOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B078301421E24725CBDAA939BEB8B3 /* TransformOperators.swift */; };
 		7D8CC01E8C9EFFF9F4D65406CDE0AB66 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDE2FB1CB544D67C7A28A45356A6569E /* Result.swift */; };
+		7F2F85390860F8902E2813260B13C786 /* XeeUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EF000E383DA8F91FD77135FCAB8B31 /* XeeUser.swift */; };
 		8022FE8243222780F58CDFD44A49F311 /* ISO8601DateTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B501F5330D236283AE79D286E8B15FB /* ISO8601DateTransform.swift */; };
 		80FBD965D6160B82CF4B55FB3409C1FD /* Mappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E85602775D62B1F6118974F3964D37 /* Mappable.swift */; };
 		82B33F223516A2AA7DA2985E5A954B88 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D1D1D66220FB9EE2CF3446499306F9 /* ObjectMapper.framework */; };
 		8491440E494CAAAE6DB2EA1D8D215903 /* ImmutableMappable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8DC92DCD95A2CE28232D27E7222C67C /* ImmutableMappable.swift */; };
-		860CD9E0527B3C19CC7DA12558BBE046 /* XeeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06655A959BC66135582B9DB26C27DB73 /* XeeObject.swift */; };
+		8A55AC8BBCE787953F53525374325E64 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 2B3BCBBD7CA4D0C7F102850AE12AA857 /* local.strings */; };
 		8EE88E3B761D158AB4465132DD1DDA70 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047B46396B4AE1A2AFD55F12BBFAA4CB /* UIKit.framework */; };
 		8F46A5E6F7671EA5EA201315E3A799E6 /* IntegerOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D4FD479A75D5161C787905EA1BA4D8 /* IntegerOperators.swift */; };
-		9ADB0B1FBC93F73D8D0CD253D266E82F /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = AE97EFE6828190FD28C7B207AB6FC636 /* local.strings */; };
 		9C655404E5C7D42907234439EF895BD5 /* TransformOf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B67422BB4CCE7DF4F1933D8446C5853 /* TransformOf.swift */; };
+		9E3BF6D0CDA4C987403B23E5087025D4 /* XeeSignal.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCBB5F52A866E2711152D2FCA0D1A5D /* XeeSignal.swift */; };
 		9ED2BB2981896E0A39EFA365503F58CE /* AFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5518B44E6BD587E06A1F14E2B75A375 /* AFError.swift */; };
-		A1CCE2FE7E3F6D49121FF22D8014B06E /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 4351ADCDBE91B3CF4CB1FA455A8697D9 /* local.strings */; };
 		A22566C71CFE2650BB542C4626477DAA /* Mapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9732DBE4794B1B0C36BE01801B214034 /* Mapper.swift */; };
 		A2A6F71B727312BD45CC7A4AAD7B0AB7 /* NetworkReachabilityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6904F2951EDDDF8A86B40E2AAB93527C /* NetworkReachabilityManager.swift */; };
+		A35388E7C9F77C04FC5AA2D6F8190999 /* XeeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80430C5ADE1B2B7B217ABE82923DBEAF /* XeeObject.swift */; };
 		A35B7E2276C7A6A5015337EB45AA210B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E652D879A5A78AC59A5EAA47AB7A6B /* Alamofire.framework */; };
 		A9EEEA7477981DEEBC72432DE9990A4B /* Alamofire-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D11BAFC6A2AC82E2C3D730D6D28B59F /* Alamofire-dummy.m */; };
 		AE1EF48399533730D0066E04B22CA2D6 /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134430AD6BCC02A45AD7C4DBAF50C6A0 /* SessionManager.swift */; };
 		B0438CAC2C1459719EC744B12F5C91DC /* DictionaryTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C323EFA758A4C140F3E416C76D022843 /* DictionaryTransform.swift */; };
+		B4BBC928322F2CA4293830F24C43CEF0 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 0D98AFC28C922DA315DBC44697E8F980 /* local.strings */; };
 		B65FCF589DA398C3EFE0128064E510EC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926722659F3F03EDCD52039F064B6A09 /* MultipartFormData.swift */; };
 		B73D4607C1DB58B06986EF7182EE9D08 /* CustomDateFormatTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = EADDCC5720720B7AA5CFF0DC72F3B3F9 /* CustomDateFormatTransform.swift */; };
-		B995A70D3EA215442CCB41C4CAB441F3 /* XeeConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9AE101957EBAF587F124BBD3ABFD4A4 /* XeeConnectManager.swift */; };
 		BBEFE2F9CEB73DC7BD97FFA66A0D9D4F /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F45218D36108E9B8FC8CBC403F9567 /* Validation.swift */; };
 		BE5C67A07E289FE1F9BE27335B159997 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF45E56B5BAF03813F8B18E348C132 /* ParameterEncoding.swift */; };
-		C003A276CC48B502ADE573A54E3CA19A /* XeeRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE322C8610924B6D80F5C498E3ACA0DD /* XeeRequestManager.swift */; };
+		C398A4FBE13A8A25EB6785D3499C2E6B /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = D57D866350C36CEBE8251A0A01710244 /* local.strings */; };
 		C848D413CFB25B50AE9735C783F6DF1A /* Pods-XeeSDK_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FC66E10204914666CB30921FEC1D19B7 /* Pods-XeeSDK_Example-dummy.m */; };
 		CA1E06CB00C147AD88B8A721BF00F8D5 /* NSDecimalNumberTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBF46735426641B03E3B95AAB9BA5AA /* NSDecimalNumberTransform.swift */; };
 		CA2F35983F4B2670A0A195384FF21BD0 /* URLTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = C586828E4F4612149E740DFB653BF367 /* URLTransform.swift */; };
 		CB6D60925223897FFA2662667DF83E8A /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBBF6A0A78F9806F84CB665EAE59592D /* Response.swift */; };
-		D2C35401D96ED6E9A71C915486483FD2 /* XeeVehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEF270322DF399DDBDACAAD994CCE243 /* XeeVehicle.swift */; };
-		DC35F30BE57099B855CB2662D1CD0B9D /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 17EDC44FAA53617BA8D1CC63416790DA /* local.strings */; };
+		CD35FC5DA4ADCE92342BC84ADD8D0C44 /* XeePrivacy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7183861E52C6199DB6B81D58E559B269 /* XeePrivacy.swift */; };
+		CFCFAD8F99D305670B784E596618EB24 /* XeeSDK-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 733724E1DDA9BAB77A35F4E3F39C482C /* XeeSDK-dummy.m */; };
+		D9DC1E2A26AAA7D93892056CFA9970D5 /* XeeConnectManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFFBDB3299003C34A89B1E70CCBB829A /* XeeConnectManager.swift */; };
 		E1FDB8EB49DCBA9C697BF5EE4103D28A /* AlamofireObjectMapper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCF54625A4DEFD8C62BD62E98ABF3964 /* AlamofireObjectMapper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E2B172D4B630FCBD7D61A3FA14892658 /* TransformType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 380095459E1F371BFB777E5C70EC68B4 /* TransformType.swift */; };
+		E79106ED6690A5560F4642FD41079295 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = B30E0EA104B94D6D96B76343297A97E2 /* local.strings */; };
+		E8E8B71AD2EDE6491883466004CB4332 /* XeeDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E36C08831EA4A3F0D612785CCFBCA34 /* XeeDevice.swift */; };
+		E994E3031618E4218F186DED2C19BB38 /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = 45EE37CFD3F91574EEE86531CC4F7027 /* local.strings */; };
 		EFD264FC408EBF3BA2528E70B08DDD94 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D544C8A59616D0B71C49516901BC50 /* Notifications.swift */; };
 		F6BECD98B97CBFEBE2C96F0E9E72A6C0 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B7CB4C3C0344D0BA34DC49DE9EFDDD8 /* ResponseSerialization.swift */; };
 		F8B3D3092ED0417E8CDF32033F6122F5 /* Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B40A51A4BCA4B665DFFE8AF136844E7 /* Alamofire.swift */; };
-		F8FFA1A6901A139767DACEABF33D458C /* local.strings in Sources */ = {isa = PBXBuildFile; fileRef = A130CCA9A9EF7501B7E746EFB6120005 /* local.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,74 +163,76 @@
 
 /* Begin PBXFileReference section */
 		039B70CA50A21D1EC495F81422AE9613 /* AlamofireObjectMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AlamofireObjectMapper-prefix.pch"; sourceTree = "<group>"; };
-		04205488E05F84C536B1452F874FCF30 /* Pods-XeeSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XeeSDK_Example.modulemap"; sourceTree = "<group>"; };
+		04205488E05F84C536B1452F874FCF30 /* Pods-XeeSDK_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XeeSDK_Example.modulemap"; sourceTree = "<group>"; };
 		047B46396B4AE1A2AFD55F12BBFAA4CB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		04DA63AB4DF387896037BFAC58DEE484 /* Pods-XeeSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		06655A959BC66135582B9DB26C27DB73 /* XeeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeObject.swift; sourceTree = "<group>"; };
 		06D4FD479A75D5161C787905EA1BA4D8 /* IntegerOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IntegerOperators.swift; path = Sources/IntegerOperators.swift; sourceTree = "<group>"; };
-		0A2AFFC1E8BA095D292C228FCC488589 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = es.lproj/local.strings; sourceTree = "<group>"; };
+		09C0B9933847337A3709F39532107E1F /* XeeTrip.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeTrip.swift; sourceTree = "<group>"; };
+		0A6C0F75023E644710CEFB4F31E43429 /* XeeSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = XeeSDK.modulemap; sourceTree = "<group>"; };
 		0CAF45E56B5BAF03813F8B18E348C132 /* ParameterEncoding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ParameterEncoding.swift; path = Source/ParameterEncoding.swift; sourceTree = "<group>"; };
-		0CE41E5850437539937CC11AF58F015D /* Pods_XeeSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XeeSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		0CEF71B49EB350F86C937199A4DF9401 /* XeeSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XeeSDK-umbrella.h"; sourceTree = "<group>"; };
+		0CE41E5850437539937CC11AF58F015D /* Pods_XeeSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XeeSDK_Example.framework; path = "Pods-XeeSDK_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D98AFC28C922DA315DBC44697E8F980 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = it.lproj/local.strings; sourceTree = "<group>"; };
 		0EF897732DEDECE5FBE2B2DA69BD451E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10BE86DA3D5E1FC2E267FEB3E5C04B9C /* Alamofire-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-umbrella.h"; sourceTree = "<group>"; };
 		134430AD6BCC02A45AD7C4DBAF50C6A0 /* SessionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionManager.swift; path = Source/SessionManager.swift; sourceTree = "<group>"; };
-		17EDC44FAA53617BA8D1CC63416790DA /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = nl.lproj/local.strings; sourceTree = "<group>"; };
-		18BECF57A19C77FC5E66855652F757C0 /* XeeUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeUser.swift; sourceTree = "<group>"; };
 		21A82EE9C1C556B2E8BFBA8D068C8401 /* ToJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToJSON.swift; path = Sources/ToJSON.swift; sourceTree = "<group>"; };
 		2324CD4089FDF77B27D7CE76606D529D /* ObjectMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = ObjectMapper.xcconfig; sourceTree = "<group>"; };
-		28B63EE513C824EC50135E751CCC17C3 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		24EF000E383DA8F91FD77135FCAB8B31 /* XeeUser.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeUser.swift; sourceTree = "<group>"; };
+		26B97AFAEF91E634B5265C5FAEAE9919 /* XeeLocation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeLocation.swift; sourceTree = "<group>"; };
+		28B63EE513C824EC50135E751CCC17C3 /* Alamofire.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Alamofire.modulemap; sourceTree = "<group>"; };
+		2B3BCBBD7CA4D0C7F102850AE12AA857 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
 		2B40A51A4BCA4B665DFFE8AF136844E7 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
+		2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XeeRequestManager.swift; path = XeeSDK/Classes/XeeRequestManager.swift; sourceTree = "<group>"; };
 		31B6CED63C84E0DFCF84E4F98778016A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = XeeSDK/Classes/Extensions.swift; sourceTree = "<group>"; };
 		380095459E1F371BFB777E5C70EC68B4 /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = Sources/TransformType.swift; sourceTree = "<group>"; };
 		3B501F5330D236283AE79D286E8B15FB /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO8601DateTransform.swift; path = Sources/ISO8601DateTransform.swift; sourceTree = "<group>"; };
 		3D9F3EB6D49ECFE9A4BC670C59647CBF /* AlamofireObjectMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AlamofireObjectMapper.xcconfig; sourceTree = "<group>"; };
 		40E85602775D62B1F6118974F3964D37 /* Mappable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mappable.swift; path = Sources/Mappable.swift; sourceTree = "<group>"; };
 		41BFA0E0409B6F9EA34B477D5D0DD80E /* Pods-XeeSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
-		4351ADCDBE91B3CF4CB1FA455A8697D9 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = "pt-PT.lproj/local.strings"; sourceTree = "<group>"; };
+		45EE37CFD3F91574EEE86531CC4F7027 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
 		4777B5365997B97D8FABC191D41C2ED3 /* Pods-XeeSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Example-umbrella.h"; sourceTree = "<group>"; };
-		4A3C47A51F8CB84C00C68CF5 /* XeeStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeStatus.swift; sourceTree = "<group>"; };
-		4A3C47A71F8CB9D200C68CF5 /* XeeLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeLocation.swift; sourceTree = "<group>"; };
-		4A3C47AB1F8CBDCD00C68CF5 /* XeeSignal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeSignal.swift; sourceTree = "<group>"; };
-		4A3C47AD1F8CC73800C68CF5 /* XeeTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeTrip.swift; sourceTree = "<group>"; };
-		4A3C47AF1F8CCDDC00C68CF5 /* XeeAccelerometer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeeAccelerometer.swift; sourceTree = "<group>"; };
-		4A6921761F863B58000B5D66 /* XeePrivacy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XeePrivacy.swift; sourceTree = "<group>"; };
-		4F63BB9C4AACA40FCDE09CA73E23885A /* XeeSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XeeSDK.xcconfig; sourceTree = "<group>"; };
 		50DEC013AE9CAFAB0B2032262D84979F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D544C8A59616D0B71C49516901BC50 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		58842F94DB5A654A43E36EB229E104C5 /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
 		5AF63DC915CBBB5A6A37C5693618BCE9 /* ServerTrustPolicy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ServerTrustPolicy.swift; path = Source/ServerTrustPolicy.swift; sourceTree = "<group>"; };
 		5CF68ACB68863BBEA9B6AE14A9519895 /* HexColorTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HexColorTransform.swift; path = Sources/HexColorTransform.swift; sourceTree = "<group>"; };
-		5DE6341FBED14A501D4451178DE129CB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DE6341FBED14A501D4451178DE129CB /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Alamofire.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		600F89005E87894E991AE62B4469D6ED /* Alamofire.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.xcconfig; sourceTree = "<group>"; };
-		6178F1B67C926AE7EA6A13B07B8AAABE /* XeeConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeConfig.swift; sourceTree = "<group>"; };
+		63964996EF91D62ED2D189DEB7061EA6 /* XeeSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XeeSDK-prefix.pch"; sourceTree = "<group>"; };
 		64D1D1D66220FB9EE2CF3446499306F9 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67761DFD3587B49DC6606740807D36A2 /* XeeSDK-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XeeSDK-prefix.pch"; sourceTree = "<group>"; };
 		6904F2951EDDDF8A86B40E2AAB93527C /* NetworkReachabilityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NetworkReachabilityManager.swift; path = Source/NetworkReachabilityManager.swift; sourceTree = "<group>"; };
-		6DA511702B78C1F2D517AD884D4A2114 /* XeeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XeeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6DA511702B78C1F2D517AD884D4A2114 /* XeeSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = XeeSDK.framework; path = XeeSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E36C08831EA4A3F0D612785CCFBCA34 /* XeeDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeDevice.swift; sourceTree = "<group>"; };
 		6E3895EE01AE5EB9B17BF23C9913AF66 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71533E305DB16ACC9C38A73542590FC0 /* ObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = ObjectMapper.modulemap; sourceTree = "<group>"; };
-		716621612B892DC5AFB5E1910D0F5E03 /* Pods_XeeSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XeeSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71533E305DB16ACC9C38A73542590FC0 /* ObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = ObjectMapper.modulemap; sourceTree = "<group>"; };
+		716621612B892DC5AFB5E1910D0F5E03 /* Pods_XeeSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_XeeSDK_Tests.framework; path = "Pods-XeeSDK_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7183861E52C6199DB6B81D58E559B269 /* XeePrivacy.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeePrivacy.swift; sourceTree = "<group>"; };
 		71FED29CF4CC7320DFFB20537E0CD5D5 /* Alamofire-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Alamofire-prefix.pch"; sourceTree = "<group>"; };
-		78F94AB52049310536FA8552B9A95E03 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = XeeSDK/Classes/Extensions.swift; sourceTree = "<group>"; };
-		7C290A1C7F6C7FE61EB201D56A536B68 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
+		733724E1DDA9BAB77A35F4E3F39C482C /* XeeSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XeeSDK-dummy.m"; sourceTree = "<group>"; };
+		74227E59CB9B9803530527219B0826B4 /* XeeToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeToken.swift; sourceTree = "<group>"; };
+		74F8941CC10FA78B8F7D007D0EC1F000 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CA5E9A2DB0D15DCD13F47CEB4C5A260 /* XeeAccelerometer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeAccelerometer.swift; sourceTree = "<group>"; };
 		7CF6916D13AB7FD63E2FD155102F52DA /* DataTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTransform.swift; path = Sources/DataTransform.swift; sourceTree = "<group>"; };
+		80430C5ADE1B2B7B217ABE82923DBEAF /* XeeObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeObject.swift; sourceTree = "<group>"; };
 		80B2426289289A77E7E548DE8EBD7A6B /* TaskDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TaskDelegate.swift; path = Source/TaskDelegate.swift; sourceTree = "<group>"; };
 		84DBEE1354EB2B74C2490CEC876C5E44 /* Operators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Operators.swift; path = Sources/Operators.swift; sourceTree = "<group>"; };
+		8779B1C3F4CEF7956A03B18CE93C126E /* XeeSDK-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XeeSDK-umbrella.h"; sourceTree = "<group>"; };
 		883F2F9693574A7EC6C58448749E15B6 /* Pods-XeeSDK_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XeeSDK_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		8B67422BB4CCE7DF4F1933D8446C5853 /* TransformOf.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformOf.swift; path = Sources/TransformOf.swift; sourceTree = "<group>"; };
 		8D11BAFC6A2AC82E2C3D730D6D28B59F /* Alamofire-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Alamofire-dummy.m"; sourceTree = "<group>"; };
+		8E33D2C17FD7A9FAA71C0264B62FA2A0 /* XeeSDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XeeSDK.xcconfig; sourceTree = "<group>"; };
 		8F89AA801689E71C17F25FA2A0E93D8B /* AlamofireObjectMapper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AlamofireObjectMapper-dummy.m"; sourceTree = "<group>"; };
 		926722659F3F03EDCD52039F064B6A09 /* MultipartFormData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MultipartFormData.swift; path = Source/MultipartFormData.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93B078301421E24725CBDAA939BEB8B3 /* TransformOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformOperators.swift; path = Sources/TransformOperators.swift; sourceTree = "<group>"; };
-		9559FA82A67D25B4F0E2E0E9AE5AB27B /* XeeSDK.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = XeeSDK.modulemap; sourceTree = "<group>"; };
+		959A0631EF1AECC682A0BDDF4DA29743 /* XeeVehicle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeVehicle.swift; sourceTree = "<group>"; };
+		95B57B9DE09360DC691B0C7D30A9C3BC /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = fr.lproj/local.strings; sourceTree = "<group>"; };
 		9732DBE4794B1B0C36BE01801B214034 /* Mapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Mapper.swift; path = Sources/Mapper.swift; sourceTree = "<group>"; };
 		97AE61B2A5FF4F621A9BB5D92D9A055C /* Pods-XeeSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9B7CB4C3C0344D0BA34DC49DE9EFDDD8 /* ResponseSerialization.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResponseSerialization.swift; path = Source/ResponseSerialization.swift; sourceTree = "<group>"; };
-		9C3FC800813A35F0F928B1B5749C22D5 /* Pods-XeeSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-XeeSDK_Tests.modulemap"; sourceTree = "<group>"; };
+		9C3FC800813A35F0F928B1B5749C22D5 /* Pods-XeeSDK_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-XeeSDK_Tests.modulemap"; sourceTree = "<group>"; };
 		9E827D71BF2F91A6742C882EC593324C /* Map.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Map.swift; path = Sources/Map.swift; sourceTree = "<group>"; };
-		A130CCA9A9EF7501B7E746EFB6120005 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = fr.lproj/local.strings; sourceTree = "<group>"; };
 		A19684C25AD73380D0E68692A403073B /* Pods-XeeSDK_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XeeSDK_Tests-dummy.m"; sourceTree = "<group>"; };
 		A42153AB600F91887F98BEDF4BB9A6BC /* EnumOperators.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumOperators.swift; path = Sources/EnumOperators.swift; sourceTree = "<group>"; };
 		A4D5FAB7BB93E73B5DF85A67C0D1BDB9 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
@@ -238,21 +240,17 @@
 		A746C11F65F7A3DC9EB298251D12F375 /* Pods-XeeSDK_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-XeeSDK_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		A8DC92DCD95A2CE28232D27E7222C67C /* ImmutableMappable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImmutableMappable.swift; path = Sources/ImmutableMappable.swift; sourceTree = "<group>"; };
 		A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		A9A846ADBEE109C3C48DEB8DF5861BCA /* XeeDevice.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeDevice.swift; sourceTree = "<group>"; };
 		AA9FAC159DF216DEBC697BBA1C2F3A3F /* Timeline.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Timeline.swift; path = Source/Timeline.swift; sourceTree = "<group>"; };
-		AE97EFE6828190FD28C7B207AB6FC636 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = it.lproj/local.strings; sourceTree = "<group>"; };
 		AF1783D7A34EB66A031BF558A3110D78 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Request.swift; path = Source/Request.swift; sourceTree = "<group>"; };
 		B08ECD87E643838CE253559825C4DF56 /* Pods-XeeSDK_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		B24AD27A1E368415667F958BD1FEB81F /* XeeToken.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeToken.swift; sourceTree = "<group>"; };
 		B264E8DFD26C5EDB5EB2ECB92D655321 /* MapError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MapError.swift; path = Sources/MapError.swift; sourceTree = "<group>"; };
+		B30E0EA104B94D6D96B76343297A97E2 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = es.lproj/local.strings; sourceTree = "<group>"; };
 		B339A9D352CAD3A021BE61898B6FB9F8 /* FromJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FromJSON.swift; path = Sources/FromJSON.swift; sourceTree = "<group>"; };
-		B742315AFE1163DB7917F044FFEE9C3D /* XeeSDK-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XeeSDK-dummy.m"; sourceTree = "<group>"; };
 		B946693EEE2CF1AED8907DB353A20CE1 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BAE1943F2503FA7B3C12ABF9EEDDE800 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAE1943F2503FA7B3C12ABF9EEDDE800 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = ObjectMapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCF54625A4DEFD8C62BD62E98ABF3964 /* AlamofireObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AlamofireObjectMapper-umbrella.h"; sourceTree = "<group>"; };
-		BE322C8610924B6D80F5C498E3ACA0DD /* XeeRequestManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XeeRequestManager.swift; path = XeeSDK/Classes/XeeRequestManager.swift; sourceTree = "<group>"; };
 		C323EFA758A4C140F3E416C76D022843 /* DictionaryTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryTransform.swift; path = Sources/DictionaryTransform.swift; sourceTree = "<group>"; };
-		C437C65A5F713EFDA80DFCB7E6AF4DC9 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlamofireObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C437C65A5F713EFDA80DFCB7E6AF4DC9 /* AlamofireObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AlamofireObjectMapper.framework; path = AlamofireObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F2B98AAE0D1CB60DA80A398132D19C /* Pods-XeeSDK_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-XeeSDK_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		C586828E4F4612149E740DFB653BF367 /* URLTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = URLTransform.swift; path = Sources/URLTransform.swift; sourceTree = "<group>"; };
 		C5D744537DA1AB15AD87CC74D96215DA /* DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateTransform.swift; path = Sources/DateTransform.swift; sourceTree = "<group>"; };
@@ -263,21 +261,23 @@
 		CDE2FB1CB544D67C7A28A45356A6569E /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Result.swift; path = Source/Result.swift; sourceTree = "<group>"; };
 		D0E652D879A5A78AC59A5EAA47AB7A6B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EC58A271FB7EC2877AB71ED399BAAF /* ObjectMapper-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-prefix.pch"; sourceTree = "<group>"; };
+		D57D866350C36CEBE8251A0A01710244 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = nl.lproj/local.strings; sourceTree = "<group>"; };
 		DE5E4BD5634AA3F7F9790B3737626EC4 /* SessionDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SessionDelegate.swift; path = Source/SessionDelegate.swift; sourceTree = "<group>"; };
-		DEF270322DF399DDBDACAAD994CCE243 /* XeeVehicle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeVehicle.swift; sourceTree = "<group>"; };
-		DF77908019B521E90DA9DD34019861EE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DF06DE86A4E6B16CC264F0F3B4119010 /* XeeStatus.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeStatus.swift; sourceTree = "<group>"; };
 		DFBF46735426641B03E3B95AAB9BA5AA /* NSDecimalNumberTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NSDecimalNumberTransform.swift; path = Sources/NSDecimalNumberTransform.swift; sourceTree = "<group>"; };
-		E06AE9F2E22BFE03BB10112EF79B98E1 /* AlamofireObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = AlamofireObjectMapper.modulemap; sourceTree = "<group>"; };
+		E06AE9F2E22BFE03BB10112EF79B98E1 /* AlamofireObjectMapper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AlamofireObjectMapper.modulemap; sourceTree = "<group>"; };
 		E5518B44E6BD587E06A1F14E2B75A375 /* AFError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AFError.swift; path = Source/AFError.swift; sourceTree = "<group>"; };
 		E5F45218D36108E9B8FC8CBC403F9567 /* Validation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Validation.swift; path = Source/Validation.swift; sourceTree = "<group>"; };
 		E9091397C4729B3DCC1CE6856904B976 /* EnumTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = EnumTransform.swift; path = Sources/EnumTransform.swift; sourceTree = "<group>"; };
 		EADDCC5720720B7AA5CFF0DC72F3B3F9 /* CustomDateFormatTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CustomDateFormatTransform.swift; path = Sources/CustomDateFormatTransform.swift; sourceTree = "<group>"; };
 		ECD6095A4AA1235676F62C4012ACA8A4 /* Pods-XeeSDK_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Example-resources.sh"; sourceTree = "<group>"; };
 		EDE70BADC11895812FB2029E6877BAF9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFCBB5F52A866E2711152D2FCA0D1A5D /* XeeSignal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeSignal.swift; sourceTree = "<group>"; };
+		EFFBDB3299003C34A89B1E70CCBB829A /* XeeConnectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XeeConnectManager.swift; path = XeeSDK/Classes/XeeConnectManager.swift; sourceTree = "<group>"; };
 		F0DCA6A9FCC4B1D65F83A545AF02C612 /* AlamofireObjectMapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlamofireObjectMapper.swift; path = AlamofireObjectMapper/AlamofireObjectMapper.swift; sourceTree = "<group>"; };
 		F6ADE4FE455522F13DA79FDF2A88D2BC /* Pods-XeeSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-XeeSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		F6D87F7C76B9F176EB55048AB236E4A5 /* Pods-XeeSDK_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-XeeSDK_Example-frameworks.sh"; sourceTree = "<group>"; };
-		F9AE101957EBAF587F124BBD3ABFD4A4 /* XeeConnectManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XeeConnectManager.swift; path = XeeSDK/Classes/XeeConnectManager.swift; sourceTree = "<group>"; };
+		F8CA3550981F887819859461473BDDB3 /* XeeConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = XeeConfig.swift; sourceTree = "<group>"; };
 		FBBF6A0A78F9806F84CB665EAE59592D /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Source/Response.swift; sourceTree = "<group>"; };
 		FC66E10204914666CB30921FEC1D19B7 /* Pods-XeeSDK_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-XeeSDK_Example-dummy.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -343,23 +343,9 @@
 		01EAD9C871D0267AFC50FA2819EC265A /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0A1CBF098F07843A6B9785ADB46C73C1 /* XeeSDK */,
+				DB4FD01073E455CC85AB8EFABD59D298 /* XeeSDK */,
 			);
 			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		0A1CBF098F07843A6B9785ADB46C73C1 /* XeeSDK */ = {
-			isa = PBXGroup;
-			children = (
-				78F94AB52049310536FA8552B9A95E03 /* Extensions.swift */,
-				F9AE101957EBAF587F124BBD3ABFD4A4 /* XeeConnectManager.swift */,
-				BE322C8610924B6D80F5C498E3ACA0DD /* XeeRequestManager.swift */,
-				5CFB5F10081078E2270BFE242F3A0DFE /* Model */,
-				B922B9963A8626E791EAF64C42DC082F /* Resources */,
-				5E8DA3137757744EA35570CAE04AC015 /* Support Files */,
-			);
-			name = XeeSDK;
-			path = ../..;
 			sourceTree = "<group>";
 		};
 		10654CEE7F5453AC7844E2887287D5F6 /* iOS */ = {
@@ -369,6 +355,26 @@
 				047B46396B4AE1A2AFD55F12BBFAA4CB /* UIKit.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		10CEF26FDCC47CF63420183E8C8B9F87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CA5E9A2DB0D15DCD13F47CEB4C5A260 /* XeeAccelerometer.swift */,
+				F8CA3550981F887819859461473BDDB3 /* XeeConfig.swift */,
+				6E36C08831EA4A3F0D612785CCFBCA34 /* XeeDevice.swift */,
+				26B97AFAEF91E634B5265C5FAEAE9919 /* XeeLocation.swift */,
+				80430C5ADE1B2B7B217ABE82923DBEAF /* XeeObject.swift */,
+				7183861E52C6199DB6B81D58E559B269 /* XeePrivacy.swift */,
+				EFCBB5F52A866E2711152D2FCA0D1A5D /* XeeSignal.swift */,
+				DF06DE86A4E6B16CC264F0F3B4119010 /* XeeStatus.swift */,
+				74227E59CB9B9803530527219B0826B4 /* XeeToken.swift */,
+				09C0B9933847337A3709F39532107E1F /* XeeTrip.swift */,
+				24EF000E383DA8F91FD77135FCAB8B31 /* XeeUser.swift */,
+				959A0631EF1AECC682A0BDDF4DA29743 /* XeeVehicle.swift */,
+			);
+			name = Model;
+			path = XeeSDK/Classes/Model;
 			sourceTree = "<group>";
 		};
 		1DA603A37B19C4DC95FF0B44107DD91B /* Support Files */ = {
@@ -399,6 +405,20 @@
 			path = "../Target Support Files/ObjectMapper";
 			sourceTree = "<group>";
 		};
+		51B3FAA40FB7DA2A671EA59E46C05CFE /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				74F8941CC10FA78B8F7D007D0EC1F000 /* Info.plist */,
+				0A6C0F75023E644710CEFB4F31E43429 /* XeeSDK.modulemap */,
+				8E33D2C17FD7A9FAA71C0264B62FA2A0 /* XeeSDK.xcconfig */,
+				733724E1DDA9BAB77A35F4E3F39C482C /* XeeSDK-dummy.m */,
+				63964996EF91D62ED2D189DEB7061EA6 /* XeeSDK-prefix.pch */,
+				8779B1C3F4CEF7956A03B18CE93C126E /* XeeSDK-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/XeeSDK";
+			sourceTree = "<group>";
+		};
 		522405E594F80C598EA52B783380FAB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,40 +428,6 @@
 				10654CEE7F5453AC7844E2887287D5F6 /* iOS */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5CFB5F10081078E2270BFE242F3A0DFE /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				06655A959BC66135582B9DB26C27DB73 /* XeeObject.swift */,
-				6178F1B67C926AE7EA6A13B07B8AAABE /* XeeConfig.swift */,
-				A9A846ADBEE109C3C48DEB8DF5861BCA /* XeeDevice.swift */,
-				B24AD27A1E368415667F958BD1FEB81F /* XeeToken.swift */,
-				18BECF57A19C77FC5E66855652F757C0 /* XeeUser.swift */,
-				DEF270322DF399DDBDACAAD994CCE243 /* XeeVehicle.swift */,
-				4A6921761F863B58000B5D66 /* XeePrivacy.swift */,
-				4A3C47A51F8CB84C00C68CF5 /* XeeStatus.swift */,
-				4A3C47A71F8CB9D200C68CF5 /* XeeLocation.swift */,
-				4A3C47AB1F8CBDCD00C68CF5 /* XeeSignal.swift */,
-				4A3C47AD1F8CC73800C68CF5 /* XeeTrip.swift */,
-				4A3C47AF1F8CCDDC00C68CF5 /* XeeAccelerometer.swift */,
-			);
-			name = Model;
-			path = XeeSDK/Classes/Model;
-			sourceTree = "<group>";
-		};
-		5E8DA3137757744EA35570CAE04AC015 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DF77908019B521E90DA9DD34019861EE /* Info.plist */,
-				9559FA82A67D25B4F0E2E0E9AE5AB27B /* XeeSDK.modulemap */,
-				4F63BB9C4AACA40FCDE09CA73E23885A /* XeeSDK.xcconfig */,
-				B742315AFE1163DB7917F044FFEE9C3D /* XeeSDK-dummy.m */,
-				67761DFD3587B49DC6606740807D36A2 /* XeeSDK-prefix.pch */,
-				0CEF71B49EB350F86C937199A4DF9401 /* XeeSDK-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/XeeSDK";
 			sourceTree = "<group>";
 		};
 		681F621C78D074CF085045E15FAC5711 /* Support Files */ = {
@@ -488,6 +474,15 @@
 			path = "Target Support Files/Pods-XeeSDK_Tests";
 			sourceTree = "<group>";
 		};
+		88AB36C6863D2EA13CBD57212A177972 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D30D9F7A2E713292A0EE1BFACE7B46E1 /* local.strings */,
+			);
+			name = Resources;
+			path = XeeSDK/Classes/Resources;
+			sourceTree = "<group>";
+		};
 		A172490FE49BE11F58859B76C380C3F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -526,6 +521,7 @@
 				C586828E4F4612149E740DFB653BF367 /* URLTransform.swift */,
 				50CCEE653690BB4103016801EDC2E84B /* Support Files */,
 			);
+			name = ObjectMapper;
 			path = ObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -547,15 +543,6 @@
 			path = "Target Support Files/Pods-XeeSDK_Example";
 			sourceTree = "<group>";
 		};
-		B922B9963A8626E791EAF64C42DC082F /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D392E26929E07E76CA4739B3ACE1D3DA /* local.strings */,
-			);
-			name = Resources;
-			path = XeeSDK/Classes/Resources;
-			sourceTree = "<group>";
-		};
 		C1522D979AFAFD8D688569CEB40E1EBA /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +558,7 @@
 				F0DCA6A9FCC4B1D65F83A545AF02C612 /* AlamofireObjectMapper.swift */,
 				1DA603A37B19C4DC95FF0B44107DD91B /* Support Files */,
 			);
+			name = AlamofireObjectMapper;
 			path = AlamofireObjectMapper;
 			sourceTree = "<group>";
 		};
@@ -596,7 +584,22 @@
 				E5F45218D36108E9B8FC8CBC403F9567 /* Validation.swift */,
 				681F621C78D074CF085045E15FAC5711 /* Support Files */,
 			);
+			name = Alamofire;
 			path = Alamofire;
+			sourceTree = "<group>";
+		};
+		DB4FD01073E455CC85AB8EFABD59D298 /* XeeSDK */ = {
+			isa = PBXGroup;
+			children = (
+				376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */,
+				EFFBDB3299003C34A89B1E70CCBB829A /* XeeConnectManager.swift */,
+				2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */,
+				10CEF26FDCC47CF63420183E8C8B9F87 /* Model */,
+				88AB36C6863D2EA13CBD57212A177972 /* Resources */,
+				51B3FAA40FB7DA2A671EA59E46C05CFE /* Support Files */,
+			);
+			name = XeeSDK;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		E7E44FE51C736B5F97483C3D17883ACE /* Products */ = {
@@ -761,7 +764,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8CE834B1A499872CAB55AC653597587F /* Build configuration list for PBXNativeTarget "XeeSDK" */;
 			buildPhases = (
-				B395E13D5DF3F0FCFC641EA70E5ECD61 /* Sources */,
+				3EAD91F50951B210F6A860FF4CBAB72D /* Sources */,
 				28A9B51EBA47496A1A7379235AEAACC1 /* Frameworks */,
 				76A198F8AE7CE4EC7662F0CF311D82BF /* Headers */,
 			);
@@ -834,6 +837,35 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3EAD91F50951B210F6A860FF4CBAB72D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DF7BCB64D07E3B36B4D4146F94F7FC2 /* Extensions.swift in Sources */,
+				E994E3031618E4218F186DED2C19BB38 /* local.strings in Sources */,
+				8A55AC8BBCE787953F53525374325E64 /* local.strings in Sources */,
+				C398A4FBE13A8A25EB6785D3499C2E6B /* local.strings in Sources */,
+				B4BBC928322F2CA4293830F24C43CEF0 /* local.strings in Sources */,
+				333919E12777FA0FADBC9D7B45E49308 /* local.strings in Sources */,
+				E79106ED6690A5560F4642FD41079295 /* local.strings in Sources */,
+				2272EC679A78F37C75445F9B9B9F619A /* XeeAccelerometer.swift in Sources */,
+				69AF383BA7B3B4764429D183BBB21E22 /* XeeConfig.swift in Sources */,
+				D9DC1E2A26AAA7D93892056CFA9970D5 /* XeeConnectManager.swift in Sources */,
+				E8E8B71AD2EDE6491883466004CB4332 /* XeeDevice.swift in Sources */,
+				7169FB00303FA278D0E4361185321524 /* XeeLocation.swift in Sources */,
+				A35388E7C9F77C04FC5AA2D6F8190999 /* XeeObject.swift in Sources */,
+				CD35FC5DA4ADCE92342BC84ADD8D0C44 /* XeePrivacy.swift in Sources */,
+				404134231BA70D1FAAB9989322B84677 /* XeeRequestManager.swift in Sources */,
+				CFCFAD8F99D305670B784E596618EB24 /* XeeSDK-dummy.m in Sources */,
+				9E3BF6D0CDA4C987403B23E5087025D4 /* XeeSignal.swift in Sources */,
+				665EB43FFBCC131633A58692EF64E6FC /* XeeStatus.swift in Sources */,
+				4913AF3736B06A470C84D64EB4454E3D /* XeeToken.swift in Sources */,
+				1665B1E164BD4CFFCE1CEC3EDB121A10 /* XeeTrip.swift in Sources */,
+				7F2F85390860F8902E2813260B13C786 /* XeeUser.swift in Sources */,
+				11B39AA64FE409FE1A757EFB334F2ACE /* XeeVehicle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3EDC82BE91DE06479F241784A90CF86A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -878,35 +910,6 @@
 				7BE81D28BE233A47AC5BE1B3FA26FDB5 /* TransformOperators.swift in Sources */,
 				E2B172D4B630FCBD7D61A3FA14892658 /* TransformType.swift in Sources */,
 				CA2F35983F4B2670A0A195384FF21BD0 /* URLTransform.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B395E13D5DF3F0FCFC641EA70E5ECD61 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				4A3C47B01F8CCDDD00C68CF5 /* XeeAccelerometer.swift in Sources */,
-				5320350198370B611C09A8DAA7781C67 /* Extensions.swift in Sources */,
-				25F8E6A508CC7EC62AD1BD8207EC88E6 /* local.strings in Sources */,
-				DC35F30BE57099B855CB2662D1CD0B9D /* local.strings in Sources */,
-				9ADB0B1FBC93F73D8D0CD253D266E82F /* local.strings in Sources */,
-				4A3C47A81F8CB9D200C68CF5 /* XeeLocation.swift in Sources */,
-				5119EFAC7984D3AABB9A4E3A100BE8BF /* local.strings in Sources */,
-				F8FFA1A6901A139767DACEABF33D458C /* local.strings in Sources */,
-				A1CCE2FE7E3F6D49121FF22D8014B06E /* local.strings in Sources */,
-				3EFE0F33646126FFBABE9581BD3E877E /* XeeConfig.swift in Sources */,
-				B995A70D3EA215442CCB41C4CAB441F3 /* XeeConnectManager.swift in Sources */,
-				23D2A44BE22ABB345E49C49F98FD98D6 /* XeeDevice.swift in Sources */,
-				4A6921771F863B58000B5D66 /* XeePrivacy.swift in Sources */,
-				860CD9E0527B3C19CC7DA12558BBE046 /* XeeObject.swift in Sources */,
-				C003A276CC48B502ADE573A54E3CA19A /* XeeRequestManager.swift in Sources */,
-				4A3C47AC1F8CBDCD00C68CF5 /* XeeSignal.swift in Sources */,
-				4A3C47AE1F8CC73800C68CF5 /* XeeTrip.swift in Sources */,
-				7B78EA041E4234E6744AD6EA9EF4F33A /* XeeSDK-dummy.m in Sources */,
-				05F9A70FE32A4257E654DEDD51DD6108 /* XeeToken.swift in Sources */,
-				3F057F5F74C822A7B2DF18553839D00C /* XeeUser.swift in Sources */,
-				4A3C47A61F8CB84C00C68CF5 /* XeeStatus.swift in Sources */,
-				D2C35401D96ED6E9A71C915486483FD2 /* XeeVehicle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,15 +982,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D392E26929E07E76CA4739B3ACE1D3DA /* local.strings */ = {
+		D30D9F7A2E713292A0EE1BFACE7B46E1 /* local.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7C290A1C7F6C7FE61EB201D56A536B68 /* local.strings */,
-				0A2AFFC1E8BA095D292C228FCC488589 /* local.strings */,
-				A130CCA9A9EF7501B7E746EFB6120005 /* local.strings */,
-				AE97EFE6828190FD28C7B207AB6FC636 /* local.strings */,
-				17EDC44FAA53617BA8D1CC63416790DA /* local.strings */,
-				4351ADCDBE91B3CF4CB1FA455A8697D9 /* local.strings */,
+				45EE37CFD3F91574EEE86531CC4F7027 /* local.strings */,
+				B30E0EA104B94D6D96B76343297A97E2 /* local.strings */,
+				95B57B9DE09360DC691B0C7D30A9C3BC /* local.strings */,
+				0D98AFC28C922DA315DBC44697E8F980 /* local.strings */,
+				D57D866350C36CEBE8251A0A01710244 /* local.strings */,
+				2B3BCBBD7CA4D0C7F102850AE12AA857 /* local.strings */,
 			);
 			name = local.strings;
 			path = .;
@@ -1267,7 +1270,7 @@
 		};
 		791CB84B3CBB9E8C554D61622A54FA1D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F63BB9C4AACA40FCDE09CA73E23885A /* XeeSDK.xcconfig */;
+			baseConfigurationReference = 8E33D2C17FD7A9FAA71C0264B62FA2A0 /* XeeSDK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1341,7 +1344,7 @@
 		};
 		BB30F9531CB75D63DB7FAE59E9C5939D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4F63BB9C4AACA40FCDE09CA73E23885A /* XeeSDK.xcconfig */;
+			baseConfigurationReference = 8E33D2C17FD7A9FAA71C0264B62FA2A0 /* XeeSDK.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

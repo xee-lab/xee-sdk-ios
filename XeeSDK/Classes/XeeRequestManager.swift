@@ -9,9 +9,12 @@ import Foundation
 import Alamofire
 import AlamofireObjectMapper
 
-public class XeeRequestManager {
+public class XeeRequestManager: SessionManager{
     
-    private init() {}
+    private init() {
+        super.init(configuration: URLSessionConfiguration.default, delegate: Alamofire.SessionDelegate(), serverTrustPolicyManager: nil)
+    }
+    
     public static let shared = XeeRequestManager()
     
     var baseURL: URL? {
@@ -63,7 +66,7 @@ public class XeeRequestManager {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
-        Alamofire.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
+        self.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
             if let error = response.error {
                 UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
                 UserDefaults.standard.synchronize()
@@ -107,7 +110,7 @@ public class XeeRequestManager {
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
-        Alamofire.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
+        self.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
             if let error = response.error {
                 UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
                 UserDefaults.standard.synchronize()
@@ -142,7 +145,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)" + "/users/me", encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
+        self.request("\(baseURL!)" + "/users/me", encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -178,7 +181,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)users/\(user.userID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
+        self.request("\(baseURL!)users/\(user.userID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -219,7 +222,7 @@ public class XeeRequestManager {
             userIDString = "me"
         }
         
-        Alamofire.request("\(baseURL!)users/\(userIDString)/vehicles", headers:headers).responseArray { (response: DataResponse<[XeeVehicle]>) in
+        self.request("\(baseURL!)users/\(userIDString)/vehicles", headers:headers).responseArray { (response: DataResponse<[XeeVehicle]>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -248,7 +251,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)", headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)", headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -282,7 +285,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/status", headers:headers).responseObject { (response: DataResponse<XeeStatus>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)/status", headers:headers).responseObject { (response: DataResponse<XeeStatus>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -311,12 +314,25 @@ public class XeeRequestManager {
     
     public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ trips: [XeeTrip]?) -> Void)? ) {
         
+        self.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
+            var finalRequest = request
+            
+            if let originalRequest = task.originalRequest, let urlString = originalRequest.url?.absoluteString {
+                if urlString.contains("apple.com")
+                {
+                    finalRequest = originalRequest
+                }
+            }
+            
+            return finalRequest
+        }
+        
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers).responseArray { (response: DataResponse<[XeeTrip]>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers).responseArray { (response: DataResponse<[XeeTrip]>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -345,7 +361,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)trips/\(tripID)", headers:headers).responseObject { (response: DataResponse<XeeTrip>) in
+        self.request("\(baseURL!)trips/\(tripID)", headers:headers).responseObject { (response: DataResponse<XeeTrip>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -372,6 +388,47 @@ public class XeeRequestManager {
         }
     }
     
+    public func getSignals(WithTripID tripId:String, completionHandler: ((_ error: Error?, _ signals: [XeeSignal]?) -> Void)? ) {
+        
+        self.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
+            var redirectedRequest = request
+            
+            if let originalRequest = task.originalRequest, let headers = originalRequest.allHTTPHeaderFields, let authorizationHeaderValue = headers["Authorization"] {
+                let mutableRequest = request as! NSMutableURLRequest
+                mutableRequest.setValue(authorizationHeaderValue, forHTTPHeaderField: "Authorization")
+                redirectedRequest = mutableRequest as URLRequest
+            }
+            
+            return redirectedRequest
+        }
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.request("\(baseURL!)trips/\(tripId)/signals", headers:headers).responseArray { (response: DataResponse<[XeeSignal]>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let signals = response.result.value {
+                    if signals.count > 0 {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, signals)
+                        }
+                    }else {
+                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No signal"])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     public func updateVehicle(WithVehicle vehicle:XeeVehicle, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
         
         let parameters: Parameters = vehicle.toJSON()
@@ -381,7 +438,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
+        self.request("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -415,7 +472,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/device", headers:headers).responseObject { (response: DataResponse<XeeDevice>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)/device", headers:headers).responseObject { (response: DataResponse<XeeDevice>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -460,7 +517,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/privacies", parameters:parameters, headers:headers).responseArray { (response: DataResponse<[XeePrivacy]>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)/privacies", parameters:parameters, headers:headers).responseArray { (response: DataResponse<[XeePrivacy]>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -489,7 +546,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)vehicles/\(vehicleId)/privacies", method:.post, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
+        self.request("\(baseURL!)vehicles/\(vehicleId)/privacies", method:.post, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
@@ -523,7 +580,7 @@ public class XeeRequestManager {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        Alamofire.request("\(baseURL!)privacies/\(privacyID)", method:.put, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
+        self.request("\(baseURL!)privacies/\(privacyID)", method:.put, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
