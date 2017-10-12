@@ -38,6 +38,7 @@
 
 -(void)showWebViewInView:(UIView *)view WithURL:(NSURL *)url {
     self.embeddedWV = [[UIWebView alloc] init];
+    self.embeddedWV.delegate = self;
     CGRect frame = view.bounds;
     frame.origin.y = frame.size.height;
     self.embeddedWV.frame = frame;
@@ -191,6 +192,10 @@
     _accessToken = nil;
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"XeeSDKInternalAccessToken"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+    
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+    [webView stringByEvaluatingJavaScriptFromString:@"window.alert=null;"];
 }
 
 @end

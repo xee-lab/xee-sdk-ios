@@ -32,7 +32,7 @@
 
 @end
 
-@interface XeeConnectManager : NSObject
+@interface XeeConnectManager : NSObject <UIWebViewDelegate>
 
 @property (nonatomic, strong) XeeAccessToken *accessToken;
 @property (nonatomic, strong) XeeConfig *config;
