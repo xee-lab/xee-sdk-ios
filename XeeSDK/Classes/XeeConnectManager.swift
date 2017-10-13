@@ -105,6 +105,7 @@ public class XeeConnectManager {
     }
     
     public func disconnect() {
+        XeeRequestManager.shared.revokeToken(completionHandler: nil)
         UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
         UserDefaults.standard.synchronize()
         delegate?.didDisconnected()

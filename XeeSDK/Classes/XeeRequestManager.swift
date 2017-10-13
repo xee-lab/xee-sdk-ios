@@ -138,6 +138,26 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
+    public func revokeToken(completionHandler: ((_ error: Error?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.request("\(baseURL!)" + "/oauth/revoke", method:.post, encoding:URLEncoding.default, headers:headers).responseJSON { response in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error)
+                }
+            }else {
+                if let completionHandler = completionHandler {
+                    completionHandler(nil)
+                }
+            }
+        }
+    }
+    
     public func getUser(completionHandler: ((_ error: Error?, _ user: XeeUser?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
