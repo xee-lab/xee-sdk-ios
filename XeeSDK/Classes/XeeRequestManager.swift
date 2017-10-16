@@ -668,5 +668,42 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
+    public func associateVehicle(WithXeeConnectId xeeConnectId:String, PinCode pin: String, completionHandler: ((_ error: Error?, _ privacy: XeePrivacy?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        var parameters: Parameters = [:]
+        parameters["deviceId"] = xeeConnectId
+        parameters["devicePin"] = pin
+        
+        self.request("\(baseURL!)users/me/vehicles", method:.post, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
+            if let error = response.error {
+                if let completionHandler = completionHandler {
+                    completionHandler(error, nil)
+                }
+            }else {
+                if let privacy = response.result.value {
+                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
+                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
+                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
+                        if let completionHandler = completionHandler {
+                            completionHandler(apiError, nil)
+                        }
+                    }else {
+                        if let completionHandler = completionHandler {
+                            completionHandler(nil, privacy)
+                        }
+                    }
+                }
+            }
+        }
+    }
 
 }

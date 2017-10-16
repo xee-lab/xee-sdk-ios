@@ -53,7 +53,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     // MARK: - UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 17
+        return 18
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -109,6 +109,9 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             cell.textLabel?.text = "Trip Locations"
             break
         case 16:
+            cell.textLabel?.text = "Associate Vehicle"
+            break
+        case 17:
             cell.textLabel?.text = "Disconnect"
             break
         default:
@@ -317,8 +320,16 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 })
             }
             break
-        // Disconnect
+        // Associate Vehicle
         case 16:
+            if userID != nil {
+                XeeRequestManager.shared.associateVehicle(WithXeeConnectId: "E000000000", PinCode: "0000", completionHandler: { (error, temp) in
+                    print("")
+                })
+            }
+            break
+        // Disconnect
+        case 17:
             XeeConnectManager.shared.disconnect()
             break
         default:
