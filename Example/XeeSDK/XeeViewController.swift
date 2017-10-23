@@ -338,7 +338,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     }
     
     @IBAction func edit(_ sender: UIButton) {
-        let alert: UIAlertController = UIAlertController(title: "Edit", message: "Quelle est la nouvelle valeur ?", preferredStyle: .alert)
+        let alert: UIAlertController = UIAlertController(title: "Edit", message: "What is the new value ?", preferredStyle: .alert)
         alert.addTextField(configurationHandler: nil)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
             if let newID = alert.textFields?[0].text {

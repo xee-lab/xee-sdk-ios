@@ -1,4 +1,4 @@
-# XeeSDK
+# XeeFLEET SDK
 
 [![Version](https://img.shields.io/cocoapods/v/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
 [![License](https://img.shields.io/cocoapods/l/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
@@ -8,7 +8,7 @@
 
 This SDK make easier the usage of [Xee API](dev.xee.com) on iOS devices !
 
-It is written in Objective-C
+It is written in Swift
 
 ## Example
 
@@ -16,7 +16,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-This SDK works for iOS with a version >= 8.0
+This SDK works for iOS with a version >= 10.0
 
 ## Installation
 

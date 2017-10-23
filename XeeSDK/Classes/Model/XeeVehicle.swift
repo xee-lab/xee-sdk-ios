@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeVehicle: XeeObject {
+open class XeeVehicle: XeeObject {
 
     public var vehiculeID: String?
     public var name: String?
@@ -17,13 +17,14 @@ public class XeeVehicle: XeeObject {
     public var licensePlate: String?
     public var createdAt: Date?
     public var updatedAt: Date?
+    public var energy: String?
     public var device: XeeDevice?
     
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         vehiculeID <- map["id"]
         name <- map["name"]
@@ -33,6 +34,7 @@ public class XeeVehicle: XeeObject {
         licensePlate <- map["licensePlate"]
         createdAt <- (map["createdAt"], dateTransform)
         updatedAt <- (map["updatedAt"], dateTransform)
+        energy <- map["energy"]
         device <- map["device"]
     }
     

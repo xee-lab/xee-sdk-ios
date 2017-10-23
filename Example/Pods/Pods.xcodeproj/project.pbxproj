@@ -33,13 +33,13 @@
 		4863B9B382D2BA7A07C414A91E1DD6B0 /* ObjectMapper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1366C8D2B3A8AB85467335B347C19C /* ObjectMapper-dummy.m */; };
 		48D13E9BDA1D12C35500441FCFD2CEA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
 		4913AF3736B06A470C84D64EB4454E3D /* XeeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74227E59CB9B9803530527219B0826B4 /* XeeToken.swift */; };
+		4A2736C91F98A7B7000764E1 /* XeeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */; };
 		4E144A5F6A61AACDFDFF8E00A4E5C17B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E652D879A5A78AC59A5EAA47AB7A6B /* Alamofire.framework */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1783D7A34EB66A031BF558A3110D78 /* Request.swift */; };
 		54334A036232F3AD1BD3D9D682EA702D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF68ACB68863BBEA9B6AE14A9519895 /* HexColorTransform.swift */; };
 		5A8C4263CA80550A4D4F5F527E99F572 /* XeeSDK-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8779B1C3F4CEF7956A03B18CE93C126E /* XeeSDK-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BEC65F1E64F4BC3B0AD838E60E1C4A9 /* ToJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A82EE9C1C556B2E8BFBA8D068C8401 /* ToJSON.swift */; };
 		5CCE3EF00A423C98B799BF32315AB9B5 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64D1D1D66220FB9EE2CF3446499306F9 /* ObjectMapper.framework */; };
-		5DF7BCB64D07E3B36B4D4146F94F7FC2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */; };
 		61200D01A1855D7920CEF835C8BE00B0 /* DispatchQueue+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D5FAB7BB93E73B5DF85A67C0D1BDB9 /* DispatchQueue+Alamofire.swift */; };
 		6140699B499701C95C16CA9E10A60B10 /* EnumOperators.swift in Sources */ = {isa = PBXBuildFile; fileRef = A42153AB600F91887F98BEDF4BB9A6BC /* EnumOperators.swift */; };
 		62F65AD8DC4F0F9610F4B8B4738EC094 /* ServerTrustPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF63DC915CBBB5A6A37C5693618BCE9 /* ServerTrustPolicy.swift */; };
@@ -184,7 +184,6 @@
 		2B40A51A4BCA4B665DFFE8AF136844E7 /* Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Alamofire.swift; path = Source/Alamofire.swift; sourceTree = "<group>"; };
 		2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = XeeRequestManager.swift; path = XeeSDK/Classes/XeeRequestManager.swift; sourceTree = "<group>"; };
 		31B6CED63C84E0DFCF84E4F98778016A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = XeeSDK/Classes/Extensions.swift; sourceTree = "<group>"; };
 		380095459E1F371BFB777E5C70EC68B4 /* TransformType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TransformType.swift; path = Sources/TransformType.swift; sourceTree = "<group>"; };
 		3B501F5330D236283AE79D286E8B15FB /* ISO8601DateTransform.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ISO8601DateTransform.swift; path = Sources/ISO8601DateTransform.swift; sourceTree = "<group>"; };
 		3D9F3EB6D49ECFE9A4BC670C59647CBF /* AlamofireObjectMapper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AlamofireObjectMapper.xcconfig; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		41BFA0E0409B6F9EA34B477D5D0DD80E /* Pods-XeeSDK_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Tests-umbrella.h"; sourceTree = "<group>"; };
 		45EE37CFD3F91574EEE86531CC4F7027 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
 		4777B5365997B97D8FABC191D41C2ED3 /* Pods-XeeSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Example-umbrella.h"; sourceTree = "<group>"; };
+		4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XeeExtensions.swift; path = XeeSDK/Classes/XeeExtensions.swift; sourceTree = "<group>"; };
 		50DEC013AE9CAFAB0B2032262D84979F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D544C8A59616D0B71C49516901BC50 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		58842F94DB5A654A43E36EB229E104C5 /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
@@ -588,7 +588,7 @@
 		DB4FD01073E455CC85AB8EFABD59D298 /* XeeSDK */ = {
 			isa = PBXGroup;
 			children = (
-				376D5DB3F5198E092649080DE82FED77 /* Extensions.swift */,
+				4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */,
 				EFFBDB3299003C34A89B1E70CCBB829A /* XeeConnectManager.swift */,
 				2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */,
 				10CEF26FDCC47CF63420183E8C8B9F87 /* Model */,
@@ -838,7 +838,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DF7BCB64D07E3B36B4D4146F94F7FC2 /* Extensions.swift in Sources */,
 				E994E3031618E4218F186DED2C19BB38 /* local.strings in Sources */,
 				8A55AC8BBCE787953F53525374325E64 /* local.strings in Sources */,
 				C398A4FBE13A8A25EB6785D3499C2E6B /* local.strings in Sources */,
@@ -857,6 +856,7 @@
 				9E3BF6D0CDA4C987403B23E5087025D4 /* XeeSignal.swift in Sources */,
 				665EB43FFBCC131633A58692EF64E6FC /* XeeStatus.swift in Sources */,
 				4913AF3736B06A470C84D64EB4454E3D /* XeeToken.swift in Sources */,
+				4A2736C91F98A7B7000764E1 /* XeeExtensions.swift in Sources */,
 				1665B1E164BD4CFFCE1CEC3EDB121A10 /* XeeTrip.swift in Sources */,
 				7F2F85390860F8902E2813260B13C786 /* XeeUser.swift in Sources */,
 				11B39AA64FE409FE1A757EFB334F2ACE /* XeeVehicle.swift in Sources */,

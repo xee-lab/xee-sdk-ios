@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeObject: Mappable {
+open class XeeObject: Mappable {
     
     public var error: String?
     public var errorMessage: String?
@@ -31,7 +31,7 @@ public class XeeObject: Mappable {
         }
     })
     
-    public func mapping(map: Map) {
+    open func mapping(map: Map) {
         error <- map["error"]
         errorMessage <- map["error_description"]
         type <- map["type"]

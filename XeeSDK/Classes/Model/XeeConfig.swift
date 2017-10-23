@@ -15,8 +15,8 @@ public enum XeeEnvironment: String {
 
 public class XeeConfig: NSObject {
     
-    var clientID: String?
-    var secretKey: String?
+    public var clientID: String?
+    public var secretKey: String?
     var scopes: [String]?
     var redirectURI: String?
     var userAgent: String?

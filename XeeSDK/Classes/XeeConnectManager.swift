@@ -17,7 +17,7 @@ public protocol XeeConnectManagerDelegate: class {
 
 public class XeeConnectManager {
     
-    private init() {}
+    public init() {}
     public static let shared = XeeConnectManager()
     public weak var delegate: XeeConnectManagerDelegate?
     
