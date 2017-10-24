@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'XeeSDK_Example' do
   pod 'XeeSDK', :path => '../'
+  pod 'AlamofireNetworkActivityIndicator'
 
   target 'XeeSDK_Tests' do
     inherit! :search_paths

@@ -19,10 +19,16 @@
     "ios": "8.0"
   },
   "source_files": "XeeSDK/Classes/**/*",
-  "frameworks": "UIKit",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
   "dependencies": {
-    "AlamofireObjectMapper": [
-
+    "Alamofire": [
+      "~> 4.1"
+    ],
+    "ObjectMapper": [
+      "~> 3.0"
     ]
   }
 }

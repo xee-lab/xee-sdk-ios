@@ -8,6 +8,7 @@
 
 import UIKit
 import XeeSDK
+import AlamofireNetworkActivityIndicator
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        NetworkActivityIndicatorManager.shared.isEnabled = true
 
         let xeeConfig = XeeConfig(withClientID: "c30a2cd5c0a4ac3483388002e45b26a8",
                                   SecretKet: "73be86bc2c42e63bc9bc8184692a8667c9ffd289628f824725cd8d71b925fc8e",
