@@ -7,7 +7,7 @@
 
 import Foundation
 import Alamofire
-import AlamofireObjectMapper
+import ObjectMapper
 
 public class XeeRequestManager: SessionManager{
     
@@ -75,19 +75,10 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let token = response.result.value {
-                    if let error = token.error, let errorMessage = token.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
-                        UserDefaults.standard.synchronize()
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                        UserDefaults.standard.synchronize()
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, token)
-                        }
+                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                    UserDefaults.standard.synchronize()
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, token)
                     }
                 }
             }
@@ -119,19 +110,10 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let token = response.result.value {
-                    if let error = token.error, let errorMessage = token.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
-                        UserDefaults.standard.synchronize()
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                        UserDefaults.standard.synchronize()
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, token)
-                        }
+                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                    UserDefaults.standard.synchronize()
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, token)
                     }
                 }
             }
@@ -145,7 +127,7 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)" + "/oauth/revoke", method:.post, encoding:URLEncoding.default, headers:headers).responseJSON { response in
+        self.request("\(baseURL!)" + "/oauth/revoke", method:.post, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeObject>) in
             if let error = response.error {
                 if let completionHandler = completionHandler {
                     completionHandler(error)
@@ -172,20 +154,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let user = response.result.value {
-                    if let error = user.error, let errorMessage = user.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = user.message, let _ = user.tip, let type = user.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, user)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, user)
                     }
                 }
             }
@@ -208,20 +178,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let user = response.result.value {
-                    if let error = user.error, let errorMessage = user.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = user.message, let _ = user.tip, let type = user.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, user)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, user)
                     }
                 }
             }
@@ -249,15 +207,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let vehicles = response.result.value {
-                    if vehicles.count > 0 {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, vehicles)
-                        }
-                    }else {
-                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No vehicule"])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, vehicles)
                     }
                 }
             }
@@ -278,20 +229,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let vehicle = response.result.value {
-                    if let error = vehicle.error, let errorMessage = vehicle.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = vehicle.message, let _ = vehicle.tip, let type = vehicle.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, vehicle)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, vehicle)
                     }
                 }
             }
@@ -312,20 +251,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let status = response.result.value {
-                    if let error = status.error, let errorMessage = status.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = status.message, let _ = status.tip, let type = status.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, status)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, status)
                     }
                 }
             }
@@ -359,15 +286,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let trips = response.result.value {
-                    if trips.count > 0 {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, trips)
-                        }
-                    }else {
-                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No trip"])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, trips)
                     }
                 }
             }
@@ -388,20 +308,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let trip = response.result.value {
-                    if let error = trip.error, let errorMessage = trip.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = trip.message, let _ = trip.tip, let type = trip.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, trip)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, trip)
                     }
                 }
             }
@@ -434,15 +342,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let signals = response.result.value {
-                    if signals.count > 0 {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, signals)
-                        }
-                    }else {
-                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No signal"])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, signals)
                     }
                 }
             }
@@ -475,15 +376,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let locations = response.result.value {
-                    if locations.count > 0 {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, locations)
-                        }
-                    }else {
-                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No location"])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, locations)
                     }
                 }
             }
@@ -506,20 +400,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let vehicle = response.result.value {
-                    if let error = vehicle.error, let errorMessage = vehicle.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = vehicle.message, let _ = vehicle.tip, let type = vehicle.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, vehicle)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, vehicle)
                     }
                 }
             }
@@ -540,20 +422,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let device = response.result.value {
-                    if let error = device.error, let errorMessage = device.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = device.message, let _ = device.tip, let type = device.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, device)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, device)
                     }
                 }
             }
@@ -585,15 +455,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let privacies = response.result.value {
-                    if privacies.count > 0 {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, privacies)
-                        }
-                    }else {
-                        let apiError: Error = NSError(domain: NSURLErrorDomain, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: "No privacy"])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, privacies)
                     }
                 }
             }
@@ -614,20 +477,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let privacy = response.result.value {
-                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, privacy)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, privacy)
                     }
                 }
             }
@@ -648,20 +499,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let privacy = response.result.value {
-                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, privacy)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, privacy)
                     }
                 }
             }
@@ -686,20 +525,8 @@ public class XeeRequestManager: SessionManager{
                 }
             }else {
                 if let privacy = response.result.value {
-                    if let error = privacy.error, let errorMessage = privacy.errorMessage {
-                        let apiError: Error = NSError(domain: error, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: errorMessage])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else if let message = privacy.message, let _ = privacy.tip, let type = privacy.type {
-                        let apiError: Error = NSError(domain: type, code: NSURLErrorUnknown, userInfo: [NSLocalizedDescriptionKey: message])
-                        if let completionHandler = completionHandler {
-                            completionHandler(apiError, nil)
-                        }
-                    }else {
-                        if let completionHandler = completionHandler {
-                            completionHandler(nil, privacy)
-                        }
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, privacy)
                     }
                 }
             }

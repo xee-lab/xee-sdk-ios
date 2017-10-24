@@ -34,5 +34,6 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'UIKit'
-  s.dependency 'AlamofireObjectMapper'
+  s.dependency 'Alamofire', '~> 4.1'
+  s.dependency 'ObjectMapper', '~> 3.0'
 end

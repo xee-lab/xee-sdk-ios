@@ -9,12 +9,6 @@ import ObjectMapper
 
 open class XeeObject: Mappable {
     
-    public var error: String?
-    public var errorMessage: String?
-    public var type: String?
-    public var message: String?
-    public var tip: String?
-    
     required public init?(map: Map) {}
     
     let dateTransform = TransformOf<Date, String>(fromJSON: { (value: String?) -> Date? in
@@ -31,12 +25,6 @@ open class XeeObject: Mappable {
         }
     })
     
-    open func mapping(map: Map) {
-        error <- map["error"]
-        errorMessage <- map["error_description"]
-        type <- map["type"]
-        message <- map["message"]
-        tip <- map["tip"]
-    }
+    open func mapping(map: Map) {}
 
 }

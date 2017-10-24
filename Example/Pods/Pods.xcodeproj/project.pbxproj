@@ -34,6 +34,7 @@
 		48D13E9BDA1D12C35500441FCFD2CEA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A54CA571FF3DC2916A3C300ED912AA /* Foundation.framework */; };
 		4913AF3736B06A470C84D64EB4454E3D /* XeeToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74227E59CB9B9803530527219B0826B4 /* XeeToken.swift */; };
 		4A2736C91F98A7B7000764E1 /* XeeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */; };
+		4AA56A101F9F8541005ADFEB /* XeeObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA56A0F1F9F8541005ADFEB /* XeeObjectMapper.swift */; };
 		4E144A5F6A61AACDFDFF8E00A4E5C17B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E652D879A5A78AC59A5EAA47AB7A6B /* Alamofire.framework */; };
 		5387216E723A3C68E851CA15573CDD71 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1783D7A34EB66A031BF558A3110D78 /* Request.swift */; };
 		54334A036232F3AD1BD3D9D682EA702D /* HexColorTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF68ACB68863BBEA9B6AE14A9519895 /* HexColorTransform.swift */; };
@@ -192,6 +193,7 @@
 		45EE37CFD3F91574EEE86531CC4F7027 /* local.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = local.strings; path = en.lproj/local.strings; sourceTree = "<group>"; };
 		4777B5365997B97D8FABC191D41C2ED3 /* Pods-XeeSDK_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-XeeSDK_Example-umbrella.h"; sourceTree = "<group>"; };
 		4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XeeExtensions.swift; path = XeeSDK/Classes/XeeExtensions.swift; sourceTree = "<group>"; };
+		4AA56A0F1F9F8541005ADFEB /* XeeObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = XeeObjectMapper.swift; path = XeeSDK/Classes/XeeObjectMapper.swift; sourceTree = "<group>"; };
 		50DEC013AE9CAFAB0B2032262D84979F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55D544C8A59616D0B71C49516901BC50 /* Notifications.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Notifications.swift; path = Source/Notifications.swift; sourceTree = "<group>"; };
 		58842F94DB5A654A43E36EB229E104C5 /* ObjectMapper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "ObjectMapper-umbrella.h"; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 				4A2736C81F98A7B7000764E1 /* XeeExtensions.swift */,
 				EFFBDB3299003C34A89B1E70CCBB829A /* XeeConnectManager.swift */,
 				2CE6D5A548993EB2F511A809027DDA0F /* XeeRequestManager.swift */,
+				4AA56A0F1F9F8541005ADFEB /* XeeObjectMapper.swift */,
 				10CEF26FDCC47CF63420183E8C8B9F87 /* Model */,
 				88AB36C6863D2EA13CBD57212A177972 /* Resources */,
 				51B3FAA40FB7DA2A671EA59E46C05CFE /* Support Files */,
@@ -838,6 +841,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AA56A101F9F8541005ADFEB /* XeeObjectMapper.swift in Sources */,
 				E994E3031618E4218F186DED2C19BB38 /* local.strings in Sources */,
 				8A55AC8BBCE787953F53525374325E64 /* local.strings in Sources */,
 				C398A4FBE13A8A25EB6785D3499C2E6B /* local.strings in Sources */,
