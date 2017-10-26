@@ -57,6 +57,88 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
+    private func xeeObjectRequest<T: BaseMappable>(_ url: String,
+                                                   method: HTTPMethod = .get,
+                                                   parameters: Parameters? = nil,
+                                                   encoding: ParameterEncoding = URLEncoding.default,
+                                                   headers: HTTPHeaders? = nil,
+                                                   objectType _: T.Type,
+                                                   completionHandler: ((_ error: Error?, _ object: T?) -> Void)? ) {
+        
+        self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseObject { (response: DataResponse<T>) in
+            if let error = response.error {
+                if error.code == 403 {
+                    XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
+                        if errorRefresh != nil {
+                            if let completionHandler = completionHandler {
+                                completionHandler(errorRefresh, nil)
+                            }
+                        }else {
+                            var headers: HTTPHeaders = [:]
+                            if let accessToken = XeeConnectManager.shared.token?.accessToken {
+                                headers["Authorization"] = "Bearer " + accessToken
+                            }
+                            self.xeeObjectRequest(url, method: method, parameters: parameters, encoding: encoding, headers: headers, objectType: T.self, completionHandler: completionHandler)
+                        }
+                    })
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(error, nil)
+                    }
+                }
+            }else {
+                if let object = response.result.value {
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, object)
+                    }
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, nil)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func xeeObjectsRequest<T : BaseMappable>(_ url: String,
+                                                    method: HTTPMethod = .get,
+                                                    parameters: Parameters? = nil,
+                                                    encoding: ParameterEncoding = URLEncoding.default,
+                                                    headers: HTTPHeaders? = nil,
+                                                    objectType _: T.Type,
+                                                    completionHandler: ((_ error: Error?, _ objects: [T]?) -> Void)? ) {
+        
+        self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseArray { (response: DataResponse<[T]>) in
+            if let error = response.error {
+                if error.code == 403 {
+                    XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
+                        if errorRefresh != nil {
+                            if let completionHandler = completionHandler {
+                                completionHandler(errorRefresh, nil)
+                            }
+                        }else {
+                            self.xeeObjectsRequest(url, method: method, parameters: parameters, encoding: encoding, headers: headers, objectType: T.self, completionHandler: completionHandler)
+                        }
+                    })
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(error, nil)
+                    }
+                }
+            }else {
+                if let objects = response.result.value {
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, objects)
+                    }
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(nil, nil)
+                    }
+                }
+            }
+        }
+    }
+    
     public func getToken(withCode code: String, completionHandler: ((_ error: Error?, _ token: XeeToken?) -> Void)? ) {
         
         let parameters: Parameters = ["grant_type":"authorization_code", "code":code]
@@ -66,20 +148,18 @@ public class XeeRequestManager: SessionManager{
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
-        self.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
-            if let error = response.error {
+        self.xeeObjectRequest("\(baseURL!)oauth/token", method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.default, headers: headers, objectType: XeeToken.self) { (error, token) in
+            if error != nil {
                 UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
                 UserDefaults.standard.synchronize()
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
                 }
-            }else {
-                if let token = response.result.value {
-                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                    UserDefaults.standard.synchronize()
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, token)
-                    }
+            }else if let token = token {
+                UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                UserDefaults.standard.synchronize()
+                if let completionHandler = completionHandler {
+                    completionHandler(nil, token)
                 }
             }
         }
@@ -101,20 +181,18 @@ public class XeeRequestManager: SessionManager{
             headers[authorizationHeader.key] = authorizationHeader.value
         }
         
-        self.request("\(baseURL!)" + "/oauth/token", method:.post, parameters:parameters, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeToken>) in
-            if let error = response.error {
+        self.xeeObjectRequest("\(baseURL!)oauth/token", method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.default, headers: headers, objectType: XeeToken.self) { (error, token) in
+            if error != nil {
                 UserDefaults.standard.set(nil, forKey: "XeeSDKInternalAccessToken")
                 UserDefaults.standard.synchronize()
                 if let completionHandler = completionHandler {
                     completionHandler(error, nil)
                 }
-            }else {
-                if let token = response.result.value {
-                    UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
-                    UserDefaults.standard.synchronize()
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, token)
-                    }
+            }else if let token = token {
+                UserDefaults.standard.set(token.toJSON(), forKey: "XeeSDKInternalAccessToken")
+                UserDefaults.standard.synchronize()
+                if let completionHandler = completionHandler {
+                    completionHandler(nil, token)
                 }
             }
         }
@@ -127,10 +205,16 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)" + "/oauth/revoke", method:.post, encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeObject>) in
+        self.request("\(baseURL!)oauth/revoke", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
             if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error)
+                if error.code == 403 {
+                    XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
+                        self.revokeToken(completionHandler: completionHandler)
+                    })
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(error)
+                    }
                 }
             }else {
                 if let completionHandler = completionHandler {
@@ -147,17 +231,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)" + "/users/me", encoding:URLEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let user = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, user)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)users/me", method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: headers, objectType: XeeUser.self) { (error, user) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, user)
             }
         }
     }
@@ -171,17 +247,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)users/\(user.userID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeUser>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let user = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, user)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)users/\(user.userID!)", method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers, objectType: XeeUser.self) { (error, user) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, user)
             }
         }
     }
@@ -200,17 +268,9 @@ public class XeeRequestManager: SessionManager{
             userIDString = "me"
         }
         
-        self.request("\(baseURL!)users/\(userIDString)/vehicles", headers:headers).responseArray { (response: DataResponse<[XeeVehicle]>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let vehicles = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, vehicles)
-                    }
-                }
+        self.xeeObjectsRequest("\(baseURL!)users/\(userIDString)/vehicles", headers: headers, objectType: XeeVehicle.self) { (error, vehicles) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, vehicles)
             }
         }
     }
@@ -222,17 +282,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)", headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let vehicle = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, vehicle)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicleId)", headers:headers, objectType: XeeVehicle.self) { (error, vehicle) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, vehicle)
             }
         }
     }
@@ -244,52 +296,23 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)/status", headers:headers).responseObject { (response: DataResponse<XeeStatus>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let status = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, status)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicleId)/status", headers:headers, objectType: XeeStatus.self) { (error, status) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, status)
             }
         }
     }
     
     public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ trips: [XeeTrip]?) -> Void)? ) {
         
-        self.delegate.taskWillPerformHTTPRedirection = { session, task, response, request in
-            var finalRequest = request
-            
-            if let originalRequest = task.originalRequest, let urlString = originalRequest.url?.absoluteString {
-                if urlString.contains("apple.com")
-                {
-                    finalRequest = originalRequest
-                }
-            }
-            
-            return finalRequest
-        }
-        
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers).responseArray { (response: DataResponse<[XeeTrip]>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let trips = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, trips)
-                    }
-                }
+        self.xeeObjectsRequest("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers, objectType: XeeTrip.self) { (error, trips) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, trips)
             }
         }
     }
@@ -301,17 +324,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)trips/\(tripID)", headers:headers).responseObject { (response: DataResponse<XeeTrip>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let trip = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, trip)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)trips/\(tripID)", headers:headers, objectType: XeeTrip.self) { (error, trip) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, trip)
             }
         }
     }
@@ -335,17 +350,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)trips/\(tripId)/signals", headers:headers).responseArray { (response: DataResponse<[XeeSignal]>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let signals = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, signals)
-                    }
-                }
+        self.xeeObjectsRequest("\(baseURL!)trips/\(tripId)/signals", headers:headers, objectType: XeeSignal.self) { (error, signals) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, signals)
             }
         }
     }
@@ -369,17 +376,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)trips/\(tripId)/locations", headers:headers).responseArray { (response: DataResponse<[XeeLocation]>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let locations = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, locations)
-                    }
-                }
+        self.xeeObjectsRequest("\(baseURL!)trips/\(tripId)/locations", headers:headers, objectType: XeeLocation.self) { (error, locations) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, locations)
             }
         }
     }
@@ -393,39 +392,23 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeeVehicle>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let vehicle = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, vehicle)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeeVehicle.self) { (error, vehicle) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, vehicle)
             }
         }
     }
     
-    public func getDevice(ForVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ vehicle: XeeDevice?) -> Void)? ) {
+    public func getDevice(ForVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ device: XeeDevice?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)/device", headers:headers).responseObject { (response: DataResponse<XeeDevice>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let device = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, device)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicleId)/device", headers:headers, objectType: XeeDevice.self) { (error, device) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, device)
             }
         }
     }
@@ -448,17 +431,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)/privacies", parameters:parameters, headers:headers).responseArray { (response: DataResponse<[XeePrivacy]>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let privacies = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, privacies)
-                    }
-                }
+        self.xeeObjectsRequest("\(baseURL!)vehicles/\(vehicleId)/privacies", parameters:parameters, headers:headers, objectType: XeePrivacy.self) { (error, privacies) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, privacies)
             }
         }
     }
@@ -470,17 +445,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)vehicles/\(vehicleId)/privacies", method:.post, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let privacy = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, privacy)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicleId)/privacies", method:.post, headers:headers, objectType: XeePrivacy.self) { (error, privacy) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, privacy)
             }
         }
     }
@@ -492,17 +459,9 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.request("\(baseURL!)privacies/\(privacyID)", method:.put, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let privacy = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, privacy)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)privacies/\(privacyID)", method:.put, headers:headers, objectType: XeePrivacy.self) { (error, privacy) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, privacy)
             }
         }
     }
@@ -518,17 +477,9 @@ public class XeeRequestManager: SessionManager{
         parameters["deviceId"] = xeeConnectId
         parameters["devicePin"] = pin
         
-        self.request("\(baseURL!)users/me/vehicles", method:.post, parameters:parameters, encoding:JSONEncoding.default, headers:headers).responseObject { (response: DataResponse<XeePrivacy>) in
-            if let error = response.error {
-                if let completionHandler = completionHandler {
-                    completionHandler(error, nil)
-                }
-            }else {
-                if let privacy = response.result.value {
-                    if let completionHandler = completionHandler {
-                        completionHandler(nil, privacy)
-                    }
-                }
+        self.xeeObjectRequest("\(baseURL!)users/me/vehicles", method:.post, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeePrivacy.self) { (error, privacy) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, privacy)
             }
         }
     }

@@ -146,6 +146,17 @@ extension DataRequest {
             
             let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath)
             
+            if let JSONObject = JSONObject as? [String: String] {
+                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
+                    let errorDomain = type
+                    
+                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
+                    
+                    return .failure(returnError)
+                }
+            }
+            
             if let parsedObject = Mapper<T>(context: context, shouldIncludeNilValues: false).mapArray(JSONObject: JSONObject){
                 return .success(parsedObject)
             }
@@ -164,6 +175,17 @@ extension DataRequest {
             }
             
             if let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath){
+                
+                if let JSONObject = JSONObject as? [String: String] {
+                    if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
+                        let errorDomain = type
+                        
+                        let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                        let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
+                        
+                        return .failure(returnError)
+                    }
+                }
                 
                 if let parsedObject = try? Mapper<T>(context: context, shouldIncludeNilValues: false).mapArray(JSONObject: JSONObject){
                     return .success(parsedObject)
