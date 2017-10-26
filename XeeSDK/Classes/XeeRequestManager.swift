@@ -117,6 +117,10 @@ public class XeeRequestManager: SessionManager{
                                 completionHandler(errorRefresh, nil)
                             }
                         }else {
+                            var headers: HTTPHeaders = [:]
+                            if let accessToken = XeeConnectManager.shared.token?.accessToken {
+                                headers["Authorization"] = "Bearer " + accessToken
+                            }
                             self.xeeObjectsRequest(url, method: method, parameters: parameters, encoding: encoding, headers: headers, objectType: T.self, completionHandler: completionHandler)
                         }
                     })
@@ -214,6 +218,16 @@ public class XeeRequestManager: SessionManager{
                 }else {
                     if let completionHandler = completionHandler {
                         completionHandler(error)
+                    }
+                }
+            }else if let JSONObject = response.result.value as? [String: String] {
+                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
+                    let errorDomain = type
+                    
+                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    let returnError = NSError(domain: errorDomain, code: response.response?.statusCode ?? 0, userInfo: userInfo)
+                    if let completionHandler = completionHandler {
+                        completionHandler(returnError)
                     }
                 }
             }else {
