@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 import Alamofire
 
 public protocol XeeConnectManagerDelegate: class {
@@ -15,14 +16,15 @@ public protocol XeeConnectManagerDelegate: class {
     func didDisconnected()
 }
 
-public class XeeConnectManager {
+public class XeeConnectManager: NSObject, UIWebViewDelegate {
     
-    public init() {}
+    public override init() {}
     public static let shared = XeeConnectManager()
     public weak var delegate: XeeConnectManagerDelegate?
     
     public var config: XeeConfig?
     var embeddedWebView: UIWebView!
+    var webViewSpinner: UIActivityIndicatorView?
     
     public var token: XeeToken? {
         get {
@@ -67,6 +69,14 @@ public class XeeConnectManager {
     func showWebView(WithURLRequest urlRequest: URLRequest) {
         self.embeddedWebView = UIWebView(frame: UIScreen.main.bounds)
         self.embeddedWebView.scrollView.bounces = false
+        self.embeddedWebView.delegate = self
+        if self.webViewSpinner == nil {
+            self.webViewSpinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+            self.webViewSpinner!.color = UIColor.black
+            self.webViewSpinner!.center = self.embeddedWebView.center
+        }
+        self.webViewSpinner!.startAnimating()
+        self.embeddedWebView.addSubview(self.webViewSpinner!)
         self.embeddedWebView.loadRequest(urlRequest)
         let cancelButton: UIButton = UIButton(frame: CGRect(x: 8, y: 28, width: UIScreen.main.bounds.width / 4, height: 40))
         cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
@@ -154,6 +164,15 @@ public class XeeConnectManager {
             i = i + 1
         }
         return scopesURL
+    }
+    
+    // MARK: - UIWebViewDelegate
+    
+    public func webViewDidFinishLoad(_ webView: UIWebView) {
+        if let spinner = self.webViewSpinner {
+            spinner.stopAnimating()
+            spinner.removeFromSuperview()
+        }
     }
 
 }
