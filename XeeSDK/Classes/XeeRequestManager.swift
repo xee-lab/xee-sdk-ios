@@ -18,42 +18,34 @@ public class XeeRequestManager: SessionManager{
     public static let shared = XeeRequestManager()
     
     var baseURL: URL? {
-        get {
-            if let baseURL = XeeConnectManager.shared.baseURL {
-                return baseURL
-            }else {
-                return nil
-            }
+        if let baseURL = XeeConnectManager.shared.baseURL {
+            return baseURL
+        }else {
+            return nil
         }
     }
     
     var clientID: String? {
-        get {
-            if let clientID = XeeConnectManager.shared.config?.clientID {
-                return clientID
-            }else {
-                return nil
-            }
+        if let clientID = XeeConnectManager.shared.config?.clientID {
+            return clientID
+        }else {
+            return nil
         }
     }
     
     var secretKey: String? {
-        get {
-            if let secretKey = XeeConnectManager.shared.config?.secretKey {
-                return secretKey
-            }else {
-                return nil
-            }
+        if let secretKey = XeeConnectManager.shared.config?.secretKey {
+            return secretKey
+        }else {
+            return nil
         }
     }
     
     var scope: String? {
-        get {
-            if let scope = XeeConnectManager.shared.token?.scope {
-                return scope
-            }else {
-                return nil
-            }
+        if let scope = XeeConnectManager.shared.token?.scope {
+            return scope
+        }else {
+            return nil
         }
     }
     
@@ -67,7 +59,7 @@ public class XeeRequestManager: SessionManager{
         
         self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseObject { (response: DataResponse<T>) in
             if let error = response.error {
-                if error.code == 403 {
+                if error.code == 401 {
                     XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
                         if errorRefresh != nil {
                             if let completionHandler = completionHandler {
@@ -110,7 +102,7 @@ public class XeeRequestManager: SessionManager{
         
         self.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).responseArray { (response: DataResponse<[T]>) in
             if let error = response.error {
-                if error.code == 403 {
+                if error.code == 401 {
                     XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
                         if errorRefresh != nil {
                             if let completionHandler = completionHandler {
@@ -211,7 +203,7 @@ public class XeeRequestManager: SessionManager{
         
         self.request("\(baseURL!)oauth/revoke", method: .post, parameters: nil, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
             if let error = response.error {
-                if error.code == 403 {
+                if error.code == 401 {
                     XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
                         self.revokeToken(completionHandler: completionHandler)
                     })

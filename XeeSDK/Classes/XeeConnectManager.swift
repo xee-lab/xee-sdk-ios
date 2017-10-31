@@ -27,23 +27,19 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
     var webViewSpinner: UIActivityIndicatorView?
     
     public var token: XeeToken? {
-        get {
-            if let tokenJSON = UserDefaults.standard.object(forKey: "XeeSDKInternalAccessToken") as? [String:Any] {
-                let tokenObject: XeeToken = XeeToken(JSON: tokenJSON)!
-                return tokenObject
-            }else {
-                return nil
-            }
+        if let tokenJSON = UserDefaults.standard.object(forKey: "XeeSDKInternalAccessToken") as? [String:Any] {
+            let tokenObject: XeeToken = XeeToken(JSON: tokenJSON)!
+            return tokenObject
+        }else {
+            return nil
         }
     }
     
     public var baseURL: URL? {
-        get {
-            if let host = config?.environment?.rawValue {
-                return URL(string: host)
-            }else {
-                return nil
-            }
+        if let host = config?.environment?.rawValue {
+            return URL(string: host)
+        }else {
+            return nil
         }
     }
     

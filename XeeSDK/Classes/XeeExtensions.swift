@@ -31,4 +31,6 @@ public extension String {
 public extension Error {
     var code: Int { return (self as NSError).code }
     var domain: String { return (self as NSError).domain }
+    var resaon: String? { return (self as NSError).localizedFailureReason }
+    var suggestion: String? { return (self as NSError).localizedRecoverySuggestion }
 }
