@@ -9,7 +9,7 @@ import UIKit
 
 public enum XeeEnvironment: String {
     case XeeEnvironmentSTAGING = "https://staging.xee.com/v4/"
-    case XeeEnvironmentCLOUD = "https://cloud.xee.com/v4/"
+    case XeeEnvironmentCLOUD = "https://api.xee.com/v4/"
     case XeeEnvironmentSANDBOX = "https://sandbox.xee.com/v4/"
 }
 
