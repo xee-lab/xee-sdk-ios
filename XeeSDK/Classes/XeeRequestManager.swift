@@ -230,14 +230,21 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
-    public func getUser(completionHandler: ((_ error: Error?, _ user: XeeUser?) -> Void)? ) {
+    public func getUser(WithUserID userID:String?, completionHandler: ((_ error: Error?, _ user: XeeUser?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.xeeObjectRequest("\(baseURL!)users/me", method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: headers, objectType: XeeUser.self) { (error, user) in
+        var id: String;
+        if let userID = userID {
+            id = userID
+        }else {
+            id = "me"
+        }
+        
+        self.xeeObjectRequest("\(baseURL!)users/\(id)", method: HTTPMethod.get, parameters: nil, encoding: URLEncoding.default, headers: headers, objectType: XeeUser.self) { (error, user) in
             if let completionHandler = completionHandler {
                 completionHandler(error, user)
             }

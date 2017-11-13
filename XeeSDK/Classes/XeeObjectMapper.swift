@@ -63,10 +63,14 @@ extension DataRequest {
             let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath)
             
             if let JSONObject = JSONObject as? [String: String] {
-                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
-                    let errorDomain = type
+                if let error = JSONObject["error"], let errorDescription = JSONObject["error_description"] {
+                    let errorDomain = "XeeAPI"
                     
-                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    var userInfo = [NSLocalizedFailureReasonErrorKey: error, NSLocalizedRecoverySuggestionErrorKey: errorDescription]
+                    if let errorDetails = JSONObject["error_details"] {
+                        userInfo["details"] = errorDetails
+                    }
+                    
                     let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
                     
                     return .failure(returnError)
@@ -96,10 +100,14 @@ extension DataRequest {
             let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath)
             
             if let JSONObject = JSONObject as? [String: String] {
-                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
-                    let errorDomain = type
+                if let error = JSONObject["error"], let errorDescription = JSONObject["error_description"] {
+                    let errorDomain = "XeeAPI"
                     
-                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    var userInfo = [NSLocalizedFailureReasonErrorKey: error, NSLocalizedRecoverySuggestionErrorKey: errorDescription]
+                    if let errorDetails = JSONObject["error_details"] {
+                        userInfo["details"] = errorDetails
+                    }
+                    
                     let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
                     
                     return .failure(returnError)
@@ -147,10 +155,14 @@ extension DataRequest {
             let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath)
             
             if let JSONObject = JSONObject as? [String: String] {
-                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
-                    let errorDomain = type
+                if let error = JSONObject["error"], let errorDescription = JSONObject["error_description"] {
+                    let errorDomain = "XeeAPI"
                     
-                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    var userInfo = [NSLocalizedFailureReasonErrorKey: error, NSLocalizedRecoverySuggestionErrorKey: errorDescription]
+                    if let errorDetails = JSONObject["error_details"] {
+                        userInfo["details"] = errorDetails
+                    }
+                    
                     let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
                     
                     return .failure(returnError)
@@ -177,10 +189,14 @@ extension DataRequest {
             if let JSONObject = processResponse(request: request, response: response, data: data, keyPath: keyPath){
                 
                 if let JSONObject = JSONObject as? [String: String] {
-                    if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
-                        let errorDomain = type
+                    if let error = JSONObject["error"], let errorDescription = JSONObject["error_description"] {
+                        let errorDomain = "XeeAPI"
                         
-                        let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                        var userInfo = [NSLocalizedFailureReasonErrorKey: error, NSLocalizedRecoverySuggestionErrorKey: errorDescription]
+                        if let errorDetails = JSONObject["error_details"] {
+                            userInfo["details"] = errorDetails
+                        }
+                        
                         let returnError = NSError(domain: errorDomain, code: response?.statusCode ?? 0, userInfo: userInfo)
                         
                         return .failure(returnError)

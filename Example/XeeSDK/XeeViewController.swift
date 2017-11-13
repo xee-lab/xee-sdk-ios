@@ -135,7 +135,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         // User/me
         case 2:
-            XeeRequestManager.shared.getUser(completionHandler: { (error, user) in
+            XeeRequestManager.shared.getUser(WithUserID: nil, completionHandler: { (error, user) in
                 if let error = error {
                     self.textView.text = error.localizedDescription
                 }else if let user = user {
@@ -146,7 +146,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
             break
         // Update User
         case 3:
-            XeeRequestManager.shared.getUser(completionHandler: { (error, user) in
+            XeeRequestManager.shared.getUser(WithUserID: nil, completionHandler: { (error, user) in
                 if let user = user {
                     let temp = user.firstName
                     user.firstName = "TEST"
