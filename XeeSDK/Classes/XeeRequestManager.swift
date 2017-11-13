@@ -472,7 +472,7 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
-    public func associateVehicle(WithXeeConnectId xeeConnectId:String, PinCode pin: String, completionHandler: ((_ error: Error?, _ privacy: XeePrivacy?) -> Void)? ) {
+    public func associateVehicle(WithXeeConnectId xeeConnectId:String, PinCode pin: String, completionHandler: ((_ error: Error?, _ vehicle: XeeVehicle?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
@@ -483,9 +483,9 @@ public class XeeRequestManager: SessionManager{
         parameters["deviceId"] = xeeConnectId
         parameters["devicePin"] = pin
         
-        self.xeeObjectRequest("\(baseURL!)users/me/vehicles", method:.post, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeePrivacy.self) { (error, privacy) in
+        self.xeeObjectRequest("\(baseURL!)users/me/vehicles", method:.post, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeeVehicle.self) { (error, vehicle) in
             if let completionHandler = completionHandler {
-                completionHandler(error, privacy)
+                completionHandler(error, vehicle)
             }
         }
     }

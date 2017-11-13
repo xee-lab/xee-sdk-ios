@@ -323,8 +323,12 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
         // Associate Vehicle
         case 16:
             if userID != nil {
-                XeeRequestManager.shared.associateVehicle(WithXeeConnectId: "E000000000", PinCode: "0000", completionHandler: { (error, temp) in
-                    print("")
+                XeeRequestManager.shared.associateVehicle(WithXeeConnectId: "E000000000", PinCode: "0000", completionHandler: { (error, vehicle) in
+                    if let error = error {
+                        self.textView.text = error.localizedDescription
+                    }else if let vehicle = vehicle {
+                        self.textView.text = vehicle.toJSONString(prettyPrint: true)
+                    }
                 })
             }
             break
