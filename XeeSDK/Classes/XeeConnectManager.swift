@@ -143,6 +143,9 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
         if let clientID = config?.clientID {
             parameters["client_id"] = clientID
         }
+        if let redirectURI = config?.redirectURI {
+            parameters["redirect_uri"] = redirectURI
+        }
         if let host = baseURL, let scopes = config?.scopes {
             let url = URL(string: "\(host)oauth/authorize?scope=\(scopesURLString(WithScopes: scopes))")!
             if let urlRequest = Alamofire.request(url, parameters: parameters).request {
