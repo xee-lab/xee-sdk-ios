@@ -49,6 +49,14 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
+    var redirectURI: String? {
+        if let redirectURI = XeeConnectManager.shared.config?.redirectURI {
+            return redirectURI
+        }else {
+            return nil
+        }
+    }
+    
     private func xeeObjectRequest<T: BaseMappable>(_ url: String,
                                                    method: HTTPMethod = .get,
                                                    parameters: Parameters? = nil,
@@ -137,11 +145,15 @@ public class XeeRequestManager: SessionManager{
     
     public func getToken(withCode code: String, completionHandler: ((_ error: Error?, _ token: XeeToken?) -> Void)? ) {
         
-        let parameters: Parameters = ["grant_type":"authorization_code", "code":code]
+        var parameters: Parameters = ["grant_type":"authorization_code", "code":code]
         var headers: HTTPHeaders = [:]
         
         if let authorizationHeader = Request.authorizationHeader(user: clientID!, password: secretKey!) {
             headers[authorizationHeader.key] = authorizationHeader.value
+        }
+        
+        if let redirectURI = redirectURI {
+            parameters["redirect_uri"] = redirectURI
         }
         
         self.xeeObjectRequest("\(baseURL!)oauth/token", method: HTTPMethod.post, parameters: parameters, encoding: URLEncoding.default, headers: headers, objectType: XeeToken.self) { (error, token) in
