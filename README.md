@@ -415,9 +415,7 @@ Manage oAuth authorizations
 Revokes the specified authorization
 
 ```swift
-XeeRequestManager.shared.revokeToken { (error) in
-    // Your code here
-}
+// TODO
 ```
 
 ### Retrieve users's authorizations
