@@ -1,4 +1,8 @@
-# xee-sdk-ios
+# XeeSDK
+
+[![Version](https://img.shields.io/cocoapods/v/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
+[![License](https://img.shields.io/cocoapods/l/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
+[![Platform](https://img.shields.io/cocoapods/p/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
 
 ## Purpose
 
@@ -6,13 +10,22 @@ This SDK make easier the usage of [Xee API](dev.xee.com) on iOS devices !
 
 It is written in Objective-C
 
+## Example
+
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
 ## Requirements
 
-This SDK works for iOS with a version >= 7.0
+This SDK works for iOS with a version >= 8.0
 
 ## Installation
 
-Simply drag and drop the framework into your iOS project. Be sure it appears in the Linked Frameworks and Libraries.
+XeeSDK is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "XeeSDK"
+```
 
 ## Setup
 
@@ -130,3 +143,11 @@ If there is no access token or if it's not valid, the SDK will open safari insid
 We're working hard to provide you an *issue free SDK*, but we're just humans so [we can do mistakes](http://i.giphy.com/RFDXes97gboYg.gif).
 
 If you find something, feel free to [fill an issue](https://github.com/xee-lab/xee-sdk-ios/issues) or/and **fork** the repository to fix it !
+
+## Author
+
+Eliocity, jbdujardin@xee.com
+
+## License
+
+XeeSDK is available under the Apache License 2.0. See the LICENSE file for more info.

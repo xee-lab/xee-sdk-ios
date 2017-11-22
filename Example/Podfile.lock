@@ -1,0 +1,36 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - XeeSDK (1.0.2):
+    - AFNetworking (~> 3.0)
+    - XeeSDK/Model (= 1.0.2)
+  - XeeSDK/Model (1.0.2):
+    - AFNetworking (~> 3.0)
+
+DEPENDENCIES:
+  - XeeSDK (from `../`)
+
+EXTERNAL SOURCES:
+  XeeSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  XeeSDK: e94f26495a6d385150b77b5ce36313a1217885cd
+
+PODFILE CHECKSUM: 6a0ead9fbeead6047a493581ab9929ab9ad24255
+
+COCOAPODS: 1.2.1
