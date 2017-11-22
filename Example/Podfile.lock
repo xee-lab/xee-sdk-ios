@@ -14,10 +14,10 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - XeeSDK (1.0.2):
+  - XeeSDK (3.0.0):
     - AFNetworking (~> 3.0)
-    - XeeSDK/Model (= 1.0.2)
-  - XeeSDK/Model (1.0.2):
+    - XeeSDK/Model (= 3.0.0)
+  - XeeSDK/Model (3.0.0):
     - AFNetworking (~> 3.0)
 
 DEPENDENCIES:
@@ -25,12 +25,12 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   XeeSDK:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  XeeSDK: e94f26495a6d385150b77b5ce36313a1217885cd
+  XeeSDK: e65a2ef8766fa6a35ee7dc2e1b34e76200a92f2b
 
-PODFILE CHECKSUM: 6a0ead9fbeead6047a493581ab9929ab9ad24255
+PODFILE CHECKSUM: 85bc63f35ac5f6c7e49b754ba21e5a9379395174
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
