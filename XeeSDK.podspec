@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XeeSDK'
-  s.version          = '2.0.3'
+  s.version          = '3.0.0'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
 # This description is used to generate tags and improve search results.
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios/tree/cocoapods'
+  s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Eliocity' => 'jbdujardin@xee.com' }
@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.public_header_files = 'XeeSDK/*.h'
   s.source_files = 'XeeSDK/*.{h,m}'
   s.resource_bundle = { 'XeeSDKBundle' => 'XeeSDK/Resources/**/*'}
