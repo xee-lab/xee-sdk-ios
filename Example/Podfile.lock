@@ -1,26 +1,14 @@
 PODS:
-  - AFNetworking (3.1.0):
-    - AFNetworking/NSURLSession (= 3.1.0)
-    - AFNetworking/Reachability (= 3.1.0)
-    - AFNetworking/Security (= 3.1.0)
-    - AFNetworking/Serialization (= 3.1.0)
-    - AFNetworking/UIKit (= 3.1.0)
-  - AFNetworking/NSURLSession (3.1.0):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (3.1.0)
-  - AFNetworking/Security (3.1.0)
-  - AFNetworking/Serialization (3.1.0)
-  - AFNetworking/UIKit (3.1.0):
-    - AFNetworking/NSURLSession
-  - XeeSDK (3.0.0):
-    - AFNetworking (~> 3.0)
-    - XeeSDK/Model (= 3.0.0)
-  - XeeSDK/Model (3.0.0):
-    - AFNetworking (~> 3.0)
+  - Alamofire (4.5.1)
+  - AlamofireNetworkActivityIndicator (2.2.0):
+    - Alamofire (~> 4.5)
+  - ObjectMapper (3.0.0)
+  - XeeSDK (4.0.0):
+    - Alamofire (~> 4.1)
+    - ObjectMapper (~> 3.0)
 
 DEPENDENCIES:
+  - AlamofireNetworkActivityIndicator
   - XeeSDK (from `../`)
 
 EXTERNAL SOURCES:
@@ -28,9 +16,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  XeeSDK: e65a2ef8766fa6a35ee7dc2e1b34e76200a92f2b
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
+  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
+  XeeSDK: d3b0aae81c0e489d086eacf310afe5a45c3e1d12
 
-PODFILE CHECKSUM: 85bc63f35ac5f6c7e49b754ba21e5a9379395174
+PODFILE CHECKSUM: 8d0ee7230343f9611a66f919469dfe94df688c61
 
 COCOAPODS: 1.3.1

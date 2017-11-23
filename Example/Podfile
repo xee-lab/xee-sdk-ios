@@ -1,9 +1,8 @@
 use_frameworks!
-platform :ios, '9.0'
-inhibit_all_warnings!
 
 target 'XeeSDK_Example' do
   pod 'XeeSDK', :path => '../'
+  pod 'AlamofireNetworkActivityIndicator'
 
   target 'XeeSDK_Tests' do
     inherit! :search_paths

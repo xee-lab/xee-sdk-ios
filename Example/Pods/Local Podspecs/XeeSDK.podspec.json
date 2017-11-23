@@ -1,8 +1,8 @@
 {
   "name": "XeeSDK",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "summary": "This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.",
-  "homepage": "https://github.com/xee-lab/xee-sdk-ios",
+  "homepage": "https://github.com/xee-lab/xee-sdk-ios/tree/swift4",
   "license": {
     "type": "Apache License, Version 2.0",
     "file": "LICENSE"
@@ -12,28 +12,23 @@
   },
   "source": {
     "git": "https://github.com/xee-lab/xee-sdk-ios.git",
-    "tag": "3.0.0"
+    "tag": "4.0.0"
   },
   "social_media_url": "https://www.facebook.com/XeeFR",
-  "requires_arc": true,
   "platforms": {
     "ios": "8.0"
   },
-  "public_header_files": "XeeSDK/*.h",
-  "source_files": "XeeSDK/*.{h,m}",
-  "resource_bundles": {
-    "XeeSDKBundle": "XeeSDK/Resources/**/*"
-  },
+  "source_files": "XeeSDK/Classes/**/*",
+  "frameworks": [
+    "Foundation",
+    "UIKit"
+  ],
   "dependencies": {
-    "AFNetworking": [
+    "Alamofire": [
+      "~> 4.1"
+    ],
+    "ObjectMapper": [
       "~> 3.0"
     ]
-  },
-  "subspecs": [
-    {
-      "name": "Model",
-      "source_files": "XeeSDK/Model/*.{h,m}",
-      "public_header_files": "XeeSDK/Model/*.h"
-    }
-  ]
+  }
 }
