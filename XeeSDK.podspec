@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios/tree/swift4'
+  s.homepage         = 'https://github.com/xee-lab/xee-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'Apache License, Version 2.0', :file => 'LICENSE' }
   s.author           = { 'Eliocity' => 'jbdujardin@xee.com' }

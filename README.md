@@ -78,7 +78,7 @@ pod install
 
 ## Setup
 
-Create an *application* on our developer space to get credentials, see [how to create an app](https://github.com/xee-lab/xee-api-docs/tree/master/setup)
+Create an *application* on our developer space to get credentials, see [how to create an app](https://dev.xee.com/doc/setup/README.html)
 
 In your AppDelegate, import the SDK
 
@@ -474,4 +474,4 @@ Xee, jbdujardin@xee.com
 
 ## License
 
-XeeSDK is available under the Apache License 2.0. See the [LICENSE file](LICENSE.md) for more info.
+XeeSDK is available under the Apache License 2.0. See the [LICENSE file](LICENSE) for more info.
