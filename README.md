@@ -44,11 +44,6 @@ It is written in Swift
 - [Authorizations](#authorizations)
 	- [Revoke authorization](#revoke-authorization)
 	- [Retrieve users's authorizations](#retrieve-userss-authorizations)
-- [Devices](#devices)
-	- [Retrieve device](#retrieve-device)
-	- [Retrieve pairing attempts of a device](#retrieve-pairing-attempts-of-a-device)
-	- [Insert pairing attempts of a device](#insert-pairing-attempts-of-a-device)
-	- [Retrieve pairings of a device](#retrieve-pairings-of-a-device)
 - [Issues](#issues)
 - [Author](#author)
 - [License](#license)
@@ -119,12 +114,6 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
     return true
 }
 ```
-
-You can choose the environment with the *config.environment* variable:
-
-- XeeEnvironmentCLOUD : production environment (real client data, Authorization needed).
-
-- XeeEnvironmentSANDBOX : sandbox environment (fake data, no Authorization needed).
 
 then add this line in the `open url` method:
 
@@ -421,42 +410,6 @@ Revokes the specified authorization
 ### Retrieve users's authorizations
 
 Returns authorizations corresponding to specified user id
-
-```swift
-// TODO
-```
-
-## Devices
-
-Access to your device
-
-### Retrieve device
-
-Returns a device corresponding to specified id
-
-```swift
-// TODO
-```
-
-### Retrieve pairing attempts of a device
-
-Returns pairings attempts corresponding to specified device id
-
-```swift
-// TODO
-```
-
-### Insert pairing attempts of a device
-
-Inserts pairings attempts corresponding to specified device id
-
-```swift
-// TODO
-```
-
-### Retrieve pairings of a device
-
-Returns pairings corresponding to specified device id
 
 ```swift
 // TODO
