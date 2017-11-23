@@ -1,4 +1,6 @@
-# XeeSDK
+# XeeSDK V3
+## This SDK is now DEPRECATED!
+## Please use the new one at [XeeSDK](https://github.com/xee-lab/xee-sdk-ios) which is based on our new API V4.
 
 [![Version](https://img.shields.io/cocoapods/v/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
 [![License](https://img.shields.io/cocoapods/l/XeeSDK.svg?style=flat)](http://cocoapods.org/pods/XeeSDK)
