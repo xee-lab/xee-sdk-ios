@@ -2,10 +2,10 @@ PODS:
   - Alamofire (4.5.1)
   - AlamofireNetworkActivityIndicator (2.2.0):
     - Alamofire (~> 4.5)
-  - ObjectMapper (3.0.0)
-  - XeeSDK (4.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+  - ObjectMapper (3.1.0)
+  - XeeSDK (4.0.1):
+    - Alamofire (~> 4.5)
+    - ObjectMapper (~> 3.1)
 
 DEPENDENCIES:
   - AlamofireNetworkActivityIndicator
@@ -18,8 +18,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireNetworkActivityIndicator: 81e1630e7cfed22a4e4e82a174c59e651dc4f8ca
-  ObjectMapper: 92230db59bf8f341a5c3a3cf0b9fbdde3cf0d87f
-  XeeSDK: d3b0aae81c0e489d086eacf310afe5a45c3e1d12
+  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
+  XeeSDK: 9a776bbcbbcfb29a72bfaf4c5bdad0444acf0284
 
 PODFILE CHECKSUM: 8d0ee7230343f9611a66f919469dfe94df688c61
 
