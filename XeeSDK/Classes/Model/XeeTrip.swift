@@ -28,7 +28,7 @@ public class XeeTrip: XeeObject {
         startLocation <- map["startLocation"]
         endLocation <- map["endLocation"]
         createdAt <- (map["createdAt"], dateTransform)
-        updatedAt <- (map["updateAt"], dateTransform)
+        updatedAt <- (map["updatedAt"], dateTransform)
         vehicleID <- map["vehicleId"]
         distance <- map["stats.distance"]
         duration <- map["stats.duration"]
