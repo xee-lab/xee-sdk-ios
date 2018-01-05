@@ -16,7 +16,10 @@ open class XeeObject: NSObject, Mappable {
     required public init?(map: Map) {}
     
     public let dateTransform = TransformOf<Date, String>(fromJSON: { (value: String?) -> Date? in
-        if let value = value {
+        if var value = value {
+            if value.range(of: ".") == nil {
+                value = value.replacingOccurrences(of: "Z", with: ".000000Z")
+            }
             return value.dateFromISO8601
         }else {
             return nil
