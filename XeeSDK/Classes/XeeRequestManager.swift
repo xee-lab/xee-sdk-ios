@@ -417,7 +417,7 @@ public class XeeRequestManager: SessionManager{
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicle.vehiculeID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeeVehicle.self) { (error, vehicle) in
+        self.xeeObjectRequest("\(baseURL!)vehicles/\(vehicle.vehicleID!)", method:.patch, parameters:parameters, encoding:JSONEncoding.default, headers:headers, objectType: XeeVehicle.self) { (error, vehicle) in
             if let completionHandler = completionHandler {
                 completionHandler(error, vehicle)
             }

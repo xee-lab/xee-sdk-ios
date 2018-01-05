@@ -74,7 +74,7 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
         self.webViewSpinner!.startAnimating()
         self.embeddedWebView.addSubview(self.webViewSpinner!)
         self.embeddedWebView.loadRequest(urlRequest)
-        let cancelButton: UIButton = UIButton(frame: CGRect(x: 8, y: 28, width: UIScreen.main.bounds.width / 4, height: 40))
+        let cancelButton: UIButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 4 - 8, y: 28, width: UIScreen.main.bounds.width / 4, height: 40))
         cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
         cancelButton.setTitleColor(UIColor.init(red: 71.0/255.0, green: 71.0/255.0, blue: 71.0/255.0, alpha: 1.0) , for: .normal)
         cancelButton.backgroundColor = UIColor.white

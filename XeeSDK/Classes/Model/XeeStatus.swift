@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeStatus: XeeObject {
+open class XeeStatus: XeeObject {
     
     public var location: XeeLocation?
     public var vehicleID: String?
@@ -16,11 +16,15 @@ public class XeeStatus: XeeObject {
     public var accelerometer: XeeAccelerometer?
     public var signals: [XeeSignal]?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         location <- map["location"]
         vehicleID <- map["vehicleId"]

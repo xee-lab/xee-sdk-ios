@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeTrip: XeeObject {
+open class XeeTrip: XeeObject {
     
     public var tripID: String?
     public var startLocation: XeeLocation?
@@ -18,11 +18,15 @@ public class XeeTrip: XeeObject {
     public var distance: Double?
     public var duration: Double?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         tripID <- map["id"]
         startLocation <- map["startLocation"]

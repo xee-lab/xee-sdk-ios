@@ -7,17 +7,21 @@
 
 import ObjectMapper
 
-public class XeeSignal: XeeObject {
+open class XeeSignal: XeeObject {
     
     public var name: String?
     public var value: Double?
     public var date: Date?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         name <- map["name"]
         value <- map["value"]

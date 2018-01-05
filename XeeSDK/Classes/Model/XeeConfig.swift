@@ -17,10 +17,10 @@ public class XeeConfig: NSObject {
     
     public var clientID: String?
     public var secretKey: String?
-    var scopes: [String]?
-    var redirectURI: String?
-    var userAgent: String?
-    var environment: XeeEnvironment?
+    public var scopes: [String]?
+    public var redirectURI: String?
+    public var userAgent: String?
+    public var environment: XeeEnvironment?
     
     public override init() {
         super.init()

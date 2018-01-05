@@ -7,19 +7,23 @@
 
 import ObjectMapper
 
-public class XeeToken: XeeObject {
+open class XeeToken: XeeObject {
     
     public var tokenType: String?
     public var refreshToken: String?
     public var scope: String?
     public var accessToken: String?
     public var expiresIn: Int?
+    
+    public override init() {
+        super.init()
+    }
 
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         tokenType <- map["token_type"]
         refreshToken <- map["refresh_token"]

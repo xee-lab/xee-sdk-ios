@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeUser: XeeObject {
+open class XeeUser: XeeObject {
     
     public var userID: String?
     public var gender: String?
@@ -17,11 +17,15 @@ public class XeeUser: XeeObject {
     public var createdAt: Date?
     public var updatedAt: Date?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         userID <- map["id"]
         gender <- map["gender"]

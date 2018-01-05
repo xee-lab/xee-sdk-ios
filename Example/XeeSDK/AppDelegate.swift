@@ -20,10 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NetworkActivityIndicatorManager.shared.isEnabled = true
 
-        let xeeConfig = XeeConfig(withClientID: "c30a2cd5c0a4ac3483388002e45b26a8",
-                                  SecretKet: "73be86bc2c42e63bc9bc8184692a8667c9ffd289628f824725cd8d71b925fc8e",
-                                  Scopes: ["account.read", "account.management", "vehicles.read", "vehicles.management", "vehicles.privacies.read", "vehicles.signals.read", "vehicles.locations.read", "vehicles.privacies.management", "vehicles.trips.read"],
-                                  RedirectURI: "xee-sdk-example://app",
+        let xeeConfig = XeeConfig(withClientID: "44bf462b8603c15b845832b05b1e61c2",
+                                  SecretKet: "5942ff562201e4300ab9fc973fb4f0d56bacd294fc17d508959bc0bb99bfd827",
+                                  Scopes: ["account.management", "account.read", "vehicles.accelerometers.read", "vehicles.management", "vehicles.read", "vehicles.signals.read", "vehicles.trips.read", "vehicles.locations.read"],
+                                  RedirectURI: "xeekit-staging://app",
                                   Environment: .XeeEnvironmentSTAGING)
         
         XeeConnectManager.shared.config = xeeConfig

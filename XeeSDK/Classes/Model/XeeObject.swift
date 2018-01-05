@@ -7,11 +7,15 @@
 
 import ObjectMapper
 
-open class XeeObject: Mappable {
+open class XeeObject: NSObject, Mappable {
+    
+    public override init() {
+        super.init()
+    }
     
     required public init?(map: Map) {}
     
-    let dateTransform = TransformOf<Date, String>(fromJSON: { (value: String?) -> Date? in
+    public let dateTransform = TransformOf<Date, String>(fromJSON: { (value: String?) -> Date? in
         if let value = value {
             return value.dateFromISO8601
         }else {

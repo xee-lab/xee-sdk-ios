@@ -42,7 +42,16 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textView.text = ""
-        // Do any additional setup after loading the view.
+        
+        if let token = XeeConnectManager.shared.token {
+            print(token)
+        }
+        
+        if (XeeConnectManager.shared.token?.accessToken != nil) {
+            XeeConnectManager.shared.delegate = self
+            XeeConnectManager.shared.connect()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,7 +178,7 @@ class XeeViewController: UIViewController, UITableViewDataSource, UITableViewDel
                     self.textView.text = error.localizedDescription
                 }else if let vehicules = vehicules {
                     let vehicule = vehicules[0]
-                    self.vehiculeID = vehicule.vehiculeID!
+                    self.vehiculeID = vehicule.vehicleID!
                     self.deviceID = vehicule.device?.deviceID!
                     self.textView.text = vehicules.toJSONString(prettyPrint: true)
                 }

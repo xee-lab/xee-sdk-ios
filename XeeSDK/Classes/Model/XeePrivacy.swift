@@ -7,17 +7,21 @@
 
 import ObjectMapper
 
-public class XeePrivacy: XeeObject {
+open class XeePrivacy: XeeObject {
     
     public var privacyID: String?
     public var startedAt: Date?
     public var endedAt: Date?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         privacyID <- map["id"]
         startedAt <- (map["startedAt"], dateTransform)

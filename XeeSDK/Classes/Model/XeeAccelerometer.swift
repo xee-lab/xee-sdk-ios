@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeAccelerometer: XeeObject {
+open class XeeAccelerometer: XeeObject {
     
     public var x: Double?
     public var y: Double?
@@ -15,11 +15,15 @@ public class XeeAccelerometer: XeeObject {
     public var nda: Double?
     public var date: Date?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         x <- map["x"]
         y <- map["y"]

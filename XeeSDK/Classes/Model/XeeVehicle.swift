@@ -9,7 +9,7 @@ import ObjectMapper
 
 open class XeeVehicle: XeeObject {
 
-    public var vehiculeID: String?
+    public var vehicleID: String?
     public var name: String?
     public var brand: String?
     public var model: String?
@@ -20,13 +20,17 @@ open class XeeVehicle: XeeObject {
     public var energy: String?
     public var device: XeeDevice?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
     open override func mapping(map: Map) {
         super.mapping(map: map)
-        vehiculeID <- map["id"]
+        vehicleID <- map["id"]
         name <- map["name"]
         brand <- map["brand"]
         model <- map["model"]

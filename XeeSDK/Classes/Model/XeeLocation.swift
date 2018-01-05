@@ -7,7 +7,7 @@
 
 import ObjectMapper
 
-public class XeeLocation: XeeObject {
+open class XeeLocation: XeeObject {
     
     public var latitude: Double?
     public var longitude: Double?
@@ -15,11 +15,15 @@ public class XeeLocation: XeeObject {
     public var heading: Double?
     public var altitude: Double?
     
+    public override init() {
+        super.init()
+    }
+    
     required public init?(map: Map) {
         super.init(map: map)
     }
     
-    public override func mapping(map: Map) {
+    open override func mapping(map: Map) {
         super.mapping(map: map)
         latitude <- map["latitude"]
         longitude <- map["longitude"]
