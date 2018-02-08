@@ -38,6 +38,7 @@
         if([json objectForKey:@"message"]) {
             self.message = [json objectForKey:@"message"];
             if ([self.message isEqualToString:@"Please light a candle and pray for our devops"]) {
+                NSBundle *bundle = [NSBundle bundleForClass:[self class]];
                 self.message = NSLocalizedStringFromTableInBundle(@"default_error", @"local", bundle, @"");
             }
         }
