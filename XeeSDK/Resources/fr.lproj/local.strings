@@ -9,3 +9,4 @@
 "connecter" = "Se connecter";
 "creer_compte" = "Créer un compte";
 "cancel" = "Annuler";
+"default_error" = "Notre service est momentanément indisponible, merci de réessayer ultérieurement";

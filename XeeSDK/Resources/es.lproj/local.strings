@@ -9,3 +9,4 @@
 "connecter" = "Registrarse";
 "creer_compte" = "Sign Up";
 "cancel" = "Cancel";
+"default_error" = "Nuestro servicio no está disponible temporalmente. Inténtalo de nuevo más tarde";

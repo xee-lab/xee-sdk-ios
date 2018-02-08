@@ -9,3 +9,4 @@
 "connecter" = "Sign in";
 "creer_compte" = "Sign Up";
 "cancel" = "Cancel";
+"default_error" = "Our service is temporarily unavailable, please try again later";
