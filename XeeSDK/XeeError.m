@@ -32,12 +32,18 @@
 -(instancetype)initWithJSON:(NSDictionary*)json {
     self = [self init];
     if(self) {
-        if([json objectForKey:@"type"])
+        if([json objectForKey:@"type"]) {
             self.type = [json objectForKey:@"type"];
-        if([json objectForKey:@"message"])
+        }
+        if([json objectForKey:@"message"]) {
             self.message = [json objectForKey:@"message"];
-        if([json objectForKey:@"tip"])
+            if ([self.message isEqualToString:@"Please light a candle and pray for our devops"]) {
+                self.message = NSLocalizedStringFromTableInBundle(@"default_error", @"local", bundle, @"");
+            }
+        }
+        if([json objectForKey:@"tip"]) {
             self.tip = [json objectForKey:@"tip"];
+        }
     }
     return self;
 }

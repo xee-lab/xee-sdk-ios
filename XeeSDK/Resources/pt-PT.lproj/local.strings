@@ -7,3 +7,4 @@
 */
 
 "connecter" = "Assinar em";
+"default_error" = "Nosso serviço está temporariamente indisponível, tente novamente mais tarde";

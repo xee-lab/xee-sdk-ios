@@ -7,3 +7,4 @@
 */
 
 "connecter" = "Aanmelden";
+"default_error" = "Onze service is tijdelijk niet beschikbaar. Probeer het later opnieuw";

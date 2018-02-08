@@ -7,3 +7,4 @@
 */
 
 "connecter" = "Se connecter";
+"default_error" = "Notre service est momentanément indisponible, merci de réessayer ultérieurement";

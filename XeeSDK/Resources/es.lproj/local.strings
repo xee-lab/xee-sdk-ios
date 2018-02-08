@@ -7,3 +7,4 @@
 */
 
 "connecter" = "Registrarse";
+"default_error" = "Nuestro servicio no está disponible temporalmente. Inténtalo de nuevo más tarde";
