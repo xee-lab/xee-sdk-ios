@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XeeSDK'
-  s.version          = '4.0.2'
+  s.version          = '4.0.3'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
 # This description is used to generate tags and improve search results.
@@ -34,6 +34,5 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'Foundation', 'UIKit'
-  s.dependency 'Alamofire', '~> 4.5'
-  s.dependency 'ObjectMapper', '~> 3.1'
+  s.dependency 'AlamofireObjectMapper', '~> 5.0'
 end
