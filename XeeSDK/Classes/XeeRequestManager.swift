@@ -508,5 +508,102 @@ public class XeeRequestManager: SessionManager{
             }
         }
     }
+    
+    public func getFleets(completionHandler: ((_ error: Error?, _ fleets: [XeeFleet]?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.xeeObjectsRequest("\(baseURL!)fleets/mine", headers:headers, objectType: XeeFleet.self) { (error, fleets) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, fleets)
+            }
+        }
+    }
+    
+    public func getDriverMe(WithFleetID fleetID: String , completionHandler: ((_ error: Error?, _ driver: XeeDriver?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.xeeObjectRequest("\(baseURL!)fleets/\(fleetID)/drivers/me", headers:headers, objectType: XeeDriver.self) { (error, driver) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, driver)
+            }
+        }
+    }
+    
+    public func getVehicles(WithFleetID fleetID: String, completionHandler: ((_ error: Error?, _ vehicules: [XeeVehicle]?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.xeeObjectsRequest("\(baseURL!)fleets/\(fleetID)/vehicles", headers:headers, objectType: XeeVehicle.self) { (error, vehicles) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, vehicles)
+            }
+        }
+    }
+    
+    public func stopLoan(WithFleetID fleetID: String, LoanID loanID: String, completionHandler: ((_ error: Error?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        self.request("\(baseURL!)fleets/\(fleetID)/loans/\(loanID)", method: .put, encoding: URLEncoding.default, headers: headers).responseJSON { (response) in
+            if let error = response.error {
+                if error.code == 401 {
+                    XeeRequestManager.shared.refreshToken(completionHandler: { (errorRefresh, token) in
+                        self.stopLoan(WithFleetID: fleetID, LoanID: loanID, completionHandler: completionHandler)
+                    })
+                }else {
+                    if let completionHandler = completionHandler {
+                        completionHandler(error)
+                    }
+                }
+            }else if let JSONObject = response.result.value as? [String: String] {
+                if let type = JSONObject["type"], let message = JSONObject["message"], let tip = JSONObject["tip"] {
+                    let errorDomain = type
+                    
+                    let userInfo = [NSLocalizedFailureReasonErrorKey: message, NSLocalizedRecoverySuggestionErrorKey: tip]
+                    let returnError = NSError(domain: errorDomain, code: response.response?.statusCode ?? 0, userInfo: userInfo)
+                    if let completionHandler = completionHandler {
+                        completionHandler(returnError)
+                    }
+                }
+            }else {
+                if let completionHandler = completionHandler {
+                    completionHandler(nil)
+                }
+            }
+        }
+    }
+    
+    public func startLoan(WithFleetID fleetID: String , VehicleID vehicleID: String, UserID userID: String, completionHandler: ((_ error: Error?, _ loan: XeeLoan?) -> Void)? ) {
+        
+        var headers: HTTPHeaders = [:]
+        if let accessToken = XeeConnectManager.shared.token?.accessToken {
+            headers["Authorization"] = "Bearer " + accessToken
+        }
+        
+        let now = Date()
+        
+        var parameters: Parameters = [:]
+        parameters["userId"] = userID
+        
+        self.xeeObjectRequest("\(baseURL!)fleets/\(fleetID)/vehicles/\(vehicleID)/loans", parameters:parameters, headers:headers, objectType: XeeLoan.self) { (error, loan) in
+            if let completionHandler = completionHandler {
+                completionHandler(error, loan)
+            }
+        }
+    }
 
 }
