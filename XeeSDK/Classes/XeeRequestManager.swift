@@ -57,7 +57,7 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
-    private func xeeObjectRequest<T: BaseMappable>(_ url: String,
+    public func xeeObjectRequest<T: BaseMappable>(_ url: String,
                                                    method: HTTPMethod = .get,
                                                    parameters: Parameters? = nil,
                                                    encoding: ParameterEncoding = URLEncoding.default,
@@ -100,7 +100,7 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
-    private func xeeObjectsRequest<T : BaseMappable>(_ url: String,
+    public func xeeObjectsRequest<T : BaseMappable>(_ url: String,
                                                     method: HTTPMethod = .get,
                                                     parameters: Parameters? = nil,
                                                     encoding: ParameterEncoding = URLEncoding.default,

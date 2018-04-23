@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'XeeSDK'
-  s.version          = '4.0.3'
+  s.version          = '4.0.4'
   s.summary          = 'This SDK make easier the usage of Xee API (dev.xee.com) on iOS devices.'
 
 # This description is used to generate tags and improve search results.
