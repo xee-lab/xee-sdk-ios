@@ -21,6 +21,7 @@ open class XeeVehicle: XeeObject {
     public var device: XeeDevice?
     public var loan: XeeLoan?
     public var tags: [XeeTag]?
+    public var firstEntryIntoService: Date?
     
     public override init() {
         super.init()
@@ -44,6 +45,7 @@ open class XeeVehicle: XeeObject {
         device <- map["device"]
         loan <- map["loan"]
         tags <- map["tags"]
+        firstEntryIntoService <- map["firstEntryIntoService"]
     }
     
 }
