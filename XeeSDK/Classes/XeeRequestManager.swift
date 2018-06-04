@@ -328,14 +328,22 @@ public class XeeRequestManager: SessionManager{
         }
     }
     
-    public func getTrips(WithVehicleID vehicleId:String, completionHandler: ((_ error: Error?, _ trips: [XeeTrip]?) -> Void)? ) {
+    public func getTrips(WithVehicleID vehicleId:String, From from:Date?, To to:Date?, completionHandler: ((_ error: Error?, _ trips: [XeeTrip]?) -> Void)? ) {
         
         var headers: HTTPHeaders = [:]
         if let accessToken = XeeConnectManager.shared.token?.accessToken {
             headers["Authorization"] = "Bearer " + accessToken
         }
         
-        self.xeeObjectsRequest("\(baseURL!)vehicles/\(vehicleId)/trips", headers:headers, objectType: XeeTrip.self) { (error, trips) in
+        var parameters: Parameters = [:]
+        if let from = from {
+            parameters["from"] = from.iso8601
+        }
+        if let to = to {
+            parameters["to"] = to.iso8601
+        }
+        
+        self.xeeObjectsRequest("\(baseURL!)vehicles/\(vehicleId)/trips", parameters:parameters, headers:headers, objectType: XeeTrip.self) { (error, trips) in
             if let completionHandler = completionHandler {
                 completionHandler(error, trips)
             }

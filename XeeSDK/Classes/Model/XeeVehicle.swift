@@ -45,7 +45,7 @@ open class XeeVehicle: XeeObject {
         device <- map["device"]
         loan <- map["loan"]
         tags <- map["tags"]
-        firstEntryIntoService <- map["firstEntryIntoService"]
+        firstEntryIntoService <- (map["firstEntryIntoService"], dateTransform)
     }
     
 }
