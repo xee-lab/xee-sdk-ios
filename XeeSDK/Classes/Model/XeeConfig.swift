@@ -21,6 +21,7 @@ public class XeeConfig: NSObject {
     public var redirectURI: String?
     public var userAgent: String?
     public var environment: XeeEnvironment?
+    public var baseApiURL: String?
     
     public override init() {
         super.init()
@@ -28,7 +29,7 @@ public class XeeConfig: NSObject {
         self.userAgent = "SDK Xee iOS"
     }
     
-    public convenience init(withClientID clientID: String?, SecretKet secretKey: String?, Scopes scopes: [String]?, RedirectURI redirectURI: String?, Environment environment: XeeEnvironment?) {
+    public convenience init(withClientID clientID: String?, SecretKet secretKey: String?, Scopes scopes: [String]?, RedirectURI redirectURI: String?, Environment environment: XeeEnvironment?, BaseApiURL baseApiURL: String?) {
         self.init()
         if let clientID = clientID {
             self.clientID = clientID
@@ -44,6 +45,9 @@ public class XeeConfig: NSObject {
         }
         if let environment = environment {
             self.environment = environment
+        }
+        if let baseApiURL = baseApiURL {
+            self.baseApiURL = baseApiURL
         }
     }
 

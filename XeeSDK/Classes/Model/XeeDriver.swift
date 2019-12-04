@@ -15,6 +15,7 @@ open class XeeDriver: XeeObject {
     public var lastName: String?
     public var loan: XeeLoan?
     public var tags: [XeeTag]?
+    public var nextChecking: Date?
     
     public override init() {
         super.init()
@@ -27,11 +28,12 @@ open class XeeDriver: XeeObject {
     open override func mapping(map: Map) {
         super.mapping(map: map)
         firstName <- map["firstName"]
+        lastName <- map["lastName"]
         gender <- map["gender"]
         driverID <- map["id"]
-        lastName <- map["lastName"]
         loan <- map["loan"]
         tags <- map["tags"]
+        nextChecking <- (map["nextChecking"], dateTransform)
     }
     
 }

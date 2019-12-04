@@ -34,12 +34,20 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
             return nil
         }
     }
+
+    public var baseApiURL: String? {
+        return config?.baseApiURL
+    }
     
     public var baseURL: URL? {
-        if let host = config?.environment?.rawValue {
+        if let host = config?.baseApiURL {
             return URL(string: host)
         }else {
-            return nil
+            if let host = config?.environment?.rawValue {
+                return URL(string: host)
+            }else {
+                return nil
+            }
         }
     }
     
