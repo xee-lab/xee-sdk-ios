@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import WebKit
 import Alamofire
 
 public protocol XeeConnectManagerDelegate: class {
@@ -16,14 +17,14 @@ public protocol XeeConnectManagerDelegate: class {
     func didDisconnected()
 }
 
-public class XeeConnectManager: NSObject, UIWebViewDelegate {
+public class XeeConnectManager: NSObject, WKNavigationDelegate {
     
     public override init() {}
     public static let shared = XeeConnectManager()
     public weak var delegate: XeeConnectManagerDelegate?
     
     public var config: XeeConfig?
-    var embeddedWebView: UIWebView!
+    var embeddedWebView: WKWebView!
     var webViewSpinner: UIActivityIndicatorView?
     
     public var token: XeeToken? {
@@ -67,9 +68,9 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
     }
     
     func showWebView(WithURLRequest urlRequest: URLRequest) {
-        self.embeddedWebView = UIWebView(frame: UIScreen.main.bounds)
+        self.embeddedWebView = WKWebView(frame: UIScreen.main.bounds)
         self.embeddedWebView.scrollView.bounces = false
-        self.embeddedWebView.delegate = self
+        self.embeddedWebView.navigationDelegate = self
         if self.webViewSpinner == nil {
             self.webViewSpinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
             self.webViewSpinner!.color = UIColor.black
@@ -77,7 +78,7 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
         }
         self.webViewSpinner!.startAnimating()
         self.embeddedWebView.addSubview(self.webViewSpinner!)
-        self.embeddedWebView.loadRequest(urlRequest)
+        self.embeddedWebView.load(urlRequest)
         let cancelButton: UIButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - UIScreen.main.bounds.width / 4 - 8, y: 28, width: UIScreen.main.bounds.width / 4, height: 40))
         cancelButton.setTitle(NSLocalizedString("cancel", comment: ""), for: .normal)
         cancelButton.setTitleColor(UIColor.init(red: 71.0/255.0, green: 71.0/255.0, blue: 71.0/255.0, alpha: 1.0) , for: .normal)
@@ -141,7 +142,6 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
     }
     
     func showAuthPage() {
-        
         var parameters: Parameters = ["response_type":"code"]
         
         if let clientID = config?.clientID {
@@ -156,7 +156,6 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
                 showWebView(WithURLRequest: urlRequest)
             }
         }
-        
     }
     
     func scopesURLString(WithScopes scopes: [String]) -> String {
@@ -169,13 +168,60 @@ public class XeeConnectManager: NSObject, UIWebViewDelegate {
         return scopesURL
     }
     
-    // MARK: - UIWebViewDelegate
-    
-    public func webViewDidFinishLoad(_ webView: UIWebView) {
+    // Hide spinner on page loaded
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let spinner = self.webViewSpinner {
             spinner.stopAnimating()
             spinner.removeFromSuperview()
         }
     }
+    /*
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print(navigationAction.request.allHTTPHeaderFields)
+        NSLog("Navigating: " + (navigationAction.request.url?.absoluteString ?? ""))
+        if navigationAction.request.url != nil
+        {
+            let url = navigationAction.request.url
+            NSLog("Host: " + (url?.host)!)
+            print(navigationAction.request)
+            print(url)
+            print(navigationAction)
+            NSLog("Path: " + url!.path)
+            
+            if url?.host == "app" {
+                
+            }
+            
+            if navigationAction.navigationType == .linkActivated {
+                guard let url = navigationAction.request.url else {return}
+                webView.load(URLRequest(url: url))
+            }
+        }
+        
+        // Default: allow navigation
+        decisionHandler(.allow)
+    }*/
+    
+    public func webView(_ webView: WKWebView,
+                 decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
+        // if the request is a non-http(s) schema, then have the UIApplication handle
+        // opening the request
+        if let url = navigationAction.request.url,
+            !url.absoluteString.hasPrefix("http://"),
+            !url.absoluteString.hasPrefix("https://"),
+            UIApplication.shared.canOpenURL(url) {
+
+            // have UIApplication handle the url (sms:, tel:, mailto:, ...)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+
+            // cancel the request (handled by UIApplication)
+            decisionHandler(.cancel)
+        }
+        else {
+            // allow the request
+            decisionHandler(.allow)
+        }
+    }
 }
