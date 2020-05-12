@@ -168,6 +168,8 @@ public class XeeConnectManager: NSObject, WKNavigationDelegate {
         return scopesURL
     }
     
+    // MARK: - WKNavigationDelegate
+
     // Hide spinner on page loaded
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let spinner = self.webViewSpinner {
@@ -175,53 +177,27 @@ public class XeeConnectManager: NSObject, WKNavigationDelegate {
             spinner.removeFromSuperview()
         }
     }
-    /*
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print(navigationAction.request.allHTTPHeaderFields)
-        NSLog("Navigating: " + (navigationAction.request.url?.absoluteString ?? ""))
-        if navigationAction.request.url != nil
-        {
-            let url = navigationAction.request.url
-            NSLog("Host: " + (url?.host)!)
-            print(navigationAction.request)
-            print(url)
-            print(navigationAction)
-            NSLog("Path: " + url!.path)
-            
-            if url?.host == "app" {
-                
-            }
-            
-            if navigationAction.navigationType == .linkActivated {
-                guard let url = navigationAction.request.url else {return}
-                webView.load(URLRequest(url: url))
-            }
-        }
-        
-        // Default: allow navigation
-        decisionHandler(.allow)
-    }*/
     
-    public func webView(_ webView: WKWebView,
-                 decidePolicyFor navigationAction: WKNavigationAction,
-                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-
-        // if the request is a non-http(s) schema, then have the UIApplication handle
-        // opening the request
-        if let url = navigationAction.request.url,
-            !url.absoluteString.hasPrefix("http://"),
-            !url.absoluteString.hasPrefix("https://"),
-            UIApplication.shared.canOpenURL(url) {
-
-            // have UIApplication handle the url (sms:, tel:, mailto:, ...)
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-
-            // cancel the request (handled by UIApplication)
-            decisionHandler(.cancel)
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        let url = navigationAction.request.url
+        if let redirectURI = config?.redirectURI {
+            if url!.description.lowercased().range(of: redirectURI) != nil {
+                openURL(URL: url!)
+            }else {
+                print(url!)
+                if( (url!.description.lowercased().range(of: "https://dev.xee.com/files") != nil ||
+                     url!.description.lowercased().range(of: "https://cloud.xee.com") != nil ||
+                     url!.description.lowercased().range(of: "mailto:") != nil) &&
+                     url! != webView.url!){
+                    if(url!.description.lowercased().range(of: "mailto:") != nil){
+                        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
+                    }else {
+                        webView.removeFromSuperview()
+                        showWebView(WithURLRequest: navigationAction.request)
+                    }
+                }
+            }
         }
-        else {
-            // allow the request
-            decisionHandler(.allow)
-        }
+        decisionHandler(.allow)
     }
 }
