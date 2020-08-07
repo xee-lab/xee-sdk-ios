@@ -16,6 +16,10 @@ open class XeeDriver: XeeObject {
     public var loan: XeeLoan?
     public var tags: [XeeTag]?
     public var nextChecking: Date?
+    public var licenseValidityDate: Date?
+    public var nextCheckingNotification: Bool?
+    public var licenseValidityDateNotification: Bool?
+    public var tripsReminder: Bool?
     
     public override init() {
         super.init()
@@ -34,6 +38,10 @@ open class XeeDriver: XeeObject {
         loan <- map["loan"]
         tags <- map["tags"]
         nextChecking <- (map["nextChecking"], dateTransform)
+        licenseValidityDate <- (map["licenseValidityDate"], dateTransform)
+        nextCheckingNotification <- map["nextCheckingNotification"]
+        licenseValidityDateNotification <- map["licenseValidityDateNotification"]
+        tripsReminder <- map["tripsReminder"]
     }
     
 }
